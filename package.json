@@ -1,5 +1,5 @@
 {
-  "name": "react-homework-template",
+  "name": "so-yummy-project",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://NataliiaKarpenko.github.io/so-yummy-project/",
@@ -20,7 +20,6 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.2",
     "react-transition-group": "^4.4.5",
-    "react-transition-state": "^2.1.0",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.10",
     "web-vitals": "^2.1.3",

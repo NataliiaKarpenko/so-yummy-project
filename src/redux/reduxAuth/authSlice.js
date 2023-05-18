@@ -3,10 +3,10 @@ import {
   signup,
   signin,
   logout,
-  refreshUser,
-  getCurrentUser,
+  // refreshUser,
+  // getCurrentUser,
   updateCurrentUser,
-  subscribeUser,
+  // subscribeUser,
 } from './authOperations';
 
 const initialState = {

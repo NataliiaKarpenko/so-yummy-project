@@ -1,4 +1,4 @@
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Header from '../SharedLayoutLoggedIn/HeaderComponent/Header/Header';
