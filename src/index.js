@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         {/* <BrowserRouter basename="/so-yummy-project"> */}
-        <BrowserRouter basename="/so-yummy-project">
+        <BrowserRouter>
           <App />
         </BrowserRouter>
       </PersistGate>
