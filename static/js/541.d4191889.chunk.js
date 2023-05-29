@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkso_yummy_project=self.webpackChunkso_yummy_project||[]).push([[541],{2541:function(n,u,e){e.r(u),e.d(u,{default:function(){return c}});var r=e(3329),t=function(){return(0,r.jsx)("div",{children:"zuiioop"})},c=function(){return(0,r.jsx)("div",{children:(0,r.jsx)(t,{})})}}}]);
-//# sourceMappingURL=541.d4191889.chunk.js.map
