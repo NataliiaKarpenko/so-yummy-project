@@ -2,7 +2,12 @@ import { useEffect, createRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import icons from '../../../../sprite.svg';
-import { StyledUserInfoDropDown } from './UserInfoDropdown.styled';
+import {
+  EditContainer,
+  StyledLogoutlBtn,
+  StyledUserInfoDropDown,
+  StyledText,
+} from './UserInfoDropdown.styled';
 import UserInfoModal from '../UserInfoModal/UserInfoModal';
 import LogoutModal from '../LogoutModal/LogoutModal';
 
@@ -13,6 +18,30 @@ const UserInfoDropDown = ({
   const dropdownRef = createRef();
   const [showUserInfoModal, setShowUserInfoModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  useEffect(() => {
+    if (showUserInfoModal) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [showUserInfoModal]);
+
+  useEffect(() => {
+    if (showLogoutModal) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [showLogoutModal]);
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -48,22 +77,18 @@ const UserInfoDropDown = ({
         unmountOnExit
       >
         <StyledUserInfoDropDown>
-          <div className="EditContainer" onClick={showUserInfoModalHandler}>
-            <p className="Text">Edit profile </p>
+          <EditContainer onClick={showUserInfoModalHandler}>
+            <StyledText>Edit profile </StyledText>
             <svg width="14" height="14" aria-label="pen">
               <use href={icons + '#edit'}></use>
             </svg>
-          </div>
-          <button
-            type="button"
-            className="UserInfoLogoutlBtn"
-            onClick={showLogoutModalHandler}
-          >
+          </EditContainer>
+          <StyledLogoutlBtn type="button" onClick={showLogoutModalHandler}>
             Log out
             <svg width="18" height="18" aria-label="arrow right">
               <use href={icons + '#arrowNarrowRight'}></use>
             </svg>
-          </button>
+          </StyledLogoutlBtn>
         </StyledUserInfoDropDown>
       </CSSTransition>
 

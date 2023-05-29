@@ -1,10 +1,10 @@
 import icons from '../../../sprite.svg';
 import { StyledCloseBtn } from './CloseBtn.styled';
 
-const CloseBtn = ({ className, closeBtnHandler }) => {
+const CloseBtn = ({ closeBtnHandler }) => {
   return (
-    <StyledCloseBtn onClick={closeBtnHandler}>
-      <svg aria-label="close" className={className}>
+    <StyledCloseBtn onClick={closeBtnHandler} modalCloseBtn>
+      <svg aria-label="close">
         <use href={icons + '#close'}></use>
       </svg>
     </StyledCloseBtn>

@@ -1,10 +1,13 @@
 import icons from '../../../sprite.svg';
-import { StyledAuthFormVisibilityBtnContainer } from './AuthFormVisibilityButton.styled';
+import {
+  StyledAuthFormVisibilityBtnContainer,
+  StyledButton,
+} from './AuthFormVisibilityButton.styled';
 
 const AuthFormVisibilityButton = ({ passwordType, togglePassword }) => {
   return (
     <StyledAuthFormVisibilityBtnContainer>
-      <button type="button" onClick={togglePassword}>
+      <StyledButton type="button" onClick={togglePassword}>
         {passwordType === 'password' ? (
           <svg width="15" height="15" aria-label="eye">
             <use href={icons + '#eye'}></use>
@@ -14,7 +17,7 @@ const AuthFormVisibilityButton = ({ passwordType, togglePassword }) => {
             <use href={icons + '#eyeBlocked'}></use>
           </svg>
         )}
-      </button>
+      </StyledButton>
       <p>Show password</p>
     </StyledAuthFormVisibilityBtnContainer>
   );

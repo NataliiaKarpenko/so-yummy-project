@@ -1,18 +1,18 @@
 import SigninForm from './SigninForm';
-import { StyledSigninPageContainer } from './SigninPageComponent.styled';
 import AuthNav from '../../shared/components/Auth/AuthNav/AuthNav';
-import { toast } from 'react-toastify';
+import {
+  StyledAuthPageContainer,
+  StyledAuthPageContentContainer,
+} from 'shared/components/Auth/AuthStyles/AuthPageComponent.styled';
 
 const SigninPageComponent = () => {
-  const info = toast.info('Info Notification !');
   return (
-    <StyledSigninPageContainer>
-      <div>{info}</div>
-      <div className="SigninPageContentContainer">
+    <StyledAuthPageContainer>
+      <StyledAuthPageContentContainer status="signin">
         <SigninForm />
         <AuthNav authNavLink="/register" authNavText="Sign up" />
-      </div>
-    </StyledSigninPageContainer>
+      </StyledAuthPageContentContainer>
+    </StyledAuthPageContainer>
   );
 };
 

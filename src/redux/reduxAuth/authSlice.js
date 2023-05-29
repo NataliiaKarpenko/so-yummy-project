@@ -3,10 +3,10 @@ import {
   signup,
   signin,
   logout,
-  // refreshUser,
-  // getCurrentUser,
+  refreshUser,
+  getCurrentUser,
   updateCurrentUser,
-  // subscribeUser,
+  subscribeUser,
 } from './authOperations';
 
 const initialState = {
@@ -14,7 +14,8 @@ const initialState = {
   accessToken: null,
   refreshToken: null,
   isLoggedIn: false,
-  isRefreshing: false,
+  isRefreshing: true,
+  SubscribtionList: [],
 };
 
 export const userSlice = createSlice({
@@ -52,36 +53,46 @@ export const userSlice = createSlice({
         state.isLoggedIn = false;
       })
 
+      // UPDATE CURRENT USER
+
       .addCase(updateCurrentUser.fulfilled, (state, { payload }) => {
-        // state.user.name = payload.name;
-        // state.user.avatarURL = payload.avatarURL;
-        // state.isLoggedIn = true;
         state.user = payload;
+      })
+
+      // GET CURRENT USER
+
+      .addCase(getCurrentUser.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(getCurrentUser.fulfilled, (state, { payload }) => {
+        state.user = payload;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(getCurrentUser.rejected, state => {
+        state.isRefreshing = false;
+      })
+
+      // REFRESH USER
+
+      .addCase(refreshUser.pending, state => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUser.fulfilled, (state, { payload }) => {
+        state.accessToken = payload.accessToken;
+        state.refreshToken = payload.refreshToken;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUser.rejected, state => {
+        state.isRefreshing = false;
+      })
+
+      // SUBSCRIBE USER
+
+      .addCase(subscribeUser.fulfilled, (state, { payload }) => {
+        state.SubscribtionList = payload;
       }),
-
-  // REFRESH USER
-
-  // .addCase(refreshUser.pending, state => {
-  //   state.isRefreshing = true;
-  // })
-  // .addCase(refreshUser.fulfilled, (state, { payload }) => {
-  //   state.user = payload.user;
-  //   state.token = payload.token;
-  //   state.isLoggedIn = true;
-  //   state.isRefreshing = false;
-  // })
-  // .addCase(refreshUser.rejected, state => {
-  //   state.isRefreshing = false;
-  // })
-
-  // GET CURRENT USER
-
-  // .addCase(getCurrentUser.fullfilled, (state, { payload }) => {
-  //   state.user = payload.user;
-  //   state.isLoggedIn = true;
-  // })
-
-  // UPDATE CURRENT USER
 });
 
 export const userReducer = userSlice.reducer;

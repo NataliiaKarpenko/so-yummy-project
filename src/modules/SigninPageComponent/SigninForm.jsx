@@ -1,11 +1,16 @@
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 
 import EmailInput from '../../shared/components/Auth/AuthInputs/EmailInput';
 import PasswordInput from '../../shared/components/Auth/AuthInputs/PasswordInput';
 import SubmitButton from 'shared/components/Auth/SubmitButton/SubmitButton';
 
-import { StyledFormContainer } from '../../shared/components/Auth/AuthStyles/AuthForm.styled';
+import {
+  StyledFormContainer,
+  StyledForm,
+  StyledInputsContainer,
+  StyledTitle,
+} from '../../shared/components/Auth/AuthStyles/AuthForm.styled';
 import { validationSchema } from '../../shared/Variables/validationSchema';
 import { signin } from 'redux/reduxAuth/authOperations';
 
@@ -41,32 +46,33 @@ const SigninForm = () => {
         };
         return (
           <StyledFormContainer>
-            <Form className="FormContainer">
-              <p className="Title SigninTitle">Sign in</p>
-              <div className="InputsContainer">
+            <StyledForm>
+              <StyledTitle status="signin">Sign in</StyledTitle>
+              <StyledInputsContainer>
                 <EmailInput
                   values={values}
                   errors={errors}
                   touched={touched}
-                  className="Input EnterInfo"
+                  placeholder="Email"
+                  className="EnterInfo"
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}
                 />
                 <PasswordInput
                   errors={errors}
                   touched={touched}
-                  className="Input EnterInfo"
+                  className="EnterInfo"
                   onChange={handleChange}
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}
                 />
-              </div>
+              </StyledInputsContainer>
               <SubmitButton
                 disabled={isSubmitting}
                 text="Sign in"
-                className="AuthFormBtn"
+                status="signin"
               />
-            </Form>
+            </StyledForm>
           </StyledFormContainer>
         );
       }}

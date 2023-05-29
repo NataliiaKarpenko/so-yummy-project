@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { selectAvatarURL, selectUserName } from 'redux/reduxAuth/authSelectors';
 
-import { StyledUserInfo, StyledContainer } from './UserInfo.styled';
+import { StyledUserInfo, StyledUserInfoContainer } from './UserInfo.styled';
 import Avatar from '../Avatar/Avatar';
 import UserInfoDropDown from '../UserInfoDropdown/UserInfoDropdown';
 
@@ -31,7 +31,7 @@ const UserInfo = () => {
   };
 
   return (
-    <StyledContainer ref={userInfoRef}>
+    <StyledUserInfoContainer ref={userInfoRef}>
       <StyledUserInfo onClick={showUserInfoDropDownHandler}>
         <Avatar userName={userName} avatarURL={avatarURL} />
         <p>{userName}</p>
@@ -41,7 +41,7 @@ const UserInfo = () => {
         setShowUserInfoDropdown={setShowUserInfoDropdown}
         showUserInfoDropdown={showUserInfoDropdown}
       />
-    </StyledContainer>
+    </StyledUserInfoContainer>
   );
 };
 

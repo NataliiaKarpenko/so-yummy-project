@@ -1,62 +1,74 @@
 import {
   StyledInputBox,
   StyledField,
-  StyledErrorMessage,
+  StyledInputIcon,
+  StyledInfoIcon,
   StyledMessage,
 } from './AuthFormInputs.styled';
 import icons from '../../../../shared/sprite.svg';
 
-const NameInput = ({
-  className,
-  defaultValue,
-  errors,
-  touched,
-  onBlur,
-  onFocus,
-}) => {
+const NameInput = ({ errors, className, touched, onBlur, onFocus }) => {
+  const error = errors.name && touched.name ? true : false;
+  const success = !errors.name && touched.name ? true : false;
+  const neutral = !error && !success ? true : false;
+
+  const handleInfoIcon = () => {
+    if (error) {
+      return (
+        <StyledInfoIcon aria-label="error" status="error">
+          <use href={icons + '#errorLogo'}></use>
+        </StyledInfoIcon>
+      );
+    } else if (success) {
+      return (
+        <StyledInfoIcon aria-label="tick" status="success">
+          <use href={icons + '#tickLogo'}></use>
+        </StyledInfoIcon>
+      );
+    }
+    return;
+  };
+
+  const handleInfoMessage = () => {
+    if (success) {
+      return <StyledMessage status="success">Name is valid</StyledMessage>;
+    } else if (error) {
+      return <StyledMessage status="error">{errors.name}</StyledMessage>;
+    }
+    return;
+  };
+
   return (
     <div>
       <StyledInputBox
-        className={
-          (errors.name && touched.name && 'InvalidInput') ||
-          (!errors.name && touched.name && 'ValidInput') ||
-          (!touched.name && `${className}`)
-        }
+        neutral={neutral}
+        error={error}
+        success={success}
+        className={className}
       >
-        <svg width="18" height="18" aria-label="user" className="InputIcon">
+        <StyledInputIcon aria-label="user">
           <use href={icons + '#user'}></use>
-        </svg>
+        </StyledInputIcon>
+
         <StyledField
           type="text"
           name="name"
-          placeholder="Name"
           className={className}
+          placeholder="Name"
           autoComplete="off"
           onFocus={onFocus}
           onBlur={onBlur}
-
-          // defaultValue={defaultValue}
         />
-        {!touched.name && (
+        {!touched.name && className === 'EditInfo' && (
           <svg width="21" height="17" aria-label="pen" className="EditIcon">
             <use href={icons + '#edit'}></use>
           </svg>
         )}
-        {errors.name && touched.name && (
-          <svg width="20" height="20" aria-label="error" className="ErrorIcon">
-            <use href={icons + '#errorLogo'}></use>
-          </svg>
-        )}
-        {!errors.name && touched.name && (
-          <svg width="20" height="20" aria-label="tick" className="SuccessIcon">
-            <use href={icons + '#tickLogo'}></use>
-          </svg>
-        )}
+
+        {handleInfoIcon()}
       </StyledInputBox>
-      {!errors.name && touched.name && (
-        <StyledMessage>Name is valid</StyledMessage>
-      )}
-      <StyledErrorMessage name="name" component="p" />
+
+      {handleInfoMessage()}
     </div>
   );
 };

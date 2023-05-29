@@ -1,4 +1,4 @@
-// import { Form } from 'formik';
+import { Form } from 'formik';
 import styled from 'styled-components';
 
 export const StyledFormContainer = styled.div`
@@ -20,58 +20,61 @@ export const StyledFormContainer = styled.div`
   @media screen and (min-width: 768px) {
     width: 500px;
   }
+`;
 
-  .FormContainer {
-    padding: 32px 28px;
+export const StyledForm = styled(Form)`
+  padding: 32px 28px;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    @media screen and (min-width: 768px) {
-      padding: 44px 50px;
-    }
+  @media screen and (min-width: 768px) {
+    padding: 44px 50px;
   }
+`;
 
-  .Title {
-    margin-bottom: 18px;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 1.17;
-    letter-spacing: -0.02em;
-    color: var(--primary-font-color);
-
-    @media screen and (min-width: 768px) {
-      margin-bottom: 32px;
-      font-size: 28px;
-      line-height: 1.07;
+export const StyledTitle = styled.p`
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  color: var(--primary-font-color);
+  margin-bottom: ${props => {
+    switch (props.status) {
+      case 'signup':
+        return '18px';
+      case 'signin':
+        return '40px';
+      default:
+        return;
     }
+  }};
+
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+    line-height: 1.07;
+
+    margin-bottom: ${props => {
+      switch (props.status) {
+        case 'signup':
+          return '32px';
+        case 'signin':
+          return '50px';
+        default:
+          return;
+      }
+    }};
   }
+`;
 
-  .SignupTitle {
-    margin-bottom: 18px;
+export const StyledInputsContainer = styled.div`
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 
-    @media screen and (min-width: 768px) {
-      margin-bottom: 32px;
-    }
-  }
-
-  .SigninTitle {
-    margin-bottom: 40px;
-
-    @media screen and (min-width: 768px) {
-      margin-bottom: 50px;
-    }
-  }
-
-  .InputsContainer {
-    margin-bottom: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    @media screen and (min-width: 768px) {
-      margin-bottom: 50px;
-      gap: 24px;
-    }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 50px;
+    gap: 24px;
   }
 `;

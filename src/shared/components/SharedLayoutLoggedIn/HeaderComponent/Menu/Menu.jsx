@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
-import { StyledMenu } from './Menu.styled';
+import { StyledMenuHeader, StyledMenu } from './Menu.styled';
 import Logo from '../../Logo/Logo';
 import NavigationList from '../NavigationList/NavigationList';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
@@ -14,10 +15,12 @@ const Menu = ({ showMenu, setShowMenu }) => {
   return (
     <CSSTransition in={showMenu} timeout={250} classNames="menu" unmountOnExit>
       <StyledMenu>
-        <div className="MenuHeader">
-          <Logo className="HeaderLogo" closeBtnHandler={closeBtnHandler} />
-          <CloseBtn className="MenuBtn" closeBtnHandler={closeBtnHandler} />
-        </div>
+        <StyledMenuHeader>
+          <NavLink to="main" onClick={closeBtnHandler}>
+            <Logo status="headerLogo" menuLogo={true} />
+          </NavLink>
+          <CloseBtn menuBtn={true} closeBtnHandler={closeBtnHandler} />
+        </StyledMenuHeader>
         <NavigationList text="Search" closeBtnHandler={closeBtnHandler} />
         <ThemeToggler />
       </StyledMenu>

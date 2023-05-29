@@ -11,20 +11,26 @@ export const StyledAvatar = styled.div`
   font-size: 20px;
   line-height: 1;
   color: var(--primary-font-color);
+  border-radius: 50%;
   transition: all var(--transition-dur-func);
 
-  border-radius: 50%;
-  background-color: #d9d9d9;
   background-color: ${props => {
     let hash = 0;
-    for (let i = 0; i < props.label.length; i++) {
+    let i;
+
+    /* eslint-disable no-bitwise */
+    for (i = 0; i < props.label.length; i += 1) {
       hash = props.label.charCodeAt(i) + ((hash << 5) - hash);
     }
+
     let color = '#';
-    for (let i = 0; i < 3; i++) {
+
+    for (i = 0; i < 3; i += 1) {
       const value = (hash >> (i * 8)) & 0xff;
-      color += ('00' + value.toString(16)).slice(-2);
+      color += `00${value.toString(16)}`.slice(-2);
     }
+    /* eslint-enable no-bitwise */
+
     return color;
   }};
 
@@ -35,6 +41,10 @@ export const StyledAvatar = styled.div`
   }
 
   &:hover {
-    scale: 1.05;
+    scale: 1.01;
   }
+`;
+
+export const StyledAvatarImg = styled.img`
+  border-radius: 50%;
 `;

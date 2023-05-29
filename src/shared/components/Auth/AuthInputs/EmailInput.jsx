@@ -1,48 +1,68 @@
 import {
   StyledInputBox,
   StyledField,
-  StyledErrorMessage,
+  StyledInfoIcon,
+  StyledInputIcon,
   StyledMessage,
 } from './AuthFormInputs.styled';
 import icons from '../../../../shared/sprite.svg';
 
-const EmailInput = ({ className, errors, touched, onFocus, onBlur }) => {
+const EmailInput = ({
+  placeholder,
+  errors,
+  className,
+  touched,
+  onFocus,
+  onBlur,
+}) => {
+  const error = errors.email && touched.email ? true : false;
+  const success = !errors.email && touched.email ? true : false;
+  const neutral = !error && !success ? true : false;
+
+  const handleInfoIcon = () => {
+    if (error) {
+      return (
+        <StyledInfoIcon aria-label="error" status="error">
+          <use href={icons + '#errorLogo'}></use>
+        </StyledInfoIcon>
+      );
+    } else if (success) {
+      return (
+        <StyledInfoIcon aria-label="tick" status="success">
+          <use href={icons + '#tickLogo'}></use>
+        </StyledInfoIcon>
+      );
+    }
+    return;
+  };
+
+  const handleInfoMessage = () => {
+    if (success) {
+      return <StyledMessage status="success">Email is valid</StyledMessage>;
+    } else if (error) {
+      return <StyledMessage status="error">{errors.email}</StyledMessage>;
+    }
+    return;
+  };
+
   return (
     <div>
-      <StyledInputBox
-        className={
-          (errors.email && touched.email && 'InvalidInput') ||
-          (!errors.email && touched.email && 'ValidInput') ||
-          `${className}`
-        }
-      >
-        <svg width="18" height="18" aria-label="user" className="InputIcon">
+      <StyledInputBox neutral={neutral} error={error} success={success}>
+        <StyledInputIcon aria-label="email">
           <use href={icons + '#email'}></use>
-        </svg>
+        </StyledInputIcon>
         <StyledField
           type="email"
           name="email"
           className={className}
-          placeholder="Email"
+          placeholder={placeholder}
           autoComplete="off"
           onFocus={onFocus}
           onBlur={onBlur}
         />
-        {errors.email && touched.email && (
-          <svg width="20" height="20" aria-label="error" className="ErrorIcon">
-            <use href={icons + '#errorLogo'}></use>
-          </svg>
-        )}
-        {!errors.email && touched.email && (
-          <svg width="20" height="20" aria-label="tick" className="SuccessIcon">
-            <use href={icons + '#tickLogo'}></use>
-          </svg>
-        )}
+        {handleInfoIcon()}
       </StyledInputBox>
-      {!errors.email && touched.email && (
-        <StyledMessage>Email is valid</StyledMessage>
-      )}
-      <StyledErrorMessage name="email" component="p" />
+      {handleInfoMessage()}
     </div>
   );
 };

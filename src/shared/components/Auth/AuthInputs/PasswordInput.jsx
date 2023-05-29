@@ -3,16 +3,16 @@ import { useState } from 'react';
 import {
   StyledInputBox,
   StyledField,
+  StyledInputIcon,
+  StyledInfoIcon,
   StyledMessage,
-  StyledErrorMessage,
-  StyledPasswordRequirements,
 } from './AuthFormInputs.styled';
 import icons from '../../../../shared/sprite.svg';
 import AuthFormVisibilityButton from 'shared/components/Auth/AuthFormVisibilityButton/AuthFormVisibilityButton';
 
 const PasswordInput = ({
-  className,
   errors,
+  className,
   touched,
   onChange,
   onFocus,
@@ -22,9 +22,64 @@ const PasswordInput = ({
   const [hovered, setHovered] = useState(false);
   const [passwordType, setPasswordType] = useState('password');
 
+  const error = errors.password && touched.password ? true : false;
+  const warning = message ? true : false;
+  const success =
+    !errors.password && touched.password && !warning ? true : false;
+  const neutral = !error && !warning && !success ? true : false;
+
   const placeholderText = hovered
     ? '\u25CF\u25CF\u25CF\u25CF\u25CF\u25CF'
     : 'Password';
+
+  const togglePasswordPlaceholder = () => {
+    if (passwordType === 'password') {
+      setPasswordType('text');
+      return;
+    }
+    setPasswordType('password');
+  };
+
+  const handleInfoIcon = () => {
+    if (error) {
+      return (
+        <StyledInfoIcon aria-label="error" status="error">
+          <use href={icons + '#errorLogo'}></use>
+        </StyledInfoIcon>
+      );
+    } else if (warning) {
+      return (
+        <StyledInfoIcon aria-label="exclamation mark" status="warning">
+          <use href={icons + '#exclamationLogo'}></use>
+        </StyledInfoIcon>
+      );
+    } else if (success) {
+      return (
+        <StyledInfoIcon aria-label="tick" status="success">
+          <use href={icons + '#tickLogo'}></use>
+        </StyledInfoIcon>
+      );
+    }
+    return;
+  };
+
+  const handleInfoMessage = () => {
+    if (neutral) {
+      return (
+        <StyledMessage status="neutral">
+          Password must be at least 6 characters long. Can contain letters and
+          digits
+        </StyledMessage>
+      );
+    } else if (warning) {
+      return <StyledMessage status="warning">{message}</StyledMessage>;
+    } else if (success) {
+      return <StyledMessage status="success">Password is secure</StyledMessage>;
+    } else if (error) {
+      return <StyledMessage status="error">{errors.password}</StyledMessage>;
+    }
+    return;
+  };
 
   const handlePasswordChange = event => {
     const passwordValue = event.target.value;
@@ -41,27 +96,18 @@ const PasswordInput = ({
     }
   };
 
-  const togglePassword = () => {
-    if (passwordType === 'password') {
-      setPasswordType('text');
-      return;
-    }
-    setPasswordType('password');
-  };
-
   return (
     <div>
       <StyledInputBox
-        className={
-          (errors.password && touched.password && 'InvalidInput') ||
-          (!errors.password && message && 'InsecureInput') ||
-          (!errors.password && !message && touched.password && 'ValidInput') ||
-          (!touched.password && `${className}`)
-        }
+        neutral={neutral}
+        error={error}
+        warning={warning}
+        success={success}
       >
-        <svg width="18" height="18" aria-label="lock" className="InputIcon">
+        <StyledInputIcon aria-label="lock">
           <use href={icons + '#lock'}></use>
-        </svg>
+        </StyledInputIcon>
+
         <StyledField
           type={passwordType}
           name="password"
@@ -74,48 +120,15 @@ const PasswordInput = ({
           onFocus={onFocus}
           onBlur={onBlur}
         />
-        {errors.password && touched.password && (
-          <svg width="20" height="20" aria-label="error" className="ErrorIcon">
-            <use href={icons + '#errorLogo'}></use>
-          </svg>
-        )}
-        {!errors.password && message && (
-          <svg
-            width="20"
-            height="20"
-            aria-label="exclamation mark"
-            className="WarningIcon"
-          >
-            <use href={icons + '#exclamationLogo'}></use>
-          </svg>
-        )}
-        {!errors.password && !message && touched.password && (
-          <svg width="20" height="20" aria-label="tick" className="SuccessIcon">
-            <use href={icons + '#tickLogo'}></use>
-          </svg>
-        )}
+
+        {handleInfoIcon()}
       </StyledInputBox>
 
-      {!touched.password && !message && (
-        <StyledPasswordRequirements>
-          Password must be at least 6 characters long. Can contain letters and
-          digits
-        </StyledPasswordRequirements>
-      )}
-
-      {!errors.password && (
-        <StyledMessage message={message}>{message}</StyledMessage>
-      )}
-
-      {!errors.password && touched.password && !message && (
-        <StyledMessage>Password is secure</StyledMessage>
-      )}
-
-      <StyledErrorMessage name="password" component="p" />
+      {handleInfoMessage()}
 
       <AuthFormVisibilityButton
         passwordType={passwordType}
-        togglePassword={togglePassword}
+        togglePassword={togglePasswordPlaceholder}
       />
     </div>
   );

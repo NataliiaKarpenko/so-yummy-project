@@ -1,17 +1,24 @@
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Field } from 'formik';
 import { CSSTransition } from 'react-transition-group';
 
 import { validationSchema } from '../../../../Variables/validationSchema';
-import { StyledUserInfoModal } from './UserInfoModal.styled';
+import {
+  StyledAvatarContainer,
+  StyledAvatarIcon,
+  StyledFormContainer,
+  StyledUserInfoModal,
+  StyledUploadBtn,
+} from './UserInfoModal.styled';
 import { updateCurrentUser } from 'redux/reduxAuth/authOperations';
 import { selectAvatarURL, selectUserName } from 'redux/reduxAuth/authSelectors';
 import icons from '../../../../sprite.svg';
 import NameInput from 'shared/components/Auth/AuthInputs/NameInput';
-import SubmitButton from 'shared/components/Auth/SubmitButton/SubmitButton';
 import Backdrop from '../Backdrop/Backdrop';
 import CloseBtn from '../../CloseBtn/CloseBtn';
+import { StyledUserInfoModalBtn } from 'shared/components/Auth/SubmitButton/SubmitButton.styled';
+import { StyledAvatarImg } from '../Avatar/Avatar.styled';
 
 const UserInfoModal = ({ showUserInfoModal, setShowUserInfoModal }) => {
   const dispatch = useDispatch();
@@ -33,6 +40,7 @@ const UserInfoModal = ({ showUserInfoModal, setShowUserInfoModal }) => {
       if (e.code === 'Escape') {
         setNewAvatarURL(initialAvatarURL);
         formRef.current.resetForm();
+
         setShowUserInfoModal(false);
       }
     };
@@ -48,6 +56,7 @@ const UserInfoModal = ({ showUserInfoModal, setShowUserInfoModal }) => {
     if (e.currentTarget === e.target) {
       setNewAvatarURL(initialAvatarURL);
       formRef.current.resetForm();
+
       setShowUserInfoModal(false);
     }
   };
@@ -76,6 +85,7 @@ const UserInfoModal = ({ showUserInfoModal, setShowUserInfoModal }) => {
 
           if (actionResult.type === 'auth/updateCurrentUser/fulfilled') {
             setSubmitting(false);
+
             setShowUserInfoModal(false);
             resetForm({ values: values });
           }
@@ -123,23 +133,22 @@ const UserInfoModal = ({ showUserInfoModal, setShowUserInfoModal }) => {
             <Backdrop handleBackdropClick={handleBackdropClick}>
               <StyledUserInfoModal>
                 <CloseBtn
-                  className="ModalBtn"
+                  modalCloseBtn={true}
                   closeBtnHandler={closeBtnHandler}
                 />
-                <Form className="FormContainer">
-                  <div className="AvatarContainer">
+                <StyledFormContainer>
+                  <StyledAvatarContainer>
                     {newAvatarURL !==
                     'https://res.cloudinary.com/ddbvbv5sp/image/upload/v1679336722/images_s8wrdd.jpg' ? (
-                      <img src={newAvatarURL} alt="avatar" />
+                      <StyledAvatarImg src={newAvatarURL} alt="avatar" />
                     ) : (
-                      <svg
+                      <StyledAvatarIcon
                         width="40"
                         height="40"
                         aria-label="avatar"
-                        className="AvatarIcon"
                       >
                         <use href={icons + '#user'}></use>
-                      </svg>
+                      </StyledAvatarIcon>
                     )}
                     <Field
                       name="avarar"
@@ -155,16 +164,12 @@ const UserInfoModal = ({ showUserInfoModal, setShowUserInfoModal }) => {
                       }}
                     />
 
-                    <button
-                      type="button"
-                      className="UploadBtn"
-                      onClick={handleFileBtnClick}
-                    >
+                    <StyledUploadBtn type="button" onClick={handleFileBtnClick}>
                       <svg width="24" height="24" aria-label="upload button">
                         <use href={icons + '#plus'}></use>
                       </svg>
-                    </button>
-                  </div>
+                    </StyledUploadBtn>
+                  </StyledAvatarContainer>
 
                   <NameInput
                     values={values}
@@ -175,12 +180,10 @@ const UserInfoModal = ({ showUserInfoModal, setShowUserInfoModal }) => {
                     onFocus={handleInputFocus}
                   />
 
-                  <SubmitButton
-                    disabled={isSubmitting}
-                    text="Save changes "
-                    className="UserInfoModalBtn"
-                  />
-                </Form>
+                  <StyledUserInfoModalBtn type="submit" disabled={isSubmitting}>
+                    Save changes
+                  </StyledUserInfoModalBtn>
+                </StyledFormContainer>
               </StyledUserInfoModal>
             </Backdrop>
           </CSSTransition>

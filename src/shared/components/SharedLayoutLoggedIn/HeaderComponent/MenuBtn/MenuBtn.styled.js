@@ -16,6 +16,6 @@ export const StyledMenuBtn = styled.button`
 
   &:hover {
     stroke: var(--primary-btn-color);
-    scale: 1.05;
+    scale: 1.01;
   }
 `;

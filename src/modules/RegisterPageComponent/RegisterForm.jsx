@@ -1,4 +1,4 @@
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 
 import NameInput from '../../shared/components/Auth/AuthInputs/NameInput';
@@ -6,12 +6,18 @@ import EmailInput from '../../shared/components/Auth/AuthInputs/EmailInput';
 import PasswordInput from '../../shared/components/Auth/AuthInputs/PasswordInput';
 import SubmitButton from 'shared/components/Auth/SubmitButton/SubmitButton';
 
-import { StyledFormContainer } from '../../shared/components/Auth/AuthStyles/AuthForm.styled';
+import {
+  StyledFormContainer,
+  StyledForm,
+  StyledTitle,
+  StyledInputsContainer,
+} from '../../shared/components/Auth/AuthStyles/AuthForm.styled';
 import { validationSchema } from '../../shared/Variables/validationSchema';
 import { signup } from 'redux/reduxAuth/authOperations';
 
-const RegisterForm = () => {
+const RegisterForm = ({ status }) => {
   const dispatch = useDispatch();
+
   return (
     <Formik
       initialValues={{ name: '', email: '', password: '' }}
@@ -50,21 +56,23 @@ const RegisterForm = () => {
 
         return (
           <StyledFormContainer>
-            <Form className="FormContainer">
-              <p className="Title SignupTitle">Sign up</p>
-              <div className="InputsContainer">
+            <StyledForm>
+              <StyledTitle status="signup">Sign up</StyledTitle>
+              <StyledInputsContainer>
                 <NameInput
                   values={values}
                   errors={errors}
                   touched={touched}
-                  className="EnterInfo"
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}
+                  status="enterInfo"
+                  className="EnterInfo"
                 />
                 <EmailInput
                   values={values}
                   errors={errors}
                   touched={touched}
+                  placeholder="Email"
                   className="EnterInfo"
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}
@@ -77,13 +85,13 @@ const RegisterForm = () => {
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}
                 />
-              </div>
+              </StyledInputsContainer>
               <SubmitButton
                 disabled={isSubmitting}
                 text="Sign up"
-                className="AuthFormBtn"
+                status="signup"
               />
-            </Form>
+            </StyledForm>
           </StyledFormContainer>
         );
       }}

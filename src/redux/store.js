@@ -16,7 +16,7 @@ import { userReducer } from '../redux/reduxAuth/authSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['refreshToken', 'accessToken'],
+  whitelist: ['user', 'refreshToken', 'accessToken'],
 };
 
 export const store = configureStore({

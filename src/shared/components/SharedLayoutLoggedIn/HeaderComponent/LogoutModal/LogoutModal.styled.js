@@ -47,63 +47,63 @@ export const StyledLogoutModal = styled.div`
     font-size: 18px;
     line-height: 1.33;
   }
+`;
 
-  .LogoutModalBtnContainer {
-    margin-top: 24px;
-    display: flex;
-    gap: 8px;
+export const StyledLogoutModalBtnContainer = styled.div`
+  margin-top: 24px;
+  display: flex;
+  gap: 8px;
 
-    @media screen and (min-width: 768px) {
-      margin-top: 32px;
-      gap: 16px;
-    }
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+    gap: 16px;
   }
+`;
 
-  .LogoutModalBtn {
-    padding: 14px 18px;
-    width: 137px;
-    height: 49px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+export const StyledLogoutModalBtn = styled.button`
+  padding: 14px 18px;
+  width: 137px;
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    border: none;
-    border-radius: 6px;
+  border: none;
+  border-radius: 6px;
 
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.29;
-    transition: all var(--transition-dur-func);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  transition: all var(--transition-dur-func);
 
-    @media screen and (min-width: 768px) {
-      padding: 18px 39px;
-      width: 192px;
-      height: 59px;
+  @media screen and (min-width: 768px) {
+    padding: 18px 39px;
+    width: 192px;
+    height: 59px;
 
-      font-size: 16px;
-      line-height: 1.12;
-    }
+    font-size: 16px;
+    line-height: 1.12;
   }
+`;
 
-  .LogoutBtn {
-    color: var(--primary-font-color);
-    background: var(--primary-btn-color);
+export const StyledLogoutBtn = styled(StyledLogoutModalBtn)`
+  color: var(--primary-font-color);
+  background: var(--primary-btn-color);
 
-    &:hover {
-      background-color: var(--secondary-btn-color);
-      scale: 1.05;
-    }
+  &:hover {
+    background-color: var(--secondary-btn-color);
+    scale: 1.01;
   }
+`;
 
-  .CancelBtn {
-    color: var(--secondary-font-color);
-    background: var(--default-background-color);
-    border: 1px solid transparent;
+export const StyledCancelBtn = styled(StyledLogoutModalBtn)`
+  color: var(--secondary-font-color);
+  background: var(--default-background-color);
+  border: 1px solid transparent;
 
-    &:hover {
-      border: 1px solid var(--secondary-font-color);
-      background-color: transparent;
-      scale: 1.05;
-    }
+  &:hover {
+    border: 1px solid var(--secondary-font-color);
+    background-color: transparent;
+    scale: 1.01;
   }
 `;

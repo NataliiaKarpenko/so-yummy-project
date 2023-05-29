@@ -14,6 +14,6 @@ export const StyledAuthNav = styled(Link)`
   }
 
   &:hover {
-    scale: 1.05;
+    scale: 1.01;
   }
 `;

@@ -1,6 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 
-import { StyledWelcomePageContainer } from './WelcomePageComponent.styled';
+import {
+  StyledHeroBtnContainer,
+  StyledHeroContentContainer,
+  StyledHeroText,
+  StyledHeroTitle,
+  StyledLogoImg,
+  StyledSigninBtn,
+  StyledSignupBtn,
+  StyledWelcomePageContainer,
+} from './WelcomePageComponent.styled';
 import logoMobile from '../../shared/images/welcomePageImg/logoMobile.png';
 import logoMobile2x from '../../shared/images/welcomePageImg/logoMobile@2x.png';
 import logoDesktop from '../../shared/images/welcomePageImg/logoDesktop.png';
@@ -11,8 +20,8 @@ const WelcomePageComponent = () => {
 
   return (
     <StyledWelcomePageContainer>
-      <div className="HeroContentContainer">
-        <picture className="LogoImg">
+      <StyledHeroContentContainer>
+        <StyledLogoImg>
           <source
             srcSet={`
                     ${logoDesktop} 1x,
@@ -33,30 +42,28 @@ const WelcomePageComponent = () => {
           />
 
           <img src={`${logoMobile}`} alt="logo" width="54" height="54" />
-        </picture>
-        <h1 className="HeroTitle">Welcome to the app!</h1>
-        <p className="HeroText">
+        </StyledLogoImg>
+        <StyledHeroTitle>Welcome to the app!</StyledHeroTitle>
+        <StyledHeroText>
           This app offers more than just a collection of recipes - it is
           designed to be your very own digital cookbook. You can easily save and
           retrieve your own recipes at any time.
-        </p>
-        <div className="HeroBtnContainer">
-          <button
+        </StyledHeroText>
+        <StyledHeroBtnContainer>
+          <StyledSignupBtn
             type="button"
-            className="HeroBtn SignupBtn"
             onClick={() => navigate('/register', { replace: true })}
           >
             Sign up
-          </button>
-          <button
+          </StyledSignupBtn>
+          <StyledSigninBtn
             type="button"
-            className="HeroBtn SigninBtn"
             onClick={() => navigate('signin', { replace: true })}
           >
             Sign in
-          </button>
-        </div>
-      </div>
+          </StyledSigninBtn>
+        </StyledHeroBtnContainer>
+      </StyledHeroContentContainer>
     </StyledWelcomePageContainer>
   );
 };

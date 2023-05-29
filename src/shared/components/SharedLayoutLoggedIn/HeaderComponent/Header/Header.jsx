@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 
-import { StyledHeader } from './Header.styled';
-import Container from '../../../Container/Container';
+import {
+  StyledHeader,
+  StyledNav,
+  StyledHeaderBox,
+  StyledHeaderLogoContainer,
+} from './Header.styled';
+import { StyledHeaderContainer } from '../../../Container/Container.styled';
 import Logo from '../../Logo/Logo';
 import MenuBtn from '../MenuBtn/MenuBtn';
 import NavigationList from '../NavigationList/NavigationList';
@@ -21,17 +26,19 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <Container className="HeaderContainer">
-        <nav>
-          <Logo className="HeaderLogo" />
+      <StyledHeaderContainer>
+        <StyledNav>
+          <StyledHeaderLogoContainer to="main">
+            <Logo status="headerLogo" />
+          </StyledHeaderLogoContainer>
           {windowWidth >= 1440 && <NavigationList text="" />}
-        </nav>
-        <div className="HeaderBox">
+        </StyledNav>
+        <StyledHeaderBox>
           <UserInfo />
           {windowWidth >= 1440 && <ThemeToggler />}
           {windowWidth <= 1439 && <MenuBtn />}
-        </div>
-      </Container>
+        </StyledHeaderBox>
+      </StyledHeaderContainer>
     </StyledHeader>
   );
 };

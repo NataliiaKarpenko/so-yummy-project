@@ -1,11 +1,7 @@
 import { StyledSubmitButton } from './SubmitButton.styled';
 
-const SubmitButton = ({ text, className }) => {
-  return (
-    <StyledSubmitButton type="submit" className={className}>
-      {text}
-    </StyledSubmitButton>
-  );
+const SubmitButton = ({ text }) => {
+  return <StyledSubmitButton type="submit">{text}</StyledSubmitButton>;
 };
 
 export default SubmitButton;

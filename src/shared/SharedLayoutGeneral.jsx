@@ -1,11 +1,10 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import Loader from './components/Loader/Loader';
 
 const SharedLayOutGeneral = () => {
   return (
-    <Suspense fallback={<div>...Loading...</div>}>
-      <ToastContainer />
+    <Suspense fallback={<Loader />}>
       <Outlet />
     </Suspense>
   );

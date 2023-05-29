@@ -80,115 +80,115 @@ export const StyledWelcomePageContainer = styled.section`
       ),
       url(${img6});
   }
+`;
 
-  .HeroContentContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+export const StyledHeroContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    @media screen and (max-width: 374px) {
-      width: 100%;
-      max-width: 305px;
-    }
-
-    @media screen and (min-width: 375px) {
-      width: 305px;
-    }
-
-    @media screen and (min-width: 768px) {
-      width: 500px;
-    }
-
-    @media screen and (min-width: 768px) {
-      width: 544px;
-    }
+  @media screen and (max-width: 374px) {
+    width: 100%;
+    max-width: 305px;
   }
 
-  .LogoImg {
-    height: 54px;
-    width: 54px;
-
-    @media screen and (min-width: 768px) {
-      height: 68px;
-      width: 68px;
-    }
+  @media screen and (min-width: 375px) {
+    width: 305px;
   }
 
-  .HeroTitle {
-    margin-top: 28px;
-    margin-bottom: 14px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    color: var(--primary-font-color);
-
-    @media screen and (min-width: 768px) {
-      margin-top: 44px;
-      font-size: 28px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 500px;
   }
 
-  .HeroText {
-    margin-bottom: 44px;
-    text-align: center;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.02em;
-    color: var(--primary-font-color);
-
-    @media screen and (min-width: 768px) {
-      margin-bottom: 40px;
-      font-size: 18px;
-      line-height: 1.33;
-    }
+  @media screen and (min-width: 768px) {
+    width: 544px;
   }
+`;
 
-  .HeroBtnContainer {
-    display: flex;
-    gap: 12px;
+export const StyledLogoImg = styled.picture`
+  height: 54px;
+  width: 54px;
 
-    @media screen and (min-width: 768px) {
-      gap: 18px;
-    }
+  @media screen and (min-width: 768px) {
+    height: 68px;
+    width: 68px;
   }
+`;
 
-  .HeroBtn {
-    height: 45px;
-    padding: 12px 24px;
-    border-radius: 24px 44px;
+export const StyledHeroTitle = styled.h1`
+  margin-top: 28px;
+  margin-bottom: 14px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--primary-font-color);
 
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--primary-font-color);
-    transition: all var(--transition-dur-func);
+  @media screen and (min-width: 768px) {
+    margin-top: 44px;
+    font-size: 28px;
+  }
+`;
 
-    @media screen and (min-width: 768px) {
-      height: 67px;
-      padding: 22px 55px;
-      font-size: 16px;
-    }
+export const StyledHeroText = styled.p`
+  margin-bottom: 44px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: var(--primary-font-color);
 
-    &.SigninBtn {
-      border: 2px solid var(--primary-font-color);
-      background-color: transparent;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+`;
 
-      &:hover {
-        border: 2px solid var(--primary-btn-color);
-        color: var(--primary-btn-color);
-      }
-    }
+export const StyledHeroBtnContainer = styled.div`
+  display: flex;
+  gap: 12px;
 
-    &.SignupBtn {
-      border: 2px solid transparent;
-      background-color: var(--primary-btn-color);
+  @media screen and (min-width: 768px) {
+    gap: 18px;
+  }
+`;
 
-      &:hover {
-        background-color: var(--secondary-btn-color);
-      }
-    }
+export const StyledHeroBtn = styled.button`
+  height: 45px;
+  padding: 12px 24px;
+  border-radius: 24px 44px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--primary-font-color);
+  transition: all var(--transition-dur-func);
+
+  @media screen and (min-width: 768px) {
+    height: 67px;
+    padding: 22px 55px;
+    font-size: 16px;
+  }
+`;
+
+export const StyledSigninBtn = styled(StyledHeroBtn)`
+  border: 2px solid var(--primary-font-color);
+  background-color: transparent;
+
+  &:hover {
+    border: 2px solid var(--primary-btn-color);
+    color: var(--primary-btn-color);
+  }
+`;
+
+export const StyledSignupBtn = styled(StyledHeroBtn)`
+  border: 2px solid transparent;
+  background-color: var(--primary-btn-color);
+
+  &:hover {
+    background-color: var(--secondary-btn-color);
   }
 `;

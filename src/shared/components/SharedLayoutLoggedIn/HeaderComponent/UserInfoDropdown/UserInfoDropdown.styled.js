@@ -29,20 +29,12 @@ export const StyledUserInfoDropDown = styled.div`
   z-index: 990;
   padding: 18px;
   height: 130px;
+  width: 161px;
 
   background: var(--primary-font-color);
   border: 1px solid #8baa36;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-  @media screen and (max-width: 374px) {
-    width: 100%;
-    max-width: 161px;
-  }
-
-  @media screen and (min-width: 375px) {
-    width: 161px;
-  }
 
   @media screen and (min-width: 768px) {
     top: 55px;
@@ -65,77 +57,73 @@ export const StyledUserInfoDropDown = styled.div`
     border-top: 1px solid #8baa36;
     border-left: 1px solid #8baa36;
   }
+`;
 
-  .EditContainer {
-    margin-bottom: 28px;
-    display: flex;
-    gap: 35px;
-    align-items: center;
+export const EditContainer = styled.div`
+  margin-bottom: 28px;
+  display: flex;
+  gap: 35px;
+  align-items: center;
 
-    stroke: var(--secondary-font-color);
-    fill: none;
-    transition: all var(--transition-dur-func);
+  stroke: var(--secondary-font-color);
+  fill: none;
+  transition: all var(--transition-dur-func);
 
-    cursor: pointer;
+  cursor: pointer;
 
-    @media screen and (min-width: 768px) {
-      margin-bottom: 32px;
-    }
-
-    &:hover {
-      scale: 1.05;
-      stroke: var(--primary-btn-color);
-      fill: var(--primary-btn-color);
-    }
-
-    &:hover .Text {
-      scale: 1.05;
-      color: var(--primary-btn-color);
-    }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
   }
 
-  .Text {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.6;
-
-    color: var(--secondary-font-color);
-    transition: all var(--transition-dur-func);
+  &:hover {
+    scale: 1.01;
+    stroke: var(--primary-btn-color);
+    fill: var(--primary-btn-color);
   }
 
-  .UserInfoLogoutlBtn {
-    height: 43px;
-    width: 125px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-right: 27px;
-    padding-left: 27px;
+  &:hover p {
+    color: var(--primary-btn-color);
+  }
+`;
 
-    display: flex;
-    align-items: center;
-    gap: 4px;
+export const StyledText = styled.p`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
 
-    background: var(--primary-btn-color);
-    border: none;
-    border-radius: 24px 44px;
+  color: var(--secondary-font-color);
+  transition: all var(--transition-dur-func);
+`;
 
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.5;
+export const StyledLogoutlBtn = styled.button`
+  height: 43px;
+  width: 125px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 
-    color: var(--primary-font-color);
-    stroke: var(--primary-font-color);
-    transition: all var(--transition-dur-func);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 
-    @media screen and (min-width: 768px) {
-      width: 141px;
-      padding-right: 35px;
-      padding-left: 35px;
-    }
+  background: var(--primary-btn-color);
+  border: none;
+  border-radius: 24px 44px;
 
-    &:hover {
-      background-color: var(--secondary-btn-color);
-      scale: 1.05;
-    }
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: var(--primary-font-color);
+  stroke: var(--primary-font-color);
+  transition: all var(--transition-dur-func);
+
+  @media screen and (min-width: 768px) {
+    width: 141px;
+  }
+
+  &:hover {
+    background-color: var(--secondary-btn-color);
+    scale: 1.01;
   }
 `;

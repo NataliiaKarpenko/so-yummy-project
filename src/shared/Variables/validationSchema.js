@@ -42,4 +42,8 @@ export const validationSchema = {
       .matches(/[a-zA-Z]/, 'Invalid name. Requires a letter')
       .required('Required'),
   }),
+
+  subscribe: Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Required'),
+  }),
 };

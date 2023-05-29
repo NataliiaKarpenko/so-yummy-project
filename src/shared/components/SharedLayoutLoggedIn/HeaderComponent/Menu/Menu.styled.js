@@ -71,10 +71,10 @@ export const StyledMenu = styled.div`
     screen and (min-resolution: 2dppx) and (min-width: 768px) {
     background-image: url(${img4});
   }
+`;
 
-  .MenuHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+export const StyledMenuHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;

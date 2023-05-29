@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledContainer = styled.div`
+export const StyledUserInfoContainer = styled.div`
   position: relative;
 `;
 
@@ -20,6 +20,6 @@ export const StyledUserInfo = styled.div`
 
   &:hover {
     color: var(--primary-btn-color);
-    scale: 1.05;
+    scale: 1.01;
   }
 `;

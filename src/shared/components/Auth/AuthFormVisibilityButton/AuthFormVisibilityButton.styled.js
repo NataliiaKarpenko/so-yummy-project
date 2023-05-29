@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledAuthFormVisibilityBtnContainer = styled.div`
+  margin-top: 7px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -12,24 +13,24 @@ export const StyledAuthFormVisibilityBtnContainer = styled.div`
   color: rgba(250, 250, 250, 0.8);
 
   @media screen and (min-width: 768px) {
+    margin-top: 10px;
     font-size: 14px;
   }
+`;
 
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+export const StyledButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
+  fill: rgba(250, 250, 250, 0.8);
 
-    fill: rgba(250, 250, 250, 0.8);
+  transition: all var(--transition-dur-func);
 
-    transition: all var(--transition-dur-func);
-
-    &:hover {
-      scale: 1.1;
-      fill: var(--form-hover-state-color);
-    }
+  &:hover {
+    scale: 1.01;
+    fill: var(--form-hover-state-color);
   }
 `;
