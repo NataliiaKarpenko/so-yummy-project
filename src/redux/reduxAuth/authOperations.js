@@ -10,7 +10,6 @@ import {
   subscribeSuccess,
   subscribeError,
   logoutSuccess,
-  refreshError,
 } from 'shared/Utils/notifications';
 
 axios.defaults.baseURL = 'https://so-yumi.p.goit.global/api';
