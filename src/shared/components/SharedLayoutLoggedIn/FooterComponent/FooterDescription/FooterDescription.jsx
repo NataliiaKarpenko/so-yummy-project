@@ -9,7 +9,7 @@ const { default: Logo } = require('../../Logo/Logo');
 const FooterDescription = () => {
   return (
     <StyledFooterDescription>
-      <StyledLogoContainer to="/main">
+      <StyledLogoContainer to="main">
         <Logo status="footerLogo" />
         <p>So Yummy</p>
       </StyledLogoContainer>

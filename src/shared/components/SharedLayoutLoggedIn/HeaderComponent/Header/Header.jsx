@@ -28,7 +28,7 @@ const Header = () => {
     <StyledHeader>
       <StyledHeaderContainer>
         <StyledNav>
-          <StyledHeaderLogoContainer to="main">
+          <StyledHeaderLogoContainer to="/">
             <Logo status="headerLogo" />
           </StyledHeaderLogoContainer>
           {windowWidth >= 1440 && <NavigationList text="" />}
