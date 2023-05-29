@@ -84,27 +84,6 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
-// export const getCurrentUser = createAsyncThunk(
-//   'auth/getCurrentUser',
-//   async (_, thunkAPI) => {
-//     const state = thunkAPI.getState();
-//     const persistedToken = state.auth.accessToken;
-
-//     if (persistedToken === null) {
-//       return thunkAPI.rejectWithValue();
-//     }
-
-//     setAuthHeader(persistedToken);
-//     try {
-//       const { data } = await axios.get('/users/current');
-//       return data;
-//     } catch (error) {
-//       refreshError();
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 export const getCurrentUser = createAsyncThunk(
   'auth/getCurrentUser',
   async (_, thunkAPI) => {
@@ -120,7 +99,6 @@ export const getCurrentUser = createAsyncThunk(
       const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
-      refreshError();
       return thunkAPI.rejectWithValue(error.message);
     }
   }

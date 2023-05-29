@@ -30,12 +30,6 @@ export const logoutSuccess = () => {
   });
 };
 
-export const refreshError = () => {
-  toast.error('Oops, something has gone wrong. Log in again, please.', {
-    toastId: 'refreshError',
-  });
-};
-
 export const updateSuccess = () => {
   toast.success('You have updated your profile successfully', {
     toastId: 'updateSuccess',
