@@ -17,6 +17,7 @@
 
   --toastify-color-success: #3cbc81;
   --toastify-color-error: #e74a3b;
+  --toastify-color-info: #f6c23e;
 
   --transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }

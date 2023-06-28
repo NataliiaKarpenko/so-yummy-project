@@ -48,7 +48,7 @@ export const subscribeError = error => {
       toastId: 'subscribeError400',
     });
   } else if (error.message === 'Request failed with status code 403') {
-    toast.error('Oops, email or password is wrong', {
+    toast.error('Oops, email  is wrong', {
       toastId: 'subscribeError403',
     });
   } else {
@@ -56,4 +56,28 @@ export const subscribeError = error => {
       toastId: 'subscribeError',
     });
   }
+};
+
+export const addToShoppingListSuccess = () => {
+  toast.success('The item has been added to your shopping-list. ', {
+    toastId: 'addToShoppingListSuccess',
+  });
+};
+
+export const removeFromShoppingListSuccess = () => {
+  toast.info('The item has been removed from your shopping-list. ', {
+    toastId: 'removeFromShoppingListInfo',
+  });
+};
+
+export const addToFavorite = () => {
+  toast.success('The recipe has been added to your list of favorites. ', {
+    toastId: 'addToFavorite',
+  });
+};
+
+export const removeFromFavorite = () => {
+  toast.info('The recipe has been removed from your list of favorites. ', {
+    toastId: 'removeFromFavorite',
+  });
 };

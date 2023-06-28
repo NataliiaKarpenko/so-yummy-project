@@ -1,4 +1,13 @@
+import { StyledContainer } from 'shared/components/Container/Container.styled';
 import styled from 'styled-components';
+
+export const StyledPageNotFoundContainer = styled(StyledContainer)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 14px;
+`;
 
 export const StyledImage = styled.picture`
   height: 170px;

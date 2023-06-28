@@ -6,8 +6,8 @@ import {
 
 const AuthFormVisibilityButton = ({ passwordType, togglePassword }) => {
   return (
-    <StyledAuthFormVisibilityBtnContainer>
-      <StyledButton type="button" onClick={togglePassword}>
+    <StyledAuthFormVisibilityBtnContainer onClick={togglePassword}>
+      <StyledButton type="button">
         {passwordType === 'password' ? (
           <svg width="15" height="15" aria-label="eye">
             <use href={icons + '#eye'}></use>

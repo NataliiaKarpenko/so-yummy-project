@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import icons from '../../../../shared/sprite.svg';
+import AuthFormVisibilityButton from 'shared/components/Auth/AuthFormVisibilityButton/AuthFormVisibilityButton';
 import {
   StyledInputBox,
   StyledField,
@@ -7,8 +9,6 @@ import {
   StyledInfoIcon,
   StyledMessage,
 } from './AuthFormInputs.styled';
-import icons from '../../../../shared/sprite.svg';
-import AuthFormVisibilityButton from 'shared/components/Auth/AuthFormVisibilityButton/AuthFormVisibilityButton';
 
 const PasswordInput = ({
   errors,

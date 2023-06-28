@@ -1,5 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 
+import logoMobile from '../../shared/images/welcomePageImg/logoMobile.png';
+import logoMobile2x from '../../shared/images/welcomePageImg/logoMobile@2x.png';
+import logoDesktop from '../../shared/images/welcomePageImg/logoDesktop.png';
+import logoDesktop2x from '../../shared/images/welcomePageImg/logoDesktop@2x.png';
 import {
   StyledHeroBtnContainer,
   StyledHeroContentContainer,
@@ -10,10 +14,6 @@ import {
   StyledSignupBtn,
   StyledWelcomePageContainer,
 } from './WelcomePageComponent.styled';
-import logoMobile from '../../shared/images/welcomePageImg/logoMobile.png';
-import logoMobile2x from '../../shared/images/welcomePageImg/logoMobile@2x.png';
-import logoDesktop from '../../shared/images/welcomePageImg/logoDesktop.png';
-import logoDesktop2x from '../../shared/images/welcomePageImg/logoDesktop@2x.png';
 
 const WelcomePageComponent = () => {
   const navigate = useNavigate();

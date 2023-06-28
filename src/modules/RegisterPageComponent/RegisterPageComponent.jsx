@@ -1,9 +1,9 @@
 import RegisterForm from './RegisterForm';
+import AuthNav from '../../shared/components/Auth/AuthNav/AuthNav';
 import {
   StyledAuthPageContainer,
   StyledAuthPageContentContainer,
 } from '../../shared/components/Auth/AuthStyles/AuthPageComponent.styled';
-import AuthNav from '../../shared/components/Auth/AuthNav/AuthNav';
 
 const RegisterPageComponent = () => {
   return (

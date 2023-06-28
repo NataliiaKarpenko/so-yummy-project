@@ -50,7 +50,9 @@ export const userSlice = createSlice({
         };
         state.accessToken = null;
         state.refreshToken = null;
+        state.isRefreshing = false;
         state.isLoggedIn = false;
+        state.SubscribtionList = [];
       })
 
       // UPDATE CURRENT USER

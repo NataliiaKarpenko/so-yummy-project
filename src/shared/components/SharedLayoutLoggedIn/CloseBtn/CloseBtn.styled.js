@@ -40,4 +40,34 @@ export const StyledCloseBtn = styled.button`
         height: 24px;
       }
     `}
+
+    ${props =>
+    props.motivationBtn &&
+    css`
+      position: absolute;
+      top: 150px;
+      left: 50%;
+      transform: translate(-50%);
+      width: 38px;
+      height: 38px;
+      background-color: var(--primary-btn-color);
+      border-radius: 50%;
+
+      @media screen and (min-width: 768px) {
+        top: 180px;
+        width: 48px;
+        height: 48px;
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+        stroke: var(--primary-font-color);
+
+        @media screen and (min-width: 768px) {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    `}
 `;

@@ -9,9 +9,9 @@ import {
   StyledPageBackground,
 } from './StyledPageBackground';
 
-const Pagebackground = ({ children }) => {
+const PageBackground = ({ children, main, page }) => {
   return (
-    <StyledPageBackground>
+    <StyledPageBackground main={main} page={page}>
       <StyledBackgroungDecor1>
         <source
           srcSet={`
@@ -75,4 +75,4 @@ const Pagebackground = ({ children }) => {
     </StyledPageBackground>
   );
 };
-export default Pagebackground;
+export default PageBackground;

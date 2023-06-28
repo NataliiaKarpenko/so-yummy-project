@@ -11,6 +11,7 @@ export const StyledAuthFormVisibilityBtnContainer = styled.div`
   line-height: 1.5;
   letter-spacing: -0.02em;
   color: rgba(250, 250, 250, 0.8);
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     margin-top: 10px;

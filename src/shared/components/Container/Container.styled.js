@@ -29,8 +29,10 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledHeaderContainer = styled(StyledContainer)`
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 export const StyledLowerFooterContainer = styled(StyledContainer)`
@@ -42,12 +44,4 @@ export const StyledLowerFooterContainer = styled(StyledContainer)`
   @media screen and (min-width: 768px) {
     gap: 40px;
   }
-`;
-
-export const StyledPageNotFoundContainer = styled(StyledContainer)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 14px;
 `;

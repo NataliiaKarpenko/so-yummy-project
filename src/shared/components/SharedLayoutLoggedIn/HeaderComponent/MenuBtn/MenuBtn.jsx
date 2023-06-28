@@ -4,7 +4,7 @@ import icons from '../../../../sprite.svg';
 import { StyledMenuBtn } from './MenuBtn.styled';
 import Menu from '../Menu/Menu';
 
-const MenuBtn = () => {
+const MenuBtn = ({ active }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const showMenuHandler = () => {
@@ -18,7 +18,7 @@ const MenuBtn = () => {
           <use href={icons + '#menu'}></use>
         </svg>
       </StyledMenuBtn>
-      <Menu setShowMenu={setShowMenu} showMenu={showMenu} />
+      <Menu setShowMenu={setShowMenu} showMenu={showMenu} active={active} />
     </>
   );
 };

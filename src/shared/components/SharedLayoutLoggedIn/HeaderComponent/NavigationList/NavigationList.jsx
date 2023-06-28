@@ -2,14 +2,19 @@ import icons from '../../../../sprite.svg';
 import {
   StyledNavigationItem,
   StyledNavLink,
+  StyledSearchNavLink,
   StyledNavigationList,
 } from './NavigationList.styled';
 
-const NavigationList = ({ text, closeBtnHandler }) => {
+const NavigationList = ({ text, closeBtnHandler, active }) => {
   return (
     <StyledNavigationList>
       <StyledNavigationItem>
-        <StyledNavLink to="categories/:categoryName" onClick={closeBtnHandler}>
+        <StyledNavLink
+          to="categories/Beef"
+          active={active}
+          onClick={closeBtnHandler}
+        >
           Categories
         </StyledNavLink>
       </StyledNavigationItem>
@@ -34,12 +39,12 @@ const NavigationList = ({ text, closeBtnHandler }) => {
         </StyledNavLink>
       </StyledNavigationItem>
       <StyledNavigationItem>
-        <StyledNavLink to="search" onClick={closeBtnHandler}>
+        <StyledSearchNavLink to="search" onClick={closeBtnHandler}>
           <svg width="20" height="20" aria-label="search">
             <use href={icons + '#search'}></use>
           </svg>
-          {text}
-        </StyledNavLink>
+          <span>{text}</span>
+        </StyledSearchNavLink>
       </StyledNavigationItem>
     </StyledNavigationList>
   );

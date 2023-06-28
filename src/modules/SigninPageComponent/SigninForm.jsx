@@ -4,15 +4,14 @@ import { useDispatch } from 'react-redux';
 import EmailInput from '../../shared/components/Auth/AuthInputs/EmailInput';
 import PasswordInput from '../../shared/components/Auth/AuthInputs/PasswordInput';
 import SubmitButton from 'shared/components/Auth/SubmitButton/SubmitButton';
-
+import { validationSchema } from '../../shared/Variables/validationSchema';
+import { signin } from 'redux/reduxAuth/authOperations';
 import {
   StyledFormContainer,
   StyledForm,
   StyledInputsContainer,
   StyledTitle,
 } from '../../shared/components/Auth/AuthStyles/AuthForm.styled';
-import { validationSchema } from '../../shared/Variables/validationSchema';
-import { signin } from 'redux/reduxAuth/authOperations';
 
 const SigninForm = () => {
   const dispatch = useDispatch();
@@ -22,7 +21,6 @@ const SigninForm = () => {
       initialValues={{ email: '', password: '' }}
       validationSchema={validationSchema.signin}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        console.log(values);
         dispatch(signin({ email: values.email, password: values.password }));
 
         setSubmitting(false);

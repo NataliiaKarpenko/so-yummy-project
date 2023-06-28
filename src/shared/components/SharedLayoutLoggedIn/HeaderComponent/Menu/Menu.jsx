@@ -7,7 +7,7 @@ import NavigationList from '../NavigationList/NavigationList';
 import ThemeToggler from '../ThemeToggler/ThemeToggler';
 import CloseBtn from '../../CloseBtn/CloseBtn';
 
-const Menu = ({ showMenu, setShowMenu }) => {
+const Menu = ({ showMenu, setShowMenu, active }) => {
   const closeBtnHandler = () => {
     setShowMenu(false);
   };
@@ -21,7 +21,11 @@ const Menu = ({ showMenu, setShowMenu }) => {
           </NavLink>
           <CloseBtn menuBtn={true} closeBtnHandler={closeBtnHandler} />
         </StyledMenuHeader>
-        <NavigationList text="Search" closeBtnHandler={closeBtnHandler} />
+        <NavigationList
+          text="Search"
+          closeBtnHandler={closeBtnHandler}
+          active={active}
+        />
         <ThemeToggler />
       </StyledMenu>
     </CSSTransition>

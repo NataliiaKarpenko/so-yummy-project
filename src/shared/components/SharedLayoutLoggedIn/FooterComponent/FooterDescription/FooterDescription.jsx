@@ -1,3 +1,4 @@
+import { scrollToTop } from 'shared/Utils/scrollToTop';
 import {
   StyledFooterDescription,
   StyledFooterDescriptionList,
@@ -7,9 +8,13 @@ import {
 const { default: Logo } = require('../../Logo/Logo');
 
 const FooterDescription = () => {
+  const linkClickHandker = () => {
+    scrollToTop();
+  };
+
   return (
     <StyledFooterDescription>
-      <StyledLogoContainer to="main">
+      <StyledLogoContainer to="main" onClick={linkClickHandker}>
         <Logo status="footerLogo" />
         <p>So Yummy</p>
       </StyledLogoContainer>

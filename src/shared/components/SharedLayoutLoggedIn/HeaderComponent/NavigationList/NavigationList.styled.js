@@ -13,6 +13,7 @@ export const StyledNavigationList = styled.ul`
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
+
     gap: 30px;
   }
 `;
@@ -21,7 +22,7 @@ export const StyledNavigationItem = styled.li`
   transition: all var(--transition-dur-func);
 
   &:hover {
-    scale: 1.05;
+    scale: 1.01;
   }
 `;
 
@@ -31,9 +32,12 @@ export const StyledNavLink = styled(NavLink)`
   font-size: 14px;
   line-height: 1.6;
   color: var(--secondary-font-color);
+
   stroke: var(--secondary-font-color);
   fill: none;
   transition: all var(--transition-dur-func);
+
+  color: ${props => (props.active ? 'var(--primary-btn-color)' : '')};
 
   @media screen and (max-width: 1439px) {
     font-size: 18px;
@@ -44,6 +48,7 @@ export const StyledNavLink = styled(NavLink)`
   &.active {
     position: relative;
     color: var(--primary-btn-color);
+    font-weight: 500;
     stroke: var(--primary-btn-color);
   }
 
@@ -71,18 +76,15 @@ export const StyledNavLink = styled(NavLink)`
     left: 0;
     bottom: 0;
     background: var(--primary-btn-color);
-    transform: scaleX(0);
+    transform: ${props => (props.active ? 'scaleX(1)' : 'scaleX(0)')};
     transition: all var(--transition-dur-func);
-  }
-
-  &:hover::after {
-    transform: scaleX(1);
   }
 `;
 
 export const StyledSearchNavLink = styled(StyledNavLink)`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 
   svg {

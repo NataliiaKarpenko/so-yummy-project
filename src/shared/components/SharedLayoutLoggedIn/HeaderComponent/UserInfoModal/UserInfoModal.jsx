@@ -4,13 +4,6 @@ import { Formik, Field } from 'formik';
 import { CSSTransition } from 'react-transition-group';
 
 import { validationSchema } from '../../../../Variables/validationSchema';
-import {
-  StyledAvatarContainer,
-  StyledAvatarIcon,
-  StyledFormContainer,
-  StyledUserInfoModal,
-  StyledUploadBtn,
-} from './UserInfoModal.styled';
 import { updateCurrentUser } from 'redux/reduxAuth/authOperations';
 import { selectAvatarURL, selectUserName } from 'redux/reduxAuth/authSelectors';
 import icons from '../../../../sprite.svg';
@@ -19,6 +12,13 @@ import Backdrop from '../Backdrop/Backdrop';
 import CloseBtn from '../../CloseBtn/CloseBtn';
 import { StyledUserInfoModalBtn } from 'shared/components/Auth/SubmitButton/SubmitButton.styled';
 import { StyledAvatarImg } from '../Avatar/Avatar.styled';
+import {
+  StyledAvatarContainer,
+  StyledAvatarIcon,
+  StyledFormContainer,
+  StyledUserInfoModal,
+  StyledUploadBtn,
+} from './UserInfoModal.styled';
 
 const UserInfoModal = ({ showUserInfoModal, setShowUserInfoModal }) => {
   const dispatch = useDispatch();
@@ -70,9 +70,7 @@ const UserInfoModal = ({ showUserInfoModal, setShowUserInfoModal }) => {
       initialValues={{ name: prevUserName, avatar: prevAvatarURL }}
       validationSchema={validationSchema.edit}
       innerRef={formRef}
-      onSubmit={async (values, { setSubmitting, resetForm, initialValues }) => {
-        console.log(values);
-
+      onSubmit={async (values, { setSubmitting, resetForm }) => {
         try {
           const formData = new FormData();
           values.name !== prevUserName

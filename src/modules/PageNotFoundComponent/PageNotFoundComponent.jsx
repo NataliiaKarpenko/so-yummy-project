@@ -4,17 +4,18 @@ import img3 from '../../shared/images/pageNotFoundImg/pageNotFoundTab.png';
 import img4 from '../../shared/images/pageNotFoundImg/pageNotFoundTab@2x.png';
 import img5 from '../../shared/images/pageNotFoundImg/pageNotFoundDesktop.png';
 import img6 from '../../shared/images/pageNotFoundImg/pageNotFoundDesktop@2x.png';
-import { StyledPageNotFoundContainer } from 'shared/components/Container/Container.styled';
+
 import {
+  StyledPageNotFoundContainer,
   StyledFocusText,
   StyledText,
   StyledTextContainer,
 } from './PageNotFoundComponent.styled';
-import Pagebackground from 'shared/components/SharedLayoutLoggedIn/PageBackground/PageBackground';
+import PageBackground from 'shared/components/SharedLayoutLoggedIn/PageBackground/PageBackground';
 
 const PageNotFoundComponent = () => {
   return (
-    <Pagebackground>
+    <PageBackground>
       <StyledPageNotFoundContainer>
         <picture>
           <source
@@ -48,7 +49,7 @@ const PageNotFoundComponent = () => {
           </StyledText>
         </StyledTextContainer>
       </StyledPageNotFoundContainer>
-    </Pagebackground>
+    </PageBackground>
   );
 };
 

@@ -17,7 +17,12 @@ const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const SigninPage = lazy(() => import('../pages/SigninPage'));
 const MainPage = lazy(() => import('../pages/MainPage'));
+const CategoriesPage = lazy(() => import('../pages/CategoriesPage'));
+const RecipePage = lazy(() => import('../pages/RecipePage'));
 const AddRecipePage = lazy(() => import('../pages/AddRecipePage'));
+const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
+const FavoritePage = lazy(() => import('../pages/FavoritePage'));
+const SearchPage = lazy(() => import('../pages/SearchPage'));
 const PageNotFound = lazy(() => import('../pages/PageNotFound'));
 
 export const App = () => {
@@ -77,13 +82,37 @@ export const App = () => {
             path="main"
             element={<PrivateRoute redirectTo="/" component={<MainPage />} />}
           />
-          {/* <Route path="/main/:recipe" element={<RecipePage />} /> */}
-
+          <Route
+            path="categories/:categoryName"
+            element={
+              <PrivateRoute redirectTo="/" component={<CategoriesPage />} />
+            }
+          />
+          <Route
+            path="recipe/:id"
+            element={<PrivateRoute redirectTo="/" component={<RecipePage />} />}
+          />
           <Route
             path="add"
             element={
               <PrivateRoute redirectTo="/" component={<AddRecipePage />} />
             }
+          />
+          <Route
+            path="shopping-list"
+            element={
+              <PrivateRoute redirectTo="/" component={<ShoppingListPage />} />
+            }
+          />
+          <Route
+            path="favorite"
+            element={
+              <PrivateRoute redirectTo="/" component={<FavoritePage />} />
+            }
+          />
+          <Route
+            path="search"
+            element={<PrivateRoute redirectTo="/" component={<SearchPage />} />}
           />
           <Route path="*" element={<PageNotFound />} />
         </Route>
