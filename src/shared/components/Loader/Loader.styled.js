@@ -5,4 +5,5 @@ export const StyledLoader = styled.div`
   top: 20%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1000;
 `;

@@ -13,6 +13,7 @@ import { capitalizeInitialLetter } from 'shared/Utils/capitalizeInitialLetter';
 import { useEffect } from 'react';
 import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { nanoid } from 'nanoid';
 
 const SearchTypeSelector = ({
   selectorType,
@@ -84,6 +85,7 @@ const SearchTypeSelector = ({
             <SelectorList>
               {selectorTypesValues.map(value => (
                 <SelectorItem
+                  key={nanoid()}
                   onClick={() => clickSelectorType(value)}
                   className={value === selectorType ? 'active' : ''}
                 >

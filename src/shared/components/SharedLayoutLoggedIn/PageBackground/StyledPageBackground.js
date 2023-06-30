@@ -26,6 +26,7 @@ export const StyledPageBackground = styled.main`
   ${props =>
     props.main &&
     css`
+      min-height: 100vh;
       padding-top: 132px;
       padding-bottom: 100px;
 
@@ -41,6 +42,7 @@ export const StyledPageBackground = styled.main`
   ${props =>
     props.page &&
     css`
+      min-height: 100vh;
       padding-top: 114px;
       padding-bottom: 100px;
 
@@ -57,6 +59,7 @@ export const StyledPageBackground = styled.main`
      ${props =>
     props.ingredientsPage &&
     css`
+      min-height: 100vh;
       padding-top: 32px;
       padding-bottom: 100px;
 

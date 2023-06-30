@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import icons from '../../../shared/sprite.svg';
 import {
   Container,
   Description,
@@ -15,22 +16,24 @@ import {
   TrashIcon,
   UpperContainer,
 } from './FavoriteRecipesList.styled';
-import defaultImg from '../../../shared/images/noImage/noImage.png';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import {
   getFavoriteRecipes,
   toggleFavourite,
 } from 'redux/reduxRecipes/recipesOperations';
-import { contractTitle, contractTitleMob } from 'shared/Utils/contractTitle';
+
 import {
   contractDescription,
   contractDescriptionMob,
 } from 'shared/Utils/contractDescription';
-import { removeFromFavorite } from 'shared/Utils/notifications';
 
-const FavoriteRecipesList = ({ favoriteRecipes, page }) => {
+import defaultImg from '../../../shared/images/noImage/noImage.png';
+import icons from '../../../shared/sprite.svg';
+import { contractTitle, contractTitleMob } from 'shared/Utils/contractTitle';
+import { removeFromFavorite } from 'shared/Utils/notifications';
+import { scrollToTop } from 'shared/Utils/scrollToTop';
+
+const FavoriteRecipesList = ({ recipesList, page }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -53,7 +56,7 @@ const FavoriteRecipesList = ({ favoriteRecipes, page }) => {
 
   return (
     <ul>
-      {favoriteRecipes.map(
+      {recipesList.map(
         ({ id, title, preview, description, time, favorite }) => {
           return (
             favorite && (
@@ -86,7 +89,10 @@ const FavoriteRecipesList = ({ favoriteRecipes, page }) => {
                     <Time>{time} min</Time>
                     <SeeRecipeBtn
                       type="button"
-                      onClick={() => navigate(`/recipe/${id}`)}
+                      onClick={() => {
+                        navigate(`/recipe/${id}`);
+                        scrollToTop();
+                      }}
                     >
                       See recipe
                     </SeeRecipeBtn>

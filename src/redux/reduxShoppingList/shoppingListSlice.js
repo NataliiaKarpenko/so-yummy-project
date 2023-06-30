@@ -7,6 +7,18 @@ import {
 
 const initialState = {
   shoppingList: [],
+  isLoading: false,
+  error: null,
+};
+
+const handlePending = state => {
+  state.isLoading = true;
+  state.error = null;
+};
+
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
 };
 
 export const shoppingListSlice = createSlice({
@@ -22,43 +34,20 @@ export const shoppingListSlice = createSlice({
         state.shoppingList = payload;
       })
 
+      // GET SHOPPING-LIST
+      .addCase(getShoppingList.pending, handlePending)
       .addCase(getShoppingList.fulfilled, (state, { payload }) => {
         state.shoppingList = payload;
+        state.isLoading = false;
+        state.error = null;
       })
+      .addCase(getShoppingList.rejected, handleRejected)
 
       // REMOVE FROM SHOPPING-LIST
 
       .addCase(removeFromShoppingList.fulfilled, (state, { payload }) => {
         state.shoppingList = payload;
       }),
-
-  // GET RECIPES BY CATEGORY
-
-  // .addCase(getRecipesbyCategory.fulfilled, (state, { payload }) => {
-  //   state.recipesbyCategory = {
-  //     recipesList: payload.recipes.map(item => ({
-  //       id: item._id,
-  //       title: item.title,
-  //       preview: item.preview,
-  //       favorite: item.favorite,
-  //     })),
-  //     total: payload.total,
-  //   };
-  // })
-
-  // GET RECIPE BY ID
-  // .addCase(getRecipeById.fulfilled, (state, { payload }) => {
-  //   state.recipeById = {
-  //     id: payload._id,
-  //     title: payload.title,
-  //     description: payload.description,
-  //     favorite: payload.favorite,
-  //     time: payload.time,
-  //     ingredients: payload.ingredients,
-  //     youtube: payload.youtube,
-  //     previewImg: payload.previewImg,
-  //   };
-  // }),
 });
 
 export const shoppingListReducer = shoppingListSlice.reducer;

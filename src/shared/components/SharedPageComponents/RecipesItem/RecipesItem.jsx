@@ -103,9 +103,9 @@ const RecipesItem = ({ id, title, preview, index, marginBottom, favorite }) => {
       if (actionResult.type === 'recipes/togglefavourite/fulfilled') {
         setIsFavorite(!isFavorite);
         if (!isFavorite) {
-          addToFavorite();
+          addToFavorite(value);
         } else {
-          removeFromFavorite();
+          removeFromFavorite(value);
         }
       }
     } catch (e) {

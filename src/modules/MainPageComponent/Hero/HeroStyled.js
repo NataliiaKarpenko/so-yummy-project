@@ -248,7 +248,6 @@ export const StyledBg = styled.div`
 
   @media screen and (min-width: 768px) {
     top: 0;
-    z-index: -1;
     width: 460px;
     height: 650px;
     background-image: url(${img3}), url(${img9});

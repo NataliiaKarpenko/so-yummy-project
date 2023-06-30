@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { notificationError } from 'shared/Utils/notifications';
 
 axios.defaults.baseURL = 'https://so-yumi.p.goit.global/api';
 
@@ -11,6 +12,7 @@ export const getRecipesMainPage = createAsyncThunk(
 
       return response.data;
     } catch (error) {
+      notificationError();
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -24,6 +26,7 @@ export const getCategoriesList = createAsyncThunk(
 
       return response.data;
     } catch (error) {
+      notificationError();
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -52,6 +55,7 @@ export const getRecipeById = createAsyncThunk(
 
       return response.data;
     } catch (error) {
+      notificationError();
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -81,6 +85,7 @@ export const getFavoriteRecipes = createAsyncThunk(
 
       return response.data;
     } catch (error) {
+      notificationError();
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -96,6 +101,7 @@ export const getRecipesByTitleQuery = createAsyncThunk(
 
       return response.data;
     } catch (error) {
+      notificationError();
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -111,6 +117,7 @@ export const getRecipesByIngredientQuery = createAsyncThunk(
 
       return response.data;
     } catch (error) {
+      notificationError();
       return thunkAPI.rejectWithValue(error.message);
     }
   }

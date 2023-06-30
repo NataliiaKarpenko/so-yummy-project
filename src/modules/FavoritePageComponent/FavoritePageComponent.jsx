@@ -21,6 +21,7 @@ const FavoritePageComponent = () => {
   const totalFavoriteRecipes = useSelector(selectTotalFavoriteRecipes);
   const currentPage = useSelector(selectFavoriteRecipesPage);
   const [page, setPage] = useState(1);
+
   const dispatch = useDispatch();
   const totalPages = Math.ceil(totalFavoriteRecipes / 4);
 
@@ -40,28 +41,26 @@ const FavoritePageComponent = () => {
   };
 
   return (
-    <PageBackground page={true}>
-      <StyledContainer>
-        <Title title="Favorites" />
+    <>
+      <PageBackground page={true}>
+        <StyledContainer>
+          <Title title="Favorites" />
 
-        {favoriteRecipes.length === 0 && currentPage === 1 ? (
-          <NoInfoSupplied text="You haven't added a recipe to your favorites  yet..." />
-        ) : (
-          <FavoriteRecipesList
-            favoriteRecipes={favoriteRecipes}
-            page={page}
-            setPage={setPage}
-          />
-        )}
-        {totalPages > 1 && (
-          <BasicPagination
-            page={page}
-            totalPages={totalPages}
-            onChange={handlePageChange}
-          />
-        )}
-      </StyledContainer>
-    </PageBackground>
+          {favoriteRecipes.length === 0 && currentPage === 1 ? (
+            <NoInfoSupplied text="You haven't added a recipe to your favorites  yet..." />
+          ) : (
+            <FavoriteRecipesList recipesList={favoriteRecipes} page={page} />
+          )}
+          {totalPages > 1 && (
+            <BasicPagination
+              page={page}
+              totalPages={totalPages}
+              onChange={handlePageChange}
+            />
+          )}
+        </StyledContainer>
+      </PageBackground>
+    </>
   );
 };
 

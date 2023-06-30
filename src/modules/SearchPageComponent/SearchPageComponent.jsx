@@ -8,6 +8,7 @@ import {
   getRecipesByTitleQuery,
 } from 'redux/reduxRecipes/recipesOperations';
 import {
+  selectLoading,
   selectRecipesByQuery,
   selectTotalRecipesByQuery,
 } from 'redux/reduxRecipes/recipesSelectors';
@@ -21,22 +22,27 @@ import BasicPagination from 'shared/components/SharedPageComponents/Pagination/P
 import { scrollToTop } from 'shared/Utils/scrollToTop';
 import { SearchBar } from './SearchPageComponent.styled';
 import NoInfoSupplied from 'shared/components/SharedPageComponents/NoInfoSupplied/NoInfoSupplied';
+import Loader from 'shared/components/Loader/Loader';
 
 const SearchPageComponent = () => {
   const selectorTypes = { title: 'title', ingredients: 'ingredients' };
   const selectorTypesValues = Object.values(selectorTypes);
+
   const recipesByQuery = useSelector(selectRecipesByQuery);
+
   const totalByQuery = useSelector(selectTotalRecipesByQuery);
+  const isLoading = useSelector(selectLoading);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
   const type = searchParams.get('type') ?? 'title';
 
   const [page, setPage] = useState(1);
-  const [selectorType, setSelectorType] = useState(type);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectorType, setSelectorType] = useState('title');
+  const [recipesList, setRecipesList] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const limit = windowWidth >= 1440 ? 12 : 6;
+  const totalPages = Math.ceil(totalByQuery / limit);
 
   useEffect(() => {
     function handleResize() {
@@ -49,32 +55,26 @@ const SearchPageComponent = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (query) {
-      setSearchQuery(query);
-    }
-  }, [query]);
+    setSelectorType(type);
+  }, [type]);
 
   useEffect(() => {
-    if (query && selectorType === 'ingredients') {
-      dispatch(getRecipesByIngredientQuery({ query, page, limit }));
-    } else if (query && selectorType === 'title') {
-      dispatch(getRecipesByTitleQuery({ query, page, limit }));
+    if (query) {
+      if (selectorType === 'title') {
+        dispatch(getRecipesByTitleQuery({ query, page, limit }));
+      } else if (selectorType === 'ingredients') {
+        dispatch(getRecipesByIngredientQuery({ query, page, limit }));
+      }
     }
   }, [query, page, limit, selectorType, dispatch]);
 
   useEffect(() => {
-    setSelectorType(type);
-    if (searchQuery) {
-      searchParams.set('query', searchQuery);
-    } else {
-      searchParams.delete('query');
+    if (selectorType && query) {
+      setRecipesList(recipesByQuery);
     }
-
-    setSearchParams(searchParams);
-  }, [type, searchParams, setSearchParams, searchQuery, query]);
+  }, [recipesByQuery, selectorType, query]);
 
   const handleSubmit = value => {
-    searchParams.set('type', selectorType);
     searchParams.set('query', value);
     setSearchParams(searchParams);
     setPage(1);
@@ -82,8 +82,14 @@ const SearchPageComponent = () => {
 
   const handleSelectorType = label => {
     setSelectorType(label);
+
     searchParams.set('type', label);
-    searchParams.set('query', searchQuery);
+    if (query) {
+      searchParams.set('query', query);
+    } else {
+      searchParams.delete('query');
+    }
+
     setSearchParams(searchParams);
     setPage(1);
   };
@@ -95,6 +101,7 @@ const SearchPageComponent = () => {
 
   return (
     <PageBackground page={true}>
+      {isLoading && <Loader />}
       <StyledContainer>
         <Title title="Search" />
         <SearchBar>
@@ -105,7 +112,8 @@ const SearchPageComponent = () => {
             selectorTypesValues={selectorTypesValues}
             handleSelectorType={handleSelectorType}
           />
-          {recipesByQuery.length === 0 && (
+          {!isLoading && <RecipesList recipesList={recipesList} />}
+          {!recipesList.length && (
             <NoInfoSupplied
               text={
                 !query
@@ -115,11 +123,11 @@ const SearchPageComponent = () => {
             />
           )}
         </SearchBar>
-        {query && <RecipesList recipesList={recipesByQuery} />}
-        {totalByQuery > 1 && query && (
+
+        {totalPages > 1 && query && (
           <BasicPagination
             page={page}
-            totalPages={totalByQuery}
+            totalPages={totalPages}
             onChange={handlePageChange}
           />
         )}

@@ -21,9 +21,9 @@ const RecipePreparation = ({ instructions, youtube, previewImg, title }) => {
   const modifyInstructions = string => {
     let newString;
     if (!isNaN(string.charAt(0)) && !isNaN(string.charAt(1))) {
-      newString = string.slice(1);
-    } else if (!isNaN(string.charAt(0))) {
       newString = string.slice(2);
+    } else if (!isNaN(string.charAt(0))) {
+      newString = string.slice(1);
     } else {
       newString = string;
     }

@@ -7,7 +7,7 @@ import Loader from '../Loader/Loader';
 
 const SharedLayOutMain = () => {
   return (
-    <div>
+    <div id="root">
       <Header />
       <Suspense fallback={<Loader />}>
         <Outlet />

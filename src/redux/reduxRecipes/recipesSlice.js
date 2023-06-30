@@ -6,17 +6,21 @@ import {
   getRecipesByIngredientQuery,
   getRecipesByTitleQuery,
   getRecipesMainPage,
-  getRecipesbyCategory,
+  // getRecipesbyCategory,
   toggleFavourite,
 } from './recipesOperations';
 
 const initialState = {
+  isLoading: false,
+  error: null,
+
   recipesMainPage: [],
   categoriesList: [],
-  recipesbyCategory: {
-    recipesList: [],
-    total: 0,
-  },
+  recipesList: [],
+  // recipesbyCategory: {
+  //   // recipesList: [],
+  //   total: 0,
+  // },
   recipeById: {
     id: '',
     title: '',
@@ -39,6 +43,16 @@ const initialState = {
   },
 };
 
+const handlePending = state => {
+  state.isLoading = true;
+  state.error = null;
+};
+
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
+
 export const recipesSlice = createSlice({
   name: 'recipes',
   initialState,
@@ -46,11 +60,15 @@ export const recipesSlice = createSlice({
   extraReducers: builder =>
     builder
 
-      // GET RECIPES MAIN PAGE
+      // // GET RECIPES MAIN PAGE
 
+      .addCase(getRecipesMainPage.pending, handlePending)
       .addCase(getRecipesMainPage.fulfilled, (state, { payload }) => {
         state.recipesMainPage = Object.entries(payload);
+        state.isLoading = false;
+        state.error = null;
       })
+      .addCase(getRecipesMainPage.rejected, handleRejected)
 
       // GET CATEGORIES LIST
 
@@ -65,19 +83,21 @@ export const recipesSlice = createSlice({
 
       // GET RECIPES BY CATEGORY
 
-      .addCase(getRecipesbyCategory.fulfilled, (state, { payload }) => {
-        state.recipesbyCategory = {
-          recipesList: payload.recipes.map(item => ({
-            id: item._id,
-            title: item.title,
-            preview: item.preview,
-            favorite: item.favorite,
-          })),
-          total: payload.total,
-        };
-      })
+      // .addCase(getRecipesbyCategory.pending, handlePending)
+      // .addCase(getRecipesbyCategory.fulfilled, (state, { payload }) => {
+      //   state.recipesList = payload.recipes.map(item => ({
+      //     id: item._id,
+      //     title: item.title,
+      //     preview: item.preview,
+      //     favorite: item.favorite,
+      //   }));
+      // state.isLoading = false;
+      // state.error = null;
+      // })
+      // .addCase(getRecipesbyCategory.rejected, handleRejected)
 
       // GET RECIPE BY ID
+      .addCase(getRecipeById.pending, handlePending)
       .addCase(getRecipeById.fulfilled, (state, { payload }) => {
         state.recipeById = {
           id: payload._id,
@@ -91,7 +111,10 @@ export const recipesSlice = createSlice({
           youtube: payload.youtube,
           previewImg: payload.previewImg,
         };
+        state.isLoading = false;
+        state.error = null;
       })
+      .addCase(getRecipeById.rejected, handleRejected)
 
       // GET FAVORITE RECIPES
 
@@ -111,18 +134,22 @@ export const recipesSlice = createSlice({
       })
 
       // TOGGLE FAVORITE RECIPE
+
       .addCase(toggleFavourite.fulfilled, (state, { payload }) => {
         const index = state.favoriteRecipes.favoriteRecipesList.findIndex(
           recipe => recipe.id === payload._id
         );
         state.favoriteRecipes.favoriteRecipesList[index] = payload;
+        state.isLoading = false;
+        state.error = null;
       })
 
       // GET RECIPES BY TITLE QUERY
+      .addCase(getRecipesByTitleQuery.pending, handlePending)
       .addCase(getRecipesByTitleQuery.fulfilled, (state, { payload }) => {
         state.recipesByQuery = {
           recipesByQueryList: payload.recipes.map(item => ({
-            id: item._id,
+            _id: item._id,
             title: item.title,
             preview: item.preview,
             favorite: item.favorite,
@@ -130,9 +157,13 @@ export const recipesSlice = createSlice({
           total: payload.total,
           page: payload.page,
         };
+        state.isLoading = false;
+        state.error = null;
       })
+      .addCase(getRecipesByTitleQuery.rejected, handleRejected)
 
       // GET RECIPES BY INGREDIENT QUERY
+      .addCase(getRecipesByIngredientQuery.pending, handlePending)
       .addCase(getRecipesByIngredientQuery.fulfilled, (state, { payload }) => {
         state.recipesByQuery = {
           recipesByQueryList: payload.recipes.map(item => ({
@@ -144,7 +175,10 @@ export const recipesSlice = createSlice({
           total: payload.total,
           page: payload.page,
         };
-      }),
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(getRecipesByIngredientQuery.rejected, handleRejected),
 });
 
 export const recipesReducer = recipesSlice.reducer;

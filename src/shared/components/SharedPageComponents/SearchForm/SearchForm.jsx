@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import { useEffect, useState } from 'react';
 
 import { validationSchema } from 'shared/Variables/validationSchema';
 import {
@@ -10,18 +11,33 @@ import {
 } from './SearchForm.styled';
 
 const SearchForm = ({ searchQuery, handleSubmit }) => {
+  const [newSearchQuery, setNewSearchQuery] = useState(searchQuery);
+
+  useEffect(() => {
+    if (searchQuery) {
+      console.log(searchQuery);
+      setNewSearchQuery(searchQuery);
+    } else {
+      console.log(searchQuery);
+      setNewSearchQuery('');
+    }
+  }, [searchQuery]);
+
+  useEffect(() => {
+    console.log(newSearchQuery);
+  }, [newSearchQuery]);
+
   return (
     <div>
       <Formik
-        initialValues={{ query: searchQuery || '' }}
+        initialValues={{ query: newSearchQuery || '' }}
         validationSchema={validationSchema.search}
         onSubmit={(
           values,
 
-          { setSubmitting, resetForm }
+          { setSubmitting }
         ) => {
           handleSubmit(values.query);
-
           setSubmitting(false);
         }}
       >
@@ -30,9 +46,7 @@ const SearchForm = ({ searchQuery, handleSubmit }) => {
           setFieldTouched,
           touched,
           errors,
-          resetForm,
           setFieldValue,
-          handleSubmit,
         }) => {
           const error = errors.query && touched.query ? 1 : 0;
           const neutral = !touched.query ? 1 : 0;
@@ -47,7 +61,7 @@ const SearchForm = ({ searchQuery, handleSubmit }) => {
           };
 
           return (
-            <StyledSearchForm onSubmit={handleSubmit}>
+            <StyledSearchForm>
               <StyledFieldBox>
                 <StyledField
                   type="text"

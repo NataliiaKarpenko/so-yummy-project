@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import icons from '../../../shared/sprite.svg';
 import img1 from '../../../shared/images/mainPageImg/hero/heroPlateMobile.png';
 import img2 from '../../../shared/images/mainPageImg/hero/heroPlateMobile@2x.png';
@@ -21,13 +22,12 @@ import {
   StyledHeroText,
   StyledHeroTitle,
 } from './HeroStyled';
-import { useNavigate } from 'react-router-dom';
 
 const Hero = ({ children }) => {
   const navigate = useNavigate();
 
   const handleSubmit = query => {
-    navigate(`/search?type=title&query=${query}`);
+    navigate(`/search?query=${query}`);
   };
 
   return (

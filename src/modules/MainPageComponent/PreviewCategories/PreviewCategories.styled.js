@@ -54,7 +54,7 @@ export const StyledPreviewCategoriesLink = styled(NavLink)`
     margin-bottom: 40px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     margin-bottom: 50px;
   }
 `;

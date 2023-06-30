@@ -5,12 +5,16 @@ import ShoppingList from './ShoppingList/ShoppingList';
 import NoInfoSupplied from 'shared/components/SharedPageComponents/NoInfoSupplied/NoInfoSupplied';
 import { useSelector } from 'react-redux';
 import { selectShoppingList } from 'redux/reduxShoppingList/shoppingList Selectors';
+import { selectLoading } from 'redux/reduxRecipes/recipesSelectors';
+import Loader from 'shared/components/Loader/Loader';
 
 const ShoppingListPageComponent = () => {
   const shoppingList = useSelector(selectShoppingList);
+  const isLoading = useSelector(selectLoading);
 
   return (
     <PageBackground page={true}>
+      {isLoading && <Loader />}
       <StyledContainer>
         <Title title="Shopping list" />
 
