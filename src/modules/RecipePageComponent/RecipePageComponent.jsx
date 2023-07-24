@@ -13,6 +13,7 @@ import Loader from 'shared/components/Loader/Loader';
 
 const RecipePageComponent = () => {
   const {
+    prevPage,
     id,
     title,
     description,
@@ -37,6 +38,7 @@ const RecipePageComponent = () => {
             description={description}
             favorite={favorite}
             time={time}
+            prevPage={prevPage}
           />
           <StyledPageBackground ingredientsPage={true}>
             <StyledContainer>

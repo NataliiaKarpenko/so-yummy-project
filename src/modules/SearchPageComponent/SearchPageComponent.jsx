@@ -25,14 +25,10 @@ import NoInfoSupplied from 'shared/components/SharedPageComponents/NoInfoSupplie
 import Loader from 'shared/components/Loader/Loader';
 
 const SearchPageComponent = () => {
-  const selectorTypes = { title: 'title', ingredients: 'ingredients' };
-  const selectorTypesValues = Object.values(selectorTypes);
-
+  const selectorTypesValues = ['title', 'ingredients'];
   const recipesByQuery = useSelector(selectRecipesByQuery);
-
   const totalByQuery = useSelector(selectTotalRecipesByQuery);
   const isLoading = useSelector(selectLoading);
-
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
   const type = searchParams.get('type') ?? 'title';
@@ -102,6 +98,7 @@ const SearchPageComponent = () => {
   return (
     <PageBackground page={true}>
       {isLoading && <Loader />}
+
       <StyledContainer>
         <Title title="Search" />
         <SearchBar>

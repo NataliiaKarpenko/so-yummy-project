@@ -41,7 +41,7 @@ export const CriteriaBox = styled.p`
   }
 `;
 
-export const Selectorbox = styled.p`
+export const SelectorBox = styled.p`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -112,7 +112,6 @@ export const SelectorList = styled.ul`
   z-index: 10;
 
   padding-top: 8px;
-  padding-left: 14px;
   padding-bottom: 10px;
   background-color: var(--primary-font-color);
   border-radius: 0px 0px 6px 6px;
@@ -134,14 +133,15 @@ export const SelectorList = styled.ul`
   @media screen and (min-width: 1440px) {
     bottom: -80px;
     width: 198px;
-    padding: 14px;
-
+    padding-top: 14px;
+    padding-bottom: 14px;
     font-size: 14px;
     letter-spacing: -0.28px;
   }
 `;
 
 export const SelectorItem = styled.li`
+  padding-left: 14px;
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: all var(--transition-dur-func);
@@ -158,8 +158,7 @@ export const SelectorItem = styled.li`
     color: var(--primary-btn-color);
   }
 
-  &.hover {
-    color: var(--primary-btn-color);
-    scale: 1.01;
+  &.hovered {
+    background-color: var(--secondary-background-color);
   }
 `;

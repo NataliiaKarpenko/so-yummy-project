@@ -20,6 +20,7 @@ const MainPage = lazy(() => import('../pages/MainPage'));
 const CategoriesPage = lazy(() => import('../pages/CategoriesPage'));
 const RecipePage = lazy(() => import('../pages/RecipePage'));
 const AddRecipePage = lazy(() => import('../pages/AddRecipePage'));
+const MyRecipesPage = lazy(() => import('../pages/MyRecipesPage'));
 const ShoppingListPage = lazy(() => import('../pages/ShoppingListPage'));
 const FavoritePage = lazy(() => import('../pages/FavoritePage'));
 const SearchPage = lazy(() => import('../pages/SearchPage'));
@@ -96,6 +97,13 @@ export const App = () => {
             path="add"
             element={
               <PrivateRoute redirectTo="/" component={<AddRecipePage />} />
+            }
+          />
+
+          <Route
+            path="my"
+            element={
+              <PrivateRoute redirectTo="/" component={<MyRecipesPage />} />
             }
           />
           <Route

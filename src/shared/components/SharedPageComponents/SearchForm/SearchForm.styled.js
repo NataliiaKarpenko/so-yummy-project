@@ -42,7 +42,10 @@ export const StyledFieldBox = styled.div`
 
 export const StyledField = styled(Field)`
   width: 100%;
-  padding: 17px 32px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  padding-left: 32px;
+  padding-right: 113px;
   outline: none;
   border-radius: 24px 44px;
   border: 1px solid;
@@ -72,11 +75,16 @@ export const StyledField = styled(Field)`
   color: var(--secondary-font-color);
 
   @media screen and (min-width: 768px) {
-    padding: 18px 38px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 38px;
+    padding-right: 161px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: 23px 48px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    padding-left: 48px;
   }
 
   &::placeholder {
@@ -88,40 +96,6 @@ export const StyledField = styled(Field)`
     @media screen and (min-width: 768px) {
       font-size: 16px;
     }
-  }
-`;
-
-export const StyledSearchBtn = styled.button`
-  position: absolute;
-  top: 0;
-  right: -2px;
-
-  padding: 16px 32px;
-  height: 52px;
-  background-color: var(--secondary-btn-color);
-  border: none;
-  border-radius: 24px 44px;
-
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--primary-font-color);
-
-  transition: all var(--transition-dur-func);
-
-  @media screen and (min-width: 768px) {
-    padding: 18px 45px;
-    height: 59px;
-    font-size: 16px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    padding: 23px 55px;
-    height: 71px;
-  }
-
-  &:hover {
-    background-color: var(--primary-btn-color);
   }
 `;
 

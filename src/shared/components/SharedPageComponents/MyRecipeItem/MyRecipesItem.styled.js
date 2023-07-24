@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const FavoriteRecipesItem = styled.li`
@@ -117,7 +118,20 @@ export const TrashBtn = styled.button`
 
   border: none;
   border-radius: 4px;
-  background: var(--secondary-background-color);
+  transition: all var(--transition-dur-func);
+  /* background: var(--secondary-background-color); */
+  background: ${props => {
+    switch (props.status) {
+      case '/my':
+        return 'var(--primary-btn-color)';
+
+      case '/favorite':
+        return 'var(--secondary-background-color)';
+
+      default:
+        return;
+    }
+  }};
 
   @media screen and (min-width: 768px) {
     width: 38px;
@@ -128,19 +142,46 @@ export const TrashBtn = styled.button`
     width: 44px;
     height: 44px;
   }
+
+  &:hover {
+    scale: 1.01;
+    svg {
+      stroke: ${props => {
+        switch (props.status) {
+          case '/my':
+            return 'var(--secondary-btn-color)';
+
+          case '/favorite':
+            return 'var(--primary-btn-color)';
+
+          default:
+            return;
+        }
+      }};
+
+      scale: 1.01;
+    }
+  }
 `;
 
 export const TrashIcon = styled.svg`
   width: 14px;
   height: 14px;
   fill: transparent;
-  stroke: var(--secondary-btn-color);
   transition: all var(--transition-dur-func);
 
-  &:hover {
-    scale: 1.01;
-    stroke: var(--primary-btn-color);
-  }
+  stroke: ${props => {
+    switch (props.status) {
+      case '/my':
+        return 'var(--primary-font-color)';
+
+      case '/favorite':
+        return 'var(--secondary-btn-color)';
+
+      default:
+        return;
+    }
+  }};
 
   @media screen and (min-width: 768px) {
     width: 22px;
@@ -172,7 +213,7 @@ export const Time = styled.p`
   }
 `;
 
-export const SeeRecipeBtn = styled.button`
+export const SeeRecipeLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,12 +225,36 @@ export const SeeRecipeBtn = styled.button`
 
   border: none;
   border-radius: 24px 44px;
-  background-color: var(--secondary-btn-color);
   transition: all var(--transition-dur-func);
+
+  background-color: ${props => {
+    switch (props.status) {
+      case '/my':
+        return 'var(--primary-btn-color)';
+
+      case '/favorite':
+        return 'var(--secondary-btn-color)';
+
+      default:
+        return;
+    }
+  }};
 
   &:hover {
     scale: 1.01;
-    background-color: var(--primary-btn-color);
+
+    background-color: ${props => {
+      switch (props.status) {
+        case '/my':
+          return 'var(--secondary-btn-color)';
+
+        case '/favorite':
+          return 'var(--primary-btn-color)';
+
+        default:
+          return;
+      }
+    }};
   }
 
   @media screen and (min-width: 768px) {

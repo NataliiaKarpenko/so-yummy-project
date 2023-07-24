@@ -20,11 +20,13 @@
 <symbol id="footer-email" viewBox="0 0 41 32"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.743" d="M5.943 2.286H35.2c.969.003 1.898.365 2.583 1.007s1.071 1.513 1.074 2.421v20.571c-.003.909-.389 1.779-1.074 2.421s-1.614 1.005-2.583 1.007H5.943c-.969-.003-1.898-.365-2.583-1.007s-1.071-1.513-1.074-2.421V5.714c.003-.908.389-1.779 1.074-2.421s1.614-1.004 2.583-1.007v0z" /><path  stroke-linecap="round" stroke-linejoin="round" stroke-width="2.743" d="m38.857 5.713-18.286 12-18.286-12" /></symbol>
 
 <symbol id="menu" viewBox="0 0 32 32"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16h24M4 8h24M4 24h16"/></symbol>
-<symbol id="icon-Minus" viewBox="0 0 32 32"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 16h22"/></symbol>
+
+<symbol id="minus" viewBox="0 0 32 32"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 16h22"/></symbol>
 
 <symbol id="pick" viewBox="0 0 32 32"><path  d="M26.151 1.405a3.2 3.2 0 1 1 5.297 3.591L14.092 30.595c-1.269 1.872-4.028 1.872-5.297 0L.551 18.435a3.199 3.199 0 1 1 5.297-3.591l5.595 8.253L26.15 1.404z" /></symbol>
 
 <symbol id="plus" viewBox="0 0 32 32"><path   stroke-linecap="round" stroke-linejoin="round" stroke-width="3.556" d="M16 6.667v18.667M6.667 16h18.667" /></symbol>
+
 <symbol id="icon-Rectangle-11" viewBox="0 0 32 32"><path fill="#8baa36" d="m4.834 7.524 12.89-6.011a5.333 5.333 0 0 1 7.088 2.58l6.011 12.89a5.333 5.333 0 0 1-2.58 7.088l-12.89 6.011a5.333 5.333 0 0 1-7.088-2.58l-6.011-12.89a5.333 5.333 0 0 1 2.58-7.088z" style="fill:var(--color2, #8baa36)"/></symbol>
 
 <symbol id="search" viewBox="0 0 32 32"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.667" d="M14.667 25.333c5.891 0 10.667-4.776 10.667-10.667S20.558 3.999 14.667 3.999 4 8.775 4 14.666s4.776 10.667 10.667 10.667zM28 28l-5.8-5.8"/></symbol>

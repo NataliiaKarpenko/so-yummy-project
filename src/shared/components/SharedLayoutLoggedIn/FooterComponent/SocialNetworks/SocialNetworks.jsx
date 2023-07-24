@@ -1,38 +1,48 @@
 import icons from '../../../../sprite.svg';
 import {
+  FacebookIcon,
+  InstagramIcon,
   StyledSocialNetworks,
   StyledSocialNetworksLink,
+  TwitterIcon,
+  YoutubeIcon,
 } from './SocialNetworks.styled';
 
-const SocialNetworks = () => {
+const SocialNetworks = ({ poprec }) => {
   return (
-    <StyledSocialNetworks>
+    <StyledSocialNetworks poprec={poprec}>
       <li>
-        <StyledSocialNetworksLink to="https://www.facebook.com/">
-          <svg aria-label="facebook-logo" width="20" height="20">
+        <StyledSocialNetworksLink
+          to="https://www.facebook.com/"
+          poprec={poprec}
+        >
+          <FacebookIcon aria-label="facebook-logo" poprec={poprec}>
             <use href={icons + '#facebook'}></use>
-          </svg>
+          </FacebookIcon>
         </StyledSocialNetworksLink>
       </li>
       <li>
-        <StyledSocialNetworksLink to="https://m.youtube.com/">
-          <svg aria-label="youtube-logo" width="20" height="15">
+        <StyledSocialNetworksLink to="https://m.youtube.com/" poprec={poprec}>
+          <YoutubeIcon aria-label="youtube-logo" poprec={poprec}>
             <use href={icons + '#youtube'}></use>
-          </svg>
+          </YoutubeIcon>
         </StyledSocialNetworksLink>
       </li>
       <li>
-        <StyledSocialNetworksLink to="https://twitter.com/">
-          <svg aria-label="twitter-logo" width="20" height="16">
+        <StyledSocialNetworksLink to="https://twitter.com/" poprec={poprec}>
+          <TwitterIcon aria-label="twitter-logo" popRec={poprec}>
             <use href={icons + '#twitter'}></use>
-          </svg>
+          </TwitterIcon>
         </StyledSocialNetworksLink>
       </li>
       <li>
-        <StyledSocialNetworksLink to="https://www.instagram.com/">
-          <svg aria-label="instagram-logo" width="20" height="20">
+        <StyledSocialNetworksLink
+          to="https://www.instagram.com/"
+          poprec={poprec}
+        >
+          <InstagramIcon aria-label="instagram-logo" poprec={poprec}>
             <use href={icons + '#instagram'}></use>
-          </svg>
+          </InstagramIcon>
         </StyledSocialNetworksLink>
       </li>
     </StyledSocialNetworks>

@@ -33,7 +33,6 @@ export const StyledCloseBtn = styled.button`
       height: 20px;
 
       @media screen and (min-width: 768px) {
-        position: absolute;
         top: 24px;
         right: 24px;
         width: 24px;
@@ -69,5 +68,55 @@ export const StyledCloseBtn = styled.button`
           height: 28px;
         }
       }
+    `}
+
+     ${props =>
+    props.deleteDishPhotoBtn &&
+    css`
+      position: absolute;
+      top: -13px;
+      right: -13px;
+      width: 30px;
+      height: 30px;
+
+      background-color: var(--primary-btn-color);
+      border-radius: 50%;
+
+      @media screen and (min-width: 768px) {
+        top: -18px;
+        right: -18px;
+        width: 40px;
+        height: 40px;
+      }
+
+      svg {
+        stroke: var(--primary-font-color);
+        width: 20px;
+        height: 20px;
+
+        @media screen and (min-width: 768px) {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    `}
+
+    ${props =>
+    props.ingredientFieldBtn &&
+    css`
+      width: 18px;
+      height: 18px;
+      margin-left: auto;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+      /* @media screen and (min-width: 768px) {
+        top: 24px;
+        right: 24px;
+        width: 24px;
+        height: 24px;
+      } */
     `}
 `;

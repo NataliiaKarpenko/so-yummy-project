@@ -57,4 +57,39 @@ export const validationSchema = {
       )
       .required('Enter a key word, please'),
   }),
+
+  select: Yup.object().shape({
+    fullImage: Yup.mixed()
+      .test('file', 'Required', function (value) {
+        if (this.parent.fullImage && this.parent.fullImage instanceof File) {
+          return true; // Valid, a file is selected
+        }
+        return false; // Not valid, no file selected
+      })
+      .test('fileSize', 'File too large', value => {
+        if (!value) return true; // No file selected, so we skip validation
+        return value.size <= 100 * 1024;
+      }),
+    title: Yup.string().required('Required'),
+    description: Yup.string().required('Required'),
+    category: Yup.string().required('Required'),
+    ingredients: Yup.array()
+      .of(
+        Yup.object({
+          title: Yup.string().required('Required'),
+          amount: Yup.string()
+            .required('Required')
+            .matches(/^[0-9.]/, 'Only digits'),
+        })
+      )
+      .test(
+        'at-least-one-ingredient',
+        'At least one ingredient is required',
+        function (value) {
+          return Array.isArray(value) && value.length > 0;
+        }
+      ),
+    time: Yup.string().required('Required'),
+    instructions: Yup.string().required('Required'),
+  }),
 };

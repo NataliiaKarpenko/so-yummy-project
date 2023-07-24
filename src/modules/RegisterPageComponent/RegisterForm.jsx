@@ -15,7 +15,7 @@ import {
 import { validationSchema } from '../../shared/Variables/validationSchema';
 import { signup } from 'redux/reduxAuth/authOperations';
 
-const RegisterForm = ({ status }) => {
+const RegisterForm = () => {
   const dispatch = useDispatch();
 
   return (
@@ -23,7 +23,6 @@ const RegisterForm = ({ status }) => {
       initialValues={{ name: '', email: '', password: '' }}
       validationSchema={validationSchema.signup}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        console.log(values);
         dispatch(
           signup({
             name: values.name,

@@ -6,26 +6,20 @@ import {
   StyledSearchForm,
   StyledFieldBox,
   StyledField,
-  StyledSearchBtn,
   StyledErrorMessage,
 } from './SearchForm.styled';
+import SubmitFormButton from '../Button/SubmitFormButton';
 
 const SearchForm = ({ searchQuery, handleSubmit }) => {
   const [newSearchQuery, setNewSearchQuery] = useState(searchQuery);
 
   useEffect(() => {
     if (searchQuery) {
-      console.log(searchQuery);
       setNewSearchQuery(searchQuery);
     } else {
-      console.log(searchQuery);
       setNewSearchQuery('');
     }
   }, [searchQuery]);
-
-  useEffect(() => {
-    console.log(newSearchQuery);
-  }, [newSearchQuery]);
 
   return (
     <div>
@@ -73,9 +67,12 @@ const SearchForm = ({ searchQuery, handleSubmit }) => {
                   onFocus={handleInputFocus}
                   onBlur={handleInputBlur}
                 />
-                <StyledSearchBtn type="submit" disabled={isSubmitting}>
-                  Search
-                </StyledSearchBtn>
+                <SubmitFormButton
+                  type="submit"
+                  disabled={isSubmitting}
+                  text="Search"
+                  searchForm={true}
+                />
               </StyledFieldBox>
 
               <StyledErrorMessage name="query" component="p" />

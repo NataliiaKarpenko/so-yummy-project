@@ -78,7 +78,7 @@ const UserInfoModal = ({ showUserInfoModal, setShowUserInfoModal }) => {
             : formData.append('name', prevUserName);
 
           avatarFile && formData.append('avatar', avatarFile);
-          console.log(avatarFile);
+
           const actionResult = await dispatch(updateCurrentUser(formData));
 
           if (actionResult.type === 'auth/updateCurrentUser/fulfilled') {

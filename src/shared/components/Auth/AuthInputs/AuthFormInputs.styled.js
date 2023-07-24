@@ -183,7 +183,7 @@ export const StyledInfoIcon = styled.svg`
       case 'error':
         return 'var(--error-color)';
       case 'warning':
-        return 'fill: var(--warning-color)';
+        return 'var(--warning-color)';
       case 'success':
         return 'var(--success-color)';
       default:

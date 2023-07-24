@@ -28,7 +28,14 @@ import {
   removeFromFavorite,
 } from 'shared/Utils/notifications';
 
-const RecipePageHero = ({ id, title, description, favorite, time }) => {
+const RecipePageHero = ({
+  id,
+  title,
+  description,
+  favorite,
+  time,
+  prevPage,
+}) => {
   const [isFavorite, setIsFavorite] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showMotivation, setShowMotivation] = useState(false);
@@ -126,21 +133,23 @@ const RecipePageHero = ({ id, title, description, favorite, time }) => {
           <StyledRecipePageTitle>{title}</StyledRecipePageTitle>
           <StyledRecipePageText>{description}</StyledRecipePageText>
         </StyledHeroPageInfoContainer>
-        <StyledHeroPageBtn
-          type="button"
-          onClick={() => handleRecipePageBtnToggler(id)}
-        >
-          {isLoading && (
-            <RotatingLines
-              strokeColor="grey"
-              strokeWidth="2"
-              animationDuration="0.75"
-              width="30"
-              visible={true}
-            />
-          )}
-          {!isLoading && <span>{string}</span>}
-        </StyledHeroPageBtn>
+        {prevPage && (
+          <StyledHeroPageBtn
+            type="button"
+            onClick={() => handleRecipePageBtnToggler(id)}
+          >
+            {isLoading && (
+              <RotatingLines
+                strokeColor="grey"
+                strokeWidth="2"
+                animationDuration="0.75"
+                width="30"
+                visible={true}
+              />
+            )}
+            {!isLoading && <span>{string}</span>}
+          </StyledHeroPageBtn>
+        )}
         <StyledTimeContainer>
           <StyledTimeSvg>
             <use href={icons + '#clock'}></use>

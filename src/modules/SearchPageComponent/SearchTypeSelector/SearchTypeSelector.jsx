@@ -1,28 +1,29 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
+import { useRef } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import { nanoid } from 'nanoid';
+
 import {
   CriteriaBox,
   Icon,
   SelectorContainer,
   SelectorItem,
   SelectorList,
-  Selectorbox,
+  SelectorBox,
   StyledSearchTypeSelector,
 } from './SearchTypeSelector.styled';
 import icons from '../../../shared/sprite.svg';
 import { capitalizeInitialLetter } from 'shared/Utils/capitalizeInitialLetter';
-import { useEffect } from 'react';
-import { useRef } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import { nanoid } from 'nanoid';
 
 const SearchTypeSelector = ({
   selectorType,
-
   handleSelectorType,
   selectorTypesValues,
 }) => {
   const [showSelector, setShowSelector] = useState(false);
   const selectorRef = useRef();
+  const [hovered, setHovered] = useState(selectorType);
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -58,6 +59,7 @@ const SearchTypeSelector = ({
 
   const clickSelectorType = string => {
     handleSelectorType(string);
+    setHovered(string);
     setShowSelector(false);
   };
   return (
@@ -65,14 +67,14 @@ const SearchTypeSelector = ({
       <SelectorContainer>
         <CriteriaBox>Search by:</CriteriaBox>
 
-        <Selectorbox onClick={showSelectorToggler}>
+        <SelectorBox onClick={showSelectorToggler}>
           <span>
             {selectorType ? capitalizeInitialLetter(selectorType) : 'Title'}
           </span>
           <Icon>
             <use href={icons + '#shevronUp'}></use>
           </Icon>
-        </Selectorbox>
+        </SelectorBox>
       </SelectorContainer>
       <CSSTransition
         in={showSelector}
@@ -83,15 +85,24 @@ const SearchTypeSelector = ({
         <>
           {showSelector && (
             <SelectorList>
-              {selectorTypesValues.map(value => (
-                <SelectorItem
-                  key={nanoid()}
-                  onClick={() => clickSelectorType(value)}
-                  className={value === selectorType ? 'active' : ''}
-                >
-                  {capitalizeInitialLetter(value)}
-                </SelectorItem>
-              ))}
+              {selectorTypesValues.map(value => {
+                const isHovered = value === hovered;
+
+                const isActive = value === selectorType;
+                return (
+                  <SelectorItem
+                    key={nanoid()}
+                    className={`${isHovered ? 'hovered' : ''} ${
+                      isActive ? 'active' : ''
+                    }`}
+                    onClick={() => clickSelectorType(value)}
+                    onMouseEnter={() => setHovered(value)}
+                    onMouseLeave={() => setHovered(null)}
+                  >
+                    {capitalizeInitialLetter(value)}
+                  </SelectorItem>
+                );
+              })}
             </SelectorList>
           )}
         </>

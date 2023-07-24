@@ -23,3 +23,16 @@ export const contractDescriptionMob = string => {
   }
   return newString;
 };
+
+export const contractPopularRecipesDescription = string => {
+  let newString = '';
+  let arr = string.split(' ');
+  let newArr = [];
+  if (arr.length > 15) {
+    newArr = arr.splice(0, 15);
+    newString = `${newArr.join(' ')}...`;
+  } else {
+    newString = string;
+  }
+  return newString;
+};

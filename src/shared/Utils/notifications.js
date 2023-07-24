@@ -81,3 +81,15 @@ export const removeFromFavorite = () => {
     toastId: 'removeFromFavorite',
   });
 };
+
+export const addToMyRecipes = () => {
+  toast.success('The recipe has been added to your own list of rercipes. ', {
+    toastId: 'addToMyRecipes',
+  });
+};
+
+export const removeFromMyRecipes = () => {
+  toast.info('The recipe has been removed from your own list of recipes. ', {
+    toastId: 'removeFromMyRecipes',
+  });
+};
