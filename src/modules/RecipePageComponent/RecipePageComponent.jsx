@@ -11,9 +11,8 @@ import { StyledPageBackground } from 'shared/components/SharedLayoutLoggedIn/Pag
 import { StyledContainer } from 'shared/components/Container/Container.styled';
 import Loader from 'shared/components/Loader/Loader';
 
-const RecipePageComponent = () => {
+const RecipePageComponent = ({ prevPage }) => {
   const {
-    prevPage,
     id,
     title,
     description,

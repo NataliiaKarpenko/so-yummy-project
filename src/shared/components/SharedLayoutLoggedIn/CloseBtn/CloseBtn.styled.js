@@ -44,11 +44,11 @@ export const StyledCloseBtn = styled.button`
     props.motivationBtn &&
     css`
       position: absolute;
-      top: 150px;
+      top: 128px;
       left: 50%;
       transform: translate(-50%);
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       background-color: var(--primary-btn-color);
       border-radius: 50%;
 
@@ -112,11 +112,5 @@ export const StyledCloseBtn = styled.button`
         width: 18px;
         height: 18px;
       }
-      /* @media screen and (min-width: 768px) {
-        top: 24px;
-        right: 24px;
-        width: 24px;
-        height: 24px;
-      } */
     `}
 `;

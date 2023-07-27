@@ -29,7 +29,8 @@ export const DropDownBox = styled(Field)`
   height: calc((6 * 18px) + (8px * 2) + (6px * 5));
   padding-top: 8px;
   padding-bottom: 8px;
-  background-color: var(--form-hover-state-color);
+  /* background-color: var(--form-hover-state-color); */
+  background-color: ${props => props.theme.select.dropDownBackground};
   border-radius: 6px;
   box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
     rgba(0, 0, 0, 0.03);

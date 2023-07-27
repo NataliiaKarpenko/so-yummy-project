@@ -108,13 +108,13 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
                 )}
                 onChange={option => {
                   const updatedIngredients = [...values.ingredients];
-                  console.log(updatedIngredients);
+
                   updatedIngredients[index].title = option ? option.value : '';
                   form.setFieldValue(
                     `ingredients[${index}].title`,
                     updatedIngredients[index].title
                   );
-                  console.log(field);
+
                   updatedIngredients[index].id = option ? option.id : '';
                   form.setFieldValue(
                     `ingredients[${index}].id`,

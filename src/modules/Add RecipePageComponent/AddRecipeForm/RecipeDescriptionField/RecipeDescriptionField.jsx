@@ -66,7 +66,7 @@ const RecipeDescriptionField = ({ setDishPhotoURL, dishPhotoURL }) => {
           accept={'image/jpeg,image/png,image/gif'}
           onChange={event => {
             const file = event.currentTarget.files[0];
-            console.log(file);
+
             setDishPhotoURL(URL.createObjectURL(file));
             setFieldValue('fullImage', file);
           }}

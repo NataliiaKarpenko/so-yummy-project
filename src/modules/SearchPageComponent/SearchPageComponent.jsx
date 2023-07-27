@@ -35,6 +35,7 @@ const SearchPageComponent = () => {
 
   const [page, setPage] = useState(1);
   const [selectorType, setSelectorType] = useState('title');
+  const [hovered, setHovered] = useState(selectorType);
   const [recipesList, setRecipesList] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const limit = windowWidth >= 1440 ? 12 : 6;
@@ -52,6 +53,7 @@ const SearchPageComponent = () => {
 
   useEffect(() => {
     setSelectorType(type);
+    setHovered(type);
   }, [type]);
 
   useEffect(() => {
@@ -108,6 +110,8 @@ const SearchPageComponent = () => {
             selectorType={selectorType}
             selectorTypesValues={selectorTypesValues}
             handleSelectorType={handleSelectorType}
+            hovered={hovered}
+            setHovered={setHovered}
           />
           {!isLoading && <RecipesList recipesList={recipesList} />}
           {!recipesList.length && (

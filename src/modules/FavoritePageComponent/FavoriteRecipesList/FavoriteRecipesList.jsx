@@ -6,6 +6,7 @@ import {
   getFavoriteRecipes,
   toggleFavourite,
 } from 'redux/reduxRecipes/recipesOperations';
+import { Fragment } from 'react';
 
 const FavoriteRecipesList = ({ recipesList, page }) => {
   const dispatch = useDispatch();
@@ -23,14 +24,16 @@ const FavoriteRecipesList = ({ recipesList, page }) => {
         ({ id, title, preview, description, time, favorite }) => {
           return (
             favorite && (
-              <MyRecipesItem
-                id={id}
-                title={title}
-                preview={preview}
-                description={description}
-                time={time}
-                onHandleDelete={onHandleDelete}
-              />
+              <Fragment key={id}>
+                <MyRecipesItem
+                  id={id}
+                  title={title}
+                  preview={preview}
+                  description={description}
+                  time={time}
+                  onHandleDelete={onHandleDelete}
+                />
+              </Fragment>
             )
           );
         }

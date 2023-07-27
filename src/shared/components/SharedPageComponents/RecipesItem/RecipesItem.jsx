@@ -5,8 +5,6 @@ import { useDispatch } from 'react-redux';
 import Motivation from '../Motivations/Motivation';
 import icons from '../../../sprite.svg';
 import { contractTitle } from 'shared/Utils/contractTitle';
-import motivation1x from '../../../images/motivations/motivationFavorite/motivationFavorite.jpeg';
-import motivation2x from '../../../images/motivations/motivationFavorite/motivationFavorite.jpeg';
 
 import {
   StyledRecipesItem,
@@ -136,8 +134,6 @@ const RecipesItem = ({ id, title, preview, index, marginBottom, favorite }) => {
         <Motivation
           handleBackdropClick={handleBackdropClick}
           closeBtnHandler={closeBtnHandler}
-          motivation1x={motivation1x}
-          motivation2x={motivation2x}
         />
       )}
     </StyledRecipesItem>

@@ -49,7 +49,7 @@ const MyRecipesPageComponent = () => {
       <PageBackground page={true}>
         {isLoading && <Loader />}
         <StyledContainer>
-          <Title title="Favorites" />
+          <Title title="My Recipes" />
 
           {!isLoading && myRecipesList?.length === 0 && currentPage === 1 ? (
             <NoInfoSupplied text="You haven't added a recipe yet..." />

@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
+import { ThemeProvider } from 'styled-components';
 
 import SharedLayOutGeneral from 'shared/SharedLayoutGeneral';
 import SharedLayOutMain from 'shared/components/SharedLayouts/SharedLayoutMain';
@@ -7,11 +8,13 @@ import SharedLayOutMain from 'shared/components/SharedLayouts/SharedLayoutMain';
 import { RestrictedRoute } from 'shared/routes/RestrictedRoute';
 import { PrivateRoute } from 'shared/routes/PrivateRoute';
 import { Flip, ToastContainer } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUser } from 'redux/reduxAuth/authOperations';
 import { useAuth } from 'shared/hooks/useAuth';
 import { GlobalStyle } from 'Styles/GlobalStyles';
 import Loader from 'shared/components/Loader/Loader';
+import { Theme, setTheme } from 'Styles/Theme';
+import { selectTheme } from 'redux/reduxTheme/themeSelector';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -29,6 +32,8 @@ const PageNotFound = lazy(() => import('../pages/PageNotFound'));
 export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
+  const theme = useSelector(selectTheme);
+  const isLight = theme === 'light';
 
   useEffect(() => {
     dispatch(getCurrentUser());
@@ -37,7 +42,7 @@ export const App = () => {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <div>
+    <Theme>
       <GlobalStyle />
 
       <ToastContainer
@@ -125,6 +130,6 @@ export const App = () => {
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
-    </div>
+    </Theme>
   );
 };

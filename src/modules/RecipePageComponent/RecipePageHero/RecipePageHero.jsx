@@ -4,8 +4,6 @@ import { RotatingLines } from 'react-loader-spinner';
 
 import { StyledContainer } from 'shared/components/Container/Container.styled';
 import Motivation from 'shared/components/SharedPageComponents/Motivations/Motivation';
-import motivation1x from '../../../shared/images/motivations/motivationFavorite/motivationFavorite.jpeg';
-import motivation2x from '../../../shared/images/motivations/motivationFavorite/motivationFavorite.jpeg';
 import icons from '../../../shared/sprite.svg';
 
 import {
@@ -123,8 +121,6 @@ const RecipePageHero = ({
       {showMotivation && (
         <Motivation
           handleBackdropClick={handleBackdropClick}
-          motivation1x={motivation1x}
-          motivation2x={motivation2x}
           closeBtnHandler={closeBtnHandler}
         />
       )}
@@ -133,7 +129,7 @@ const RecipePageHero = ({
           <StyledRecipePageTitle>{title}</StyledRecipePageTitle>
           <StyledRecipePageText>{description}</StyledRecipePageText>
         </StyledHeroPageInfoContainer>
-        {prevPage && (
+        {!prevPage && (
           <StyledHeroPageBtn
             type="button"
             onClick={() => handleRecipePageBtnToggler(id)}

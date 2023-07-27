@@ -28,7 +28,7 @@ export const StyledSocialNetworksLink = styled(NavLink)`
   &:hover {
     scale: 1.01;
     fill: ${props =>
-      props.popRec
+      props.poprec
         ? 'var(--secondary-btn-color)'
         : 'var(--secondary-background-color)'};
   }

@@ -53,6 +53,7 @@ export const StyledSearchBtn = styled.button`
   
 
   &:hover {
+    scale: 1.01;
     background-color: var(--primary-btn-color);
   }
 `;

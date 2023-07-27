@@ -20,10 +20,11 @@ const SearchTypeSelector = ({
   selectorType,
   handleSelectorType,
   selectorTypesValues,
+  hovered,
+  setHovered,
 }) => {
   const [showSelector, setShowSelector] = useState(false);
   const selectorRef = useRef();
-  const [hovered, setHovered] = useState(selectorType);
 
   useEffect(() => {
     const handleKeyDown = e => {

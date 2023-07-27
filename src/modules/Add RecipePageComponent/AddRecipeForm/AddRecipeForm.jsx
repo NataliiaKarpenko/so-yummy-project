@@ -14,11 +14,10 @@ import { addToMyRecipes } from 'shared/Utils/notifications';
 
 const AddRecipeForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [counterValue, setCounterValue] = useState(0);
   const [dishPhotoURL, setDishPhotoURL] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
-  const navigate = useNavigate();
 
   return (
     <Formik
@@ -67,6 +66,7 @@ const AddRecipeForm = () => {
             setSubmitting(false);
             setCounterValue(0);
             setDishPhotoURL('');
+
             navigate('/my');
             resetForm();
           }
