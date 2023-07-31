@@ -94,13 +94,13 @@ export const StyledLogoutBtn = styled(StyledLogoutModalBtn)`
     border: 1px solid ${props => props.theme.button.logoutBorder};
     background-color: ${props => props.theme.button.hover};
     scale: 1.01;
-    color: ${props => props.theme.socialNetworks.background};
+    color: ${props => props.theme.text.logoutHover};
   }
 `;
 
 export const StyledCancelBtn = styled(StyledLogoutModalBtn)`
   color: ${props => props.theme.globalColors.personalDataText};
-  background: var(--default-background-color);
+  background: #d9d9d9;
   border: 1px solid transparent;
 
   &:hover {

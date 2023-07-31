@@ -8,8 +8,6 @@ const ThemeToggler = () => {
   const dispatch = useDispatch();
   const isLight = useSelector(selectThemeIsLight);
 
-  console.log(isLight);
-
   const onToggleTheme = () => {
     dispatch(toggleTheme());
   };

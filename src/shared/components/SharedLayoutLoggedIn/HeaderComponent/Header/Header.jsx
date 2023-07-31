@@ -22,7 +22,7 @@ const Header = () => {
   const mainMenuBtn =
     location.pathname === '/main' && windowWidth >= 768 && windowWidth < 830;
   const mainUserInfo = location.pathname === '/main' && windowWidth >= 1440;
-  const recipe = location.pathname.includes('/recipe') ? true : false;
+  const recipe = location.pathname.includes('/recipe') ? 1 : 0;
 
   useEffect(() => {
     function handleResize() {
