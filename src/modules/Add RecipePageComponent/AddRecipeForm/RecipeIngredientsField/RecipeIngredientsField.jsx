@@ -144,10 +144,6 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       '& .css-hlgwow': {
         padding: 0,
       },
-
-      // '& .css-1xc3v61-indicatorContainer': {
-      //   padding: '0',
-      // },
     }),
 
     dropdownIndicator: () => ({
