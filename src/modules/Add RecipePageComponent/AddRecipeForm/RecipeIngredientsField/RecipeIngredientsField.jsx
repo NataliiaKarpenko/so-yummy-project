@@ -152,11 +152,10 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
           width: '20px',
           height: '20px',
         },
-
-        '&:hover': {
-          fill: theme.globalColors.accentPrimary,
-          scale: '1.01',
-        },
+      },
+      '& .css-tj5bde-Svg:hover': {
+        fill: theme.globalColors.accentPrimary,
+        scale: '1.01',
       },
 
       '& .css-1fdsijx-ValueContainer': {
@@ -523,10 +522,10 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
                   option => option.value === field.value
                 )}
                 onChange={option => {
-                  console.log(option.value);
                   setFieldValue(field.name, option.value);
                 }}
                 onBlur={field.onBlur}
+                menuPosition={'fixed'}
                 isSearchable={false}
               />
             )}
