@@ -267,7 +267,6 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
 
   const customAmountSelect = {
     option: (provided, state) => ({
-      ...provided,
       minHeight: '18px',
       paddingLeft: '28px',
       fontSize: '12px',
@@ -284,13 +283,19 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
 
       '@media screen and (min-width: 768px)': {
         paddingLeft: '33px',
-        height: '21px',
+        minHeight: '21px',
         fontSize: '14px',
+      },
+
+      '@media screen and (min-width: 1440px)': {
+        minHeight: '24px',
       },
     }),
 
     control: () => ({
-      position: 'relative',
+      // ===============
+      display: 'flex',
+      alignItems: 'center',
       width: '50px',
       height: '53px',
       paddingBottom: '16px',
@@ -332,15 +337,23 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       //   position: 'relative',
       // },
 
-      '& .css-1fdsijx-ValueContainer': {
-        padding: 0,
-        height: '100%',
-      },
+      // '& .css-1fdsijx-ValueContainer': {
+      //   padding: 0,
+      //   height: '100%',
+      // },
 
-      ' & .css-gvq6ma-SingleValue': {
-        position: 'relative',
-        width: '70%',
-      },
+      // ' & .css-gvq6ma-SingleValue': {
+      //   position: 'relative',
+      //   // width: '100px',
+      // },
+
+      // '& .css-1fdsijx-ValueContainer': {
+      //   alignItems: 'center',
+      //   display: 'flex',
+      //   justifyContent: 'space-between',
+      //   padding: 0,
+      //   width: '100px',
+      // },
 
       '& .css-1u9des2-indicatorSeparator': {
         display: 'none',
@@ -365,9 +378,14 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
         width: '20px',
       },
 
-      'svg.css-tj5bde-Svg': {
-        fill: theme.text.input,
+      '&:hover': {
+        color: theme.globalColors.accentPrimary,
+        scale: '1.01',
       },
+
+      // 'svg.css-tj5bde-Svg': {
+      //   fill: theme.text.input,
+      // },
 
       // 'svg.css-tj5bde-Svg:hover': {
       //   fill: theme.globalColors.accentPrimary,
@@ -384,9 +402,6 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       //   fill: theme.globalColors.accentPrimary,
       //   scale: '1.01',
       // },
-      '&.css-8mmkcg': {
-        fill: 'red',
-      },
     }),
 
     placeholder: () => ({
@@ -408,23 +423,28 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
     }),
 
     menu: provided => ({
+      ...provided,
       position: 'absolute',
       height: 'calc((6 * 18px) + (8px * 2) + (6px * 5))',
       width: '90px',
-      right: '-12px',
-      top: '45px',
+      right: '-13px',
+      // top: '100px',
       paddingTop: '8px',
       paddingBottom: '8px',
       backgroundColor: theme.select.dropDownBackground,
       borderRadius: '6px',
       boxShadow: '0px 6.52px 7.8px rgba(0, 0, 0, 0.03)',
-      overflowY: 'auto',
+      // overflowY: 'auto',
       overflowX: 'hidden',
 
       '@media screen and (min-width: 768px)': {
         height: 'calc((6 * 21px) + (8px * 2) + (6px * 5))',
         width: '110px',
         top: '50px',
+      },
+
+      '@media screen and (min-width: 1440px)': {
+        height: 'calc((6 * 24px) + (8px * 2) + (6px * 5))',
       },
     }),
 
@@ -523,7 +543,7 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
                   setFieldValue(field.name, option.value);
                 }}
                 onBlur={field.onBlur}
-                menuPosition={'fixed'}
+                // menuPosition={'fixed'}
                 isSearchable={false}
               />
             )}
