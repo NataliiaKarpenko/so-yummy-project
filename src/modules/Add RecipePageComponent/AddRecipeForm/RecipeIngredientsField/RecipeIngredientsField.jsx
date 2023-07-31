@@ -304,28 +304,30 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
         height: '59px',
         width: '65px',
       },
+
       // DropdownIndicator: {
-      '& .css-tj5bde-Svg': {
-        //   position: 'absolute',
-        //   right: '-3px',
-        //   top: '-50%',
-        //   transform: 'translateY(-50%)',
+      // '& .css-tj5bde-Svg': {
 
-        //   width: '18px',
-        //   height: '18px',
-        fill: theme.text.input,
-        //   cursor: 'pointer',
+      //   position: 'absolute',
+      //   right: '-3px',
+      //   top: '-50%',
+      //   transform: 'translateY(-50%)',
 
-        //   '@media screen and (min-width: 768px)': {
-        //     height: '20px',
-        //     width: '20px',
-        //   },
+      //   width: '18px',
+      //   height: '18px',
+      // fill: theme.text.input,
+      //   cursor: 'pointer',
 
-        '&:hover': {
-          fill: theme.globalColors.accentPrimary,
-          scale: '1.01',
-        },
-      },
+      //   '@media screen and (min-width: 768px)': {
+      //     height: '20px',
+      //     width: '20px',
+      //   },
+
+      // '&:hover': {
+      //   fill: theme.globalColors.accentPrimary,
+      //   scale: '1.01',
+      // },
+      // },
 
       // '&  .css-hlgwow': {
       //   position: 'relative',
@@ -369,9 +371,9 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       //   scale: '1.01',
       // },
 
-      // '&.css-tj5bde-Svg': {
-      //   fill: theme.text.input,
-
+      'svg.css-tj5bde-Svg': {
+        fill: theme.text.input,
+      },
       //   '&:hover': {
       //     fill: theme.globalColors.accentPrimary,
       //     scale: '1.01',
@@ -382,6 +384,9 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       //   fill: theme.globalColors.accentPrimary,
       //   scale: '1.01',
       // },
+      '&.css-8mmkcg': {
+        fill: 'red',
+      },
     }),
 
     placeholder: () => ({
