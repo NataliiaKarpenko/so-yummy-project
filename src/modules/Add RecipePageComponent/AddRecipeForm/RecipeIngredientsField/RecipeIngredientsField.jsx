@@ -327,11 +327,13 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       },
 
       '& .css-1fdsijx-ValueContainer': {
+        position: 'relative',
         padding: 0,
         height: '100%',
       },
 
       ' & .css-gvq6ma-SingleValue': {
+        position: 'relative',
         width: '70%',
       },
 
