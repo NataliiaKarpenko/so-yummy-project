@@ -363,7 +363,7 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
         width: '20px',
       },
 
-      '& .css-tj5bde-Svg': {
+      '&.css-tj5bde-Svg': {
         fill: theme.text.input,
 
         '&:hover': {
