@@ -141,6 +141,10 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
         padding: 0,
       },
 
+      '& .css-hlgwow': {
+        padding: 0,
+      },
+
       // '& .css-1xc3v61-indicatorContainer': {
       //   padding: '0',
       // },
