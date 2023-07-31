@@ -304,32 +304,32 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
         height: '59px',
         width: '65px',
       },
+      // DropdownIndicator: {
+      //   // '& .css-tj5bde-Svg': {
+      //   position: 'absolute',
+      //   right: '-3px',
+      //   top: '-50%',
+      //   transform: 'translateY(-50%)',
 
-      '& .css-tj5bde-Svg': {
-        position: 'absolute',
-        right: '-3px',
-        top: '50%',
-        transform: 'translateY(-50%)',
+      //   width: '18px',
+      //   height: '18px',
+      //   fill: theme.text.input,
+      //   cursor: 'pointer',
 
-        width: '18px',
-        height: '18px',
-        fill: theme.text.input,
-        cursor: 'pointer',
+      //   '@media screen and (min-width: 768px)': {
+      //     height: '20px',
+      //     width: '20px',
+      //   },
 
-        '@media screen and (min-width: 768px)': {
-          height: '20px',
-          width: '20px',
-        },
+      //   '&:hover': {
+      //     fill: theme.globalColors.accentPrimary,
+      //     scale: '1.01',
+      //   },
+      // },
 
-        '&:hover': {
-          fill: theme.globalColors.accentPrimary,
-          scale: '1.01',
-        },
-      },
-
-      '&  .css-hlgwow': {
-        position: 'relative',
-      },
+      // '&  .css-hlgwow': {
+      //   position: 'relative',
+      // },
 
       '& .css-1fdsijx-ValueContainer': {
         padding: 0,
@@ -344,6 +344,38 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       '& .css-1u9des2-indicatorSeparator': {
         display: 'none',
       },
+    }),
+
+    dropdownIndicator: () => ({
+      // '& .css-tj5bde-Svg': {
+      position: 'absolute',
+      right: '-3px',
+      top: '50%',
+      transform: 'translateY(-50%)',
+
+      width: '18px',
+      height: '18px',
+
+      cursor: 'pointer',
+
+      '@media screen and (min-width: 768px)': {
+        height: '20px',
+        width: '20px',
+      },
+
+      '& .css-tj5bde-Svg': {
+        fill: theme.text.input,
+
+        '&:hover': {
+          fill: theme.globalColors.accentPrimary,
+          scale: '1.01',
+        },
+      },
+
+      // '&:hover': {
+      //   fill: theme.globalColors.accentPrimary,
+      //   scale: '1.01',
+      // },
     }),
 
     placeholder: () => ({
