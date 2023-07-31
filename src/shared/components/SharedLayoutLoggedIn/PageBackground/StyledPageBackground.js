@@ -16,8 +16,7 @@ to{
 }`;
 
 export const StyledPageBackground = styled.main`
-  background-color: var(--primary-font-color);
-
+  background-color: ${props => props.theme.backgroundPrimary};
   background-repeat: no-repeat;
   background-size: 256px 392px;
   background-position: bottom -180px left 0px;

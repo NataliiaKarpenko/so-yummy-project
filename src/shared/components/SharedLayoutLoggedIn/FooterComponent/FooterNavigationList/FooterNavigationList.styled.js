@@ -6,7 +6,7 @@ export const StyledFooterNavigationItem = styled.li`
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:not(:last-child) {
     margin-bottom: 14px;
@@ -27,17 +27,16 @@ export const StyledFooterNavigationItem = styled.li`
 
 export const StyledFooterNavigationLink = styled(NavLink)`
   position: relative;
-  color: var(--primary-font-color);
-  transition: all var(--transition-dur-func);
+  color: ${props => props.theme.globalColors.light};
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:hover {
-    color: var(--primary-btn-color);
+    color: ${props => props.theme.button.trashMy};
   }
 
   &.active {
     position: relative;
-    color: var(--primary-btn-color);
-    stroke: var(--primary-btn-color);
+    color: ${props => props.theme.button.trashMy};
   }
 
   &.active::after {
@@ -47,7 +46,7 @@ export const StyledFooterNavigationLink = styled(NavLink)`
     position: absolute;
     left: 0;
     bottom: 0;
-    background: var(--primary-btn-color);
+    background: ${props => props.theme.button.trashMy};
     transform: scaleX(1);
   }
 
@@ -58,25 +57,24 @@ export const StyledFooterNavigationLink = styled(NavLink)`
     position: absolute;
     left: 0;
     bottom: 0;
-    background: var(--primary-btn-color);
+    background: ${props => props.theme.button.trashMy};
     transform: scaleX(0);
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
 `;
 
 export const StyledFooterIngredientsLink = styled(Link)`
   position: relative;
-  color: var(--primary-font-color);
-  transition: all var(--transition-dur-func);
+  color: ${props => props.theme.globalColors.light};
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:hover {
-    color: var(--primary-btn-color);
+    color: ${props => props.theme.button.trashMy};
   }
 
   &.active {
     position: relative;
-    color: var(--primary-btn-color);
-    stroke: var(--primary-btn-color);
+    color: ${props => props.theme.button.trashMy};
   }
 
   &.active::after {
@@ -86,7 +84,7 @@ export const StyledFooterIngredientsLink = styled(Link)`
     position: absolute;
     left: 0;
     bottom: 0;
-    background: var(--primary-btn-color);
+    background: ${props => props.theme.button.trashMy};
     transform: scaleX(1);
   }
 
@@ -97,8 +95,8 @@ export const StyledFooterIngredientsLink = styled(Link)`
     position: absolute;
     left: 0;
     bottom: 0;
-    background: var(--primary-btn-color);
+    background: ${props => props.theme.button.trashMy};
     transform: scaleX(0);
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
 `;

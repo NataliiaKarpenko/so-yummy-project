@@ -13,6 +13,7 @@ export const SectionTitle = styled.h2`
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.24px;
+  color: ${props => props.theme.text.textRecipeCard};
 `;
 
 export const PopularRecipesContainer = styled.div`

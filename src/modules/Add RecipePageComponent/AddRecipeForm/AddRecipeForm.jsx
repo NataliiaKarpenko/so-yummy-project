@@ -10,7 +10,7 @@ import SubmitFormButton from 'shared/components/SharedPageComponents/Button/Subm
 import { addOwnRecipe } from 'redux/reduxOwnRecipes/ownRecipesOperations';
 import { useNavigate } from 'react-router-dom';
 import Loader from 'shared/components/Loader/Loader';
-import { addToMyRecipes } from 'shared/Utils/notifications';
+import { addToMyRecipes, notificationError } from 'shared/Utils/notifications';
 
 const AddRecipeForm = () => {
   const dispatch = useDispatch();
@@ -69,9 +69,10 @@ const AddRecipeForm = () => {
 
             navigate('/my');
             resetForm();
+            console.log(values);
           }
         } catch (e) {
-          console.log(e);
+          notificationError();
         } finally {
           setIsLoading(false);
         }

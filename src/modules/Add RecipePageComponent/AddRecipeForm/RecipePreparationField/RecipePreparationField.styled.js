@@ -14,7 +14,7 @@ export const PreparationFieldContainer = styled.div`
 
 export const PreparationTitle = styled.p`
   margin-bottom: 24px;
-  color: #3e4462;
+  color: ${props => props.theme.text.textRecipeCard};
   font-weight: 600;
   font-size: 24px;
   font-style: normal;
@@ -31,16 +31,17 @@ export const TextArea = styled(Field)`
   width: 343px;
   height: 154px;
   padding: 10px 16px;
-  background-color: rgba(217, 217, 217, 0.157);
-  border: none;
+  background-color: ${props => props.theme.select.inputBackground};
+  border: 1px solid ${props => props.theme.select.outline};
   resize: none;
   border-radius: 6px;
+  outline: none;
 
   font-size: 14px;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.28px;
-  color: rgba(0, 0, 0, 1);
+  color: ${props => props.theme.text.textBright};
 
   @media screen and (min-width: 768px) {
     width: 505px;
@@ -52,7 +53,7 @@ export const TextArea = styled(Field)`
   }
 
   &:focus {
-    outline: 1px solid rgba(51, 51, 51, 0.3);
+    border: 1px solid ${props => props.theme.input.focus};
   }
 
   &::placeholder {
@@ -60,26 +61,12 @@ export const TextArea = styled(Field)`
     font-weight: 400;
     line-height: normal;
     letter-spacing: -0.28px;
-    color: rgba(0, 0, 0, 0.5);
+    color: ${props => props.theme.text.inputPlaceholderAddRecipe};
 
     @media screen and (min-width: 768px) {
       font-size: 18px;
       letter-spacing: -0.36px;
     }
-  }
-
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent; /* color of the tracking area */
-  }
-
-  &::-webkit-scrollbar-thumb {
-    height: 93px;
-    background-color: #e7e5e5;
-    border-radius: 12px;
   }
 `;
 
@@ -88,7 +75,7 @@ export const ErrorContainer = styled(ErrorMessage)`
   left: 0;
   bottom: -14px;
 
-  color: var(--error-color);
+  color: ${props => props.theme.globalColors.error};
   font-size: 12px;
   font-weight: 400;
   line-height: 1;

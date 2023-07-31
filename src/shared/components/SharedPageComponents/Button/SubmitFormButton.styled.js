@@ -5,15 +5,15 @@ export const StyledSearchBtn = styled.button`
   align-items: center;
   justify-content: center;
 
-  background-color: var(--secondary-btn-color);
+  background-color: ${props => props.theme.button.background};
   border: none;
   border-radius: 24px 44px;
 
   font-weight: 400;
   line-height: 1.5;
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
 
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   ${props =>
     props.searchForm &&
@@ -54,6 +54,7 @@ export const StyledSearchBtn = styled.button`
 
   &:hover {
     scale: 1.01;
-    background-color: var(--primary-btn-color);
+    background-color: ${props => props.theme.button.hoverReverse};
+    color: ${props => props.theme.text.hover};
   }
 `;

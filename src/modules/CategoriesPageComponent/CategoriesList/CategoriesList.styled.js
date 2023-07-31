@@ -5,10 +5,8 @@ export const StyledCategoriesList = styled.ul`
   padding: 10px;
   display: flex;
   gap: 28px;
-  margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 50px;
     padding: 10px 11px;
     gap: 55px;
   }
@@ -19,10 +17,11 @@ export const StyledCategoriesList = styled.ul`
 `;
 
 export const ContainerWrapper = styled.div`
+  margin-bottom: 32px;
   padding-left: 19px;
   padding-bottom: 22px;
 
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${props => props.theme.categoriesBottom};
 
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -39,6 +38,7 @@ export const ContainerWrapper = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    margin-bottom: 50px;
     padding-bottom: 18px;
   }
 `;
@@ -48,15 +48,14 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 400;
   font-size: 14px;
   line-height: 1;
-  color: #e0e0e0;
+  color: ${props => props.theme.text.categoryLinks};
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
-    color: #bdbdbd;
   }
 
   &:hover {
-    color: var(--primary-btn-color);
+    color: ${props => props.theme.globalColors.accentPrimary};
     scale: 1.01;
   }
 
@@ -68,7 +67,7 @@ export const StyledNavLink = styled(NavLink)`
     width: 100%;
     height: 2px;
     transform: scaleX(0);
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
 
     @media screen and (min-width: 768px) {
       bottom: -29px;
@@ -77,10 +76,10 @@ export const StyledNavLink = styled(NavLink)`
 
   &.active {
     position: relative;
-    color: var(--primary-btn-color);
+    color: ${props => props.theme.globalColors.accentPrimary};
 
     &::after {
-      background-color: var(--primary-btn-color);
+      background-color: ${props => props.theme.globalColors.accentPrimary};
       transform: scaleX(1);
     }
   }

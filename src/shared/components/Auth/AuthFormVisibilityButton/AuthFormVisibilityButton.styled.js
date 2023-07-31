@@ -13,6 +13,20 @@ export const StyledAuthFormVisibilityBtnContainer = styled.div`
   color: rgba(250, 250, 250, 0.8);
   cursor: pointer;
 
+  transition: all ${props => props.theme.transitionDurFunc};
+
+  &:hover {
+    scale: 1.01;
+
+    p {
+      color: ${props => props.theme.globalColors.inputHover};
+    }
+
+    svg {
+      fill: ${props => props.theme.globalColors.inputHover};
+    }
+  }
+
   @media screen and (min-width: 768px) {
     margin-top: 10px;
     font-size: 14px;
@@ -28,10 +42,5 @@ export const StyledButton = styled.button`
   border: none;
   fill: rgba(250, 250, 250, 0.8);
 
-  transition: all var(--transition-dur-func);
-
-  &:hover {
-    scale: 1.01;
-    fill: var(--form-hover-state-color);
-  }
+  transition: all ${props => props.theme.transitionDurFunc};
 `;

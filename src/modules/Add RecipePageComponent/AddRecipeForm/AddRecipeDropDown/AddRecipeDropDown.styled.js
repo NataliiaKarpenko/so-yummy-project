@@ -9,7 +9,7 @@ export const DropDownBox = styled(Field)`
 
   &.dropdown-enter-active {
     transform: translateY(0);
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
   &.dropdown-exit {
     transform: translateY(0);
@@ -17,7 +17,7 @@ export const DropDownBox = styled(Field)`
 
   &.dropdown-exit-active {
     transform: translateY(-100%);
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
 
   position: absolute;
@@ -29,7 +29,6 @@ export const DropDownBox = styled(Field)`
   height: calc((6 * 18px) + (8px * 2) + (6px * 5));
   padding-top: 8px;
   padding-bottom: 8px;
-  /* background-color: var(--form-hover-state-color); */
   background-color: ${props => props.theme.select.dropDownBackground};
   border-radius: 6px;
   box-shadow: 0px 6.518518447875977px 7.8222222328186035px 0px
@@ -60,9 +59,9 @@ export const DropDownBox = styled(Field)`
 
   &::-webkit-scrollbar-thumb {
     height: 93px;
-    background-color: #e7e5e5;
+    background-color: ${props => props.theme.select.scroll};
     border-radius: 12px;
-    border: 4px solid var(--form-hover-state-color);
+    border: 4px solid ${props => props.theme.select.dropDownBackground};
   }
 `;
 
@@ -74,12 +73,12 @@ export const DropDownItem = styled.li`
   height: 18px;
   cursor: pointer;
 
-  color: rgba(0, 0, 0, 0.5);
+  color: ${props => props.theme.text.dropDown};
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.24px;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   justify-content: ${props => (props.measure === true ? 'end' : 'left')};
 
@@ -103,11 +102,11 @@ export const DropDownItem = styled.li`
   }
 
   &.active {
-    color: var(--primary-btn-color);
+    color: ${props => props.theme.text.dropDownActive};
   }
 
   &.hovered {
-    background-color: var(--secondary-background-color);
+    background-color: ${props => props.theme.select.hovered};
     scale: 1.01;
   }
 `;
@@ -116,7 +115,7 @@ export const ErrorContainer = styled.div`
   position: absolute;
   left: 0;
   bottom: 3px;
-  color: var(--error-color);
+  color: ${props => props.theme.globalColors.error};
   font-size: 12px;
   font-weight: 400;
   line-height: 1;

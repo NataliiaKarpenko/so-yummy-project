@@ -10,9 +10,9 @@ export const StyledAvatar = styled.div`
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
   border-radius: 50%;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   background-color: ${props => {
     let hash = 0;

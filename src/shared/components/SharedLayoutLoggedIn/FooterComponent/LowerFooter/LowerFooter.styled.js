@@ -8,6 +8,7 @@ import img5 from '../../../../images/lowerFooterImg/lowerFooterDesktop.png';
 import img6 from '../../../../images/lowerFooterImg/lowerFooterDesktop@2x.png';
 
 export const StyledLowerFooter = styled.footer`
+  background-color: ${props => props.theme.lowerFooter};
   padding-top: 28px;
   padding-bottom: 28px;
   background-image: url(${img1});
@@ -53,8 +54,7 @@ export const StyledLowerFooterText = styled.div`
   font-size: 10px;
   line-height: 1;
   letter-spacing: -0.01em;
-  color: var(--secondary-btn-color);
-  opacity: 0.5;
+  color: ${props => props.theme.text.lowerFooter};
 
   @media screen and (min-width: 768px) {
     font-weight: 500;

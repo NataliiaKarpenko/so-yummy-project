@@ -10,7 +10,7 @@ export const StyledBackdrop = styled.div`
     transform: scale(1);
 
     opacity: 1;
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
   &.backdrop-exit {
     transform: scale(1);
@@ -20,7 +20,7 @@ export const StyledBackdrop = styled.div`
   &.backdrop-exit-active {
     transform: scale(0);
     opacity: 0;
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
 
   position: fixed;

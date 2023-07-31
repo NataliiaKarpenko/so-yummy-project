@@ -28,7 +28,11 @@ const EmailInput = ({
       );
     } else if (success) {
       return (
-        <StyledInfoIcon aria-label="tick" status="success">
+        <StyledInfoIcon
+          aria-label="tick"
+          status="success"
+          className={className}
+        >
           <use href={icons + '#tickLogo'}></use>
         </StyledInfoIcon>
       );
@@ -38,7 +42,11 @@ const EmailInput = ({
 
   const handleInfoMessage = () => {
     if (success) {
-      return <StyledMessage status="success">Email is valid</StyledMessage>;
+      return (
+        <StyledMessage className={className} status="success">
+          Email is valid
+        </StyledMessage>
+      );
     } else if (error) {
       return <StyledMessage status="error">{errors.email}</StyledMessage>;
     }
@@ -47,7 +55,12 @@ const EmailInput = ({
 
   return (
     <div>
-      <StyledInputBox neutral={neutral} error={error} success={success}>
+      <StyledInputBox
+        neutral={neutral}
+        error={error}
+        success={success}
+        className={className}
+      >
         <StyledInputIcon aria-label="email">
           <use href={icons + '#email'}></use>
         </StyledInputIcon>

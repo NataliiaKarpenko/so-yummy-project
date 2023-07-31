@@ -45,7 +45,7 @@ export const StyledTitle = styled.p`
   font-size: 18px;
   line-height: 1.5;
 
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
 `;
 
 export const StyledLabel = styled.label`
@@ -59,5 +59,5 @@ export const StyledLabel = styled.label`
   line-height: 1.29;
   letter-spacing: -0.02em;
 
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
 `;

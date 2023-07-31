@@ -13,8 +13,11 @@ import { getCurrentUser } from 'redux/reduxAuth/authOperations';
 import { useAuth } from 'shared/hooks/useAuth';
 import { GlobalStyle } from 'Styles/GlobalStyles';
 import Loader from 'shared/components/Loader/Loader';
-import { Theme, setTheme } from 'Styles/Theme';
-import { selectTheme } from 'redux/reduxTheme/themeSelector';
+import { setTheme } from 'Styles/Theme';
+import {
+  selectTheme,
+  selectThemeIsLight,
+} from 'redux/reduxTheme/themeSelector';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -33,7 +36,7 @@ export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
   const theme = useSelector(selectTheme);
-  const isLight = theme === 'light';
+  const isLight = useSelector(selectThemeIsLight);
 
   useEffect(() => {
     dispatch(getCurrentUser());
@@ -42,7 +45,7 @@ export const App = () => {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <Theme>
+    <ThemeProvider theme={setTheme(isLight)}>
       <GlobalStyle />
 
       <ToastContainer
@@ -130,6 +133,6 @@ export const App = () => {
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
-    </Theme>
+    </ThemeProvider>
   );
 };

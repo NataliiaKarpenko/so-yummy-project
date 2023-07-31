@@ -6,9 +6,10 @@ export const FavoriteRecipesItem = styled.li`
   padding: 9px 14px;
   display: flex;
   gap: 14px;
+  cursor: default;
 
   border-radius: 8px;
-  background-color: #fff;
+  background-color: ${props => props.theme.recipeCard};
 
   @media screen and (min-width: 768px) {
     max-height: 288px;
@@ -73,7 +74,7 @@ export const Title = styled.p`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: ${props => props.theme.text.textPrimary};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 28px;
@@ -92,7 +93,7 @@ export const Description = styled.p`
   font-size: 8px;
   line-height: 1.25;
   letter-spacing: -0.16px;
-  color: #23262a;
+  color: ${props => props.theme.text.myRecipes};
 
   @media screen and (min-width: 768px) {
     max-width: 298px;
@@ -118,15 +119,15 @@ export const TrashBtn = styled.button`
 
   border: none;
   border-radius: 4px;
-  transition: all var(--transition-dur-func);
-  /* background: var(--secondary-background-color); */
+  transition: all ${props => props.theme.transitionDurFunc};
+
   background: ${props => {
     switch (props.status) {
       case '/my':
-        return 'var(--primary-btn-color)';
+        return props.theme.button.trashMy;
 
       case '/favorite':
-        return 'var(--secondary-background-color)';
+        return props.theme.button.trashFavorite;
 
       default:
         return;
@@ -149,10 +150,10 @@ export const TrashBtn = styled.button`
       stroke: ${props => {
         switch (props.status) {
           case '/my':
-            return 'var(--secondary-btn-color)';
+            return props.theme.button.background;
 
           case '/favorite':
-            return 'var(--primary-btn-color)';
+            return props.theme.globalColors.accentPrimary;
 
           default:
             return;
@@ -168,15 +169,15 @@ export const TrashIcon = styled.svg`
   width: 14px;
   height: 14px;
   fill: transparent;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   stroke: ${props => {
     switch (props.status) {
       case '/my':
-        return 'var(--primary-font-color)';
+        return props.theme.globalColors.light;
 
       case '/favorite':
-        return 'var(--secondary-btn-color)';
+        return props.theme.text.textSecondary;
 
       default:
         return;
@@ -201,7 +202,7 @@ export const LowerContainer = styled.div`
 `;
 
 export const Time = styled.p`
-  color: #3e4462;
+  color: ${props => props.theme.text.textRecipeCard};
   font-size: 10px;
   font-weight: 500;
   line-height: 1.4;
@@ -221,19 +222,19 @@ export const SeeRecipeLink = styled(Link)`
   height: 27px;
 
   font-size: 10px;
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
 
   border: none;
   border-radius: 24px 44px;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   background-color: ${props => {
     switch (props.status) {
       case '/my':
-        return 'var(--primary-btn-color)';
+        return props.theme.globalColors.accentPrimary;
 
       case '/favorite':
-        return 'var(--secondary-btn-color)';
+        return props.theme.button.background;
 
       default:
         return;
@@ -242,14 +243,15 @@ export const SeeRecipeLink = styled(Link)`
 
   &:hover {
     scale: 1.01;
+    color: ${props => props.theme.text.hover};
 
     background-color: ${props => {
       switch (props.status) {
         case '/my':
-          return 'var(--secondary-btn-color)';
+          return props.theme.button.hover;
 
         case '/favorite':
-          return 'var(--primary-btn-color)';
+          return props.theme.button.hoverReverse;
 
         default:
           return;

@@ -46,7 +46,7 @@ export const StyledHeroTitle = styled.h1`
   font-size: 60px;
   line-height: 1;
   letter-spacing: -0.005em;
-  color: var(--secondary-btn-color);
+  color: ${props => props.theme.text.textSecondary};
 
   @media screen and (max-width: 767px) {
     text-align: center;
@@ -66,7 +66,7 @@ export const StyledHeroTitle = styled.h1`
 `;
 
 export const StyledEmphasis = styled.span`
-  color: var(--primary-btn-color);
+  color: ${props => props.theme.globalColors.accentPrimary};
 `;
 
 export const StyledHeroText = styled.p`
@@ -76,7 +76,7 @@ export const StyledHeroText = styled.p`
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
-  color: var(--secondary-font-color);
+  color: ${props => props.theme.text.textPrimary};
 
   @media screen and (max-width: 374px) {
     width: 100%;
@@ -152,7 +152,7 @@ export const StyledHeroImgTextBox = styled.div`
   right: 7px;
   padding: 8px;
 
-  background: var(--primary-font-color);
+  background: ${props => props.theme.backgroundPrimary};
   border-radius: 8px;
 
   @media screen and (max-width: 374px) {
@@ -184,7 +184,7 @@ export const StyledHeroImageText = styled.p`
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: ${props => props.theme.text.textRecipeCard};
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -208,23 +208,23 @@ export const StyledLink = styled(NavLink)`
   font-size: 10px;
   line-height: 1.2;
   letter-spacing: 0.2px;
-  color: #3e4462;
+  color: ${props => props.theme.text.textRecipeCard};
 
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   svg {
     width: 18px;
     height: 18px;
-    stroke: #3e4462;
+    stroke: ${props => props.theme.text.textRecipeCard};
   }
 
   &:hover {
     scale: 1.01;
-    color: var(--primary-btn-color);
+    color: ${props => props.theme.globalColors.accentPrimary};
   }
 
   &:hover svg {
-    stroke: var(--primary-btn-color);
+    stroke: ${props => props.theme.globalColors.accentPrimary};
   }
 `;
 

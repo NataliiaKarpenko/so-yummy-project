@@ -8,11 +8,11 @@ export const StyledCloseBtn = styled.button`
   border: none;
   background-color: transparent;
 
-  stroke: var(--secondary-btn-color);
-  transition: all var(--transition-dur-func);
+  stroke: ${props => props.theme.text.textSecondary};
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:hover {
-    stroke: var(--primary-btn-color);
+    stroke: ${props => props.theme.globalColors.accentPrimary};
     scale: 1.01;
   }
 
@@ -49,7 +49,7 @@ export const StyledCloseBtn = styled.button`
       transform: translate(-50%);
       width: 40px;
       height: 40px;
-      background-color: var(--primary-btn-color);
+      background-color: ${props => props.theme.globalColors.accentPrimary};
       border-radius: 50%;
 
       @media screen and (min-width: 768px) {
@@ -61,7 +61,7 @@ export const StyledCloseBtn = styled.button`
       svg {
         width: 24px;
         height: 24px;
-        stroke: var(--primary-font-color);
+        stroke: ${props => props.theme.globalColors.light};
 
         @media screen and (min-width: 768px) {
           width: 28px;
@@ -79,7 +79,7 @@ export const StyledCloseBtn = styled.button`
       width: 30px;
       height: 30px;
 
-      background-color: var(--primary-btn-color);
+      background-color: ${props => props.theme.globalColors.accentPrimary};
       border-radius: 50%;
 
       @media screen and (min-width: 768px) {
@@ -90,7 +90,7 @@ export const StyledCloseBtn = styled.button`
       }
 
       svg {
-        stroke: var(--primary-font-color);
+        stroke: ${props => props.theme.globalColors.light};
         width: 20px;
         height: 20px;
 

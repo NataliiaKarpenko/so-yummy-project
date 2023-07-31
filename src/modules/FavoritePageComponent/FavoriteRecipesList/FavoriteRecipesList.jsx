@@ -21,7 +21,7 @@ const FavoriteRecipesList = ({ recipesList, page }) => {
   return (
     <ul>
       {recipesList.map(
-        ({ id, title, preview, description, time, favorite }) => {
+        ({ id, title, preview, description, time, favorite }, index) => {
           return (
             favorite && (
               <Fragment key={id}>
@@ -31,6 +31,7 @@ const FavoriteRecipesList = ({ recipesList, page }) => {
                   preview={preview}
                   description={description}
                   time={time}
+                  index={index}
                   onHandleDelete={onHandleDelete}
                 />
               </Fragment>

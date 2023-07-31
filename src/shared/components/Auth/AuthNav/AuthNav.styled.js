@@ -5,9 +5,9 @@ export const StyledAuthNav = styled(Link)`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
   text-decoration: underline;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   @media screen and (min-width: 768px) {
     font-size: 16px;

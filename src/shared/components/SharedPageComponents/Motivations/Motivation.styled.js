@@ -59,7 +59,7 @@ export const BubbleContainer = styled.div`
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.4px;
-    color: var(--primary-font-color);
+    color: ${props => props.theme.globalColors.light};
 
     @media screen and (min-width: 768px) {
       top: 45px;
@@ -78,7 +78,7 @@ export const BubbleContainer = styled.div`
     }
 
     span {
-      color: var(--primary-btn-color);
+      color: ${props => props.theme.globalColors.accentPrimary};
     }
   }
 `;

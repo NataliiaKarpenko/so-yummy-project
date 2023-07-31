@@ -22,14 +22,14 @@ export const StyledNav = styled.nav`
 `;
 
 export const StyledHeaderLogoContainer = styled(NavLink)`
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:hover {
     scale: 1.01;
   }
 
   &:hover svg {
-    fill: var(--secondary-btn-color);
+    fill: ${props => props.theme.button.hover};
   }
 `;
 

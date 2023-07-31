@@ -88,16 +88,16 @@ export const StyledRecipesTitle = styled.p`
   transform: translateX(-50%) scale(1);
   padding: 16px;
   width: 307px;
-  background-color: #ffffff;
+  background-color: ${props => props.theme.recipeCard};
   border-radius: 8px;
 
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: ${props => props.theme.text.textRecipeCard};
 
   @media screen and (min-width: 768px) {
     width: 300px;
@@ -120,10 +120,10 @@ export const StyledLikeBtn = styled.button`
 export const StyledLikeIcon = styled.svg`
   width: 40px;
   height: 40px;
-  stroke: red;
+  stroke: ${props => props.theme.globalColors.error};
   stroke-width: 2px;
   fill: ${props => (props.favorite === true ? 'red' : 'transparent')};
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:hover {
     scale: 1.03;

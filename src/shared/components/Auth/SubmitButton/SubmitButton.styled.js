@@ -7,16 +7,16 @@ export const StyledSubmitButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--primary-btn-color);
+  background: ${props => props.theme.globalColors.accentPrimary};
   border-radius: 6px;
-  border: none;
+  border: 1px solid transparent;
 
   font-family: inherit;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.12;
-  color: var(--primary-font-color);
-  transition: all var(--transition-dur-func);
+  color: ${props => props.theme.globalColors.light};
+  transition: all ${props => props.theme.transitionDurFunc};
 
   @media screen and (min-width: 768px) {
     height: 59px;
@@ -26,7 +26,7 @@ export const StyledSubmitButton = styled.button`
 
   &:hover {
     scale: 1.01;
-    color: var(--secondary-btn-color);
+    color: ${props => props.theme.globalColors.personalDataText};
   }
 `;
 
@@ -36,6 +36,7 @@ export const StyledSubscribeBtn = styled(StyledSubmitButton)`
   line-height: 1.14;
   padding-top: 11px;
   padding-bottom: 11px;
+  background: ${props => props.theme.button.trashMy};
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     height: 50px;
@@ -53,6 +54,9 @@ export const StyledSubscribeBtn = styled(StyledSubmitButton)`
     padding-bottom: 21px;
     font-size: 16px;
   }
+  &:hover {
+    background-color: ${props => props.theme.button.hoverReverse};
+  }
 `;
 
 export const StyledUserInfoModalBtn = styled(StyledSubmitButton)`
@@ -63,6 +67,13 @@ export const StyledUserInfoModalBtn = styled(StyledSubmitButton)`
 
     font-size: 14px;
     line-height: 1.29;
+  }
+
+  &:hover {
+    border: 1px solid ${props => props.theme.button.logoutBorder};
+    background-color: ${props => props.theme.button.hover};
+    scale: 1.01;
+    color: ${props => props.theme.text.logoutHover};
   }
 
   @media screen and (min-width: 768px) {

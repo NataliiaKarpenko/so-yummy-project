@@ -80,7 +80,7 @@ export const StyledRecipePageTitle = styled.h1`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: var(--primary-btn-color);
+  color: ${props => props.theme.globalColors.accentPrimary};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
@@ -93,7 +93,7 @@ export const StyledRecipePageText = styled.p`
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: -0.02em;
-  color: var(--secondary-font-color);
+  color: #23262a;
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -112,20 +112,20 @@ export const StyledHeroPageBtn = styled.button`
   justify-content: center;
   align-items: center;
 
-  border: 1px solid var(--primary-btn-color);
+  border: 1px solid ${props => props.theme.globalColors.accentPrimary};
   border-radius: 24px 44px;
   background-color: transparent;
 
   font-weight: 400;
   font-size: 10px;
   line-height: 1.5;
-  color: var(--secondary-btn-color);
-  transition: all var(--transition-dur-func);
+  color: ${props => props.theme.globalColors.personalDataText};
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:hover {
-    color: var(--primary-font-color);
+    color: ${props => props.theme.globalColors.light};
     border: 1px solid transparent;
-    background-color: var(--primary-btn-color);
+    background-color: ${props => props.theme.globalColors.accentPrimary};
     scale: 1.01;
   }
 
@@ -153,7 +153,7 @@ export const StyledTimeContainer = styled.div`
   font-size: 10px;
   line-height: 1.4;
   letter-spacing: -0.24px;
-  color: var(--secondary-font-color);
+  color: #23262a;
 
   @media screen and (min-width: 768px) {
     gap: 8px;
@@ -168,7 +168,7 @@ export const StyledTimeSvg = styled.svg`
   height: 14px;
 
   fill: transparent;
-  stroke: var(--secondary-font-color);
+  stroke: #23262a;
 
   @media screen and (min-width: 768px) {
     width: 20px;

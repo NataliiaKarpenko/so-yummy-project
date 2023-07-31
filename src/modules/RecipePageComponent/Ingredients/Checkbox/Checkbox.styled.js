@@ -8,9 +8,9 @@ export const StyledIcon = styled.svg`
   background: transparent;
   cursor: pointer;
 
-  border: 1px solid rgba(126, 126, 126, 0.5);
+  border: 1px solid ${props => props.theme.checkBox.border};
   border-radius: 4px;
-  fill: var(--primary-btn-color);
+  fill: ${props => props.theme.globalColors.accentPrimary};
 
   @media screen and (min-width: 768px) {
     height: 35px;

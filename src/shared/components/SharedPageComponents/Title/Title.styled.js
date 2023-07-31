@@ -7,7 +7,7 @@ export const StyledTitle = styled.h1`
   font-size: 28px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #001833;
+  color: ${props => props.theme.text.titlePrimary};
 
   @media screen and (min-width: 768px) {
     font-size: 32px;

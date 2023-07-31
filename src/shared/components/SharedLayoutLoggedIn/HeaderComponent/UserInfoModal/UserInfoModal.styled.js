@@ -8,7 +8,7 @@ export const StyledUserInfoModal = styled.div`
 
   padding: 32px 24px;
 
-  background: var(--primary-font-color);
+  background: ${props => props.theme.pagination.background};
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 24px;
 
@@ -53,7 +53,7 @@ export const StyledAvatarContainer = styled.div`
   justify-content: center;
 
   stroke: #c4c4c4;
-  background-color: var(--default-background-color);
+  background-color: #d9d9d9;
   border-radius: 50%;
 
   @media screen and (min-width: 768px) {
@@ -79,15 +79,17 @@ export const StyledUploadBtn = styled.button`
   align-items: center;
   justify-content: center;
 
-  border: none;
+  border: 1px solid transparent;
   border-radius: 50%;
-  background-color: var(--primary-btn-color);
+  background-color: ${props => props.theme.globalColors.accentPrimary};
 
-  stroke: var(--primary-font-color);
-  transition: all var(--transition-dur-func);
+  stroke: ${props => props.theme.globalColors.light};
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:hover {
-    background-color: var(--secondary-btn-color);
+    border: 1px solid ${props => props.theme.button.logoutBorder};
+    background-color: ${props => props.theme.button.hover};
     scale: 1.01;
+    stroke: ${props => props.theme.text.logoutHover};
   }
 `;

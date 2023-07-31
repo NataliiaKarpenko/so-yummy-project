@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const StyledFormContainer = styled.div`
   margin-bottom: 18px;
 
-  background-color: var(--main-background-color);
+  background-color: #2a2c36;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
 
@@ -38,7 +38,7 @@ export const StyledTitle = styled.p`
   font-size: 24px;
   line-height: 1.17;
   letter-spacing: -0.02em;
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
   margin-bottom: ${props => {
     switch (props.status) {
       case 'signup':

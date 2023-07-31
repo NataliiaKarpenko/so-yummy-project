@@ -46,6 +46,10 @@ const RecipeDescriptionField = ({ setDishPhotoURL, dishPhotoURL }) => {
     setDishPhotoURL('');
   };
 
+  const handleInputBlur = e => {
+    setFieldValue(e.target.name, e.target.value.trim());
+  };
+
   return (
     <DescriptionContainer>
       <AddDishPhotoContainer onClick={handleAddDishPhotoContainerClick}>
@@ -80,6 +84,7 @@ const RecipeDescriptionField = ({ setDishPhotoURL, dishPhotoURL }) => {
             type="text"
             name="title"
             placeholder="Enter recipe title"
+            onBlur={handleInputBlur}
           />
           <ErrorContainer name="title" component="div" />
         </DescriptionItem>
@@ -89,6 +94,7 @@ const RecipeDescriptionField = ({ setDishPhotoURL, dishPhotoURL }) => {
             type="text"
             name="description"
             placeholder="Enter recipe description"
+            onBlur={handleInputBlur}
           />
           <ErrorContainer name="description" component="div" />
         </DescriptionItem>

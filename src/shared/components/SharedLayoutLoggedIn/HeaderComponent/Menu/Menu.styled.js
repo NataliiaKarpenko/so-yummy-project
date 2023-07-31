@@ -12,7 +12,7 @@ export const StyledMenu = styled.div`
 
   &.menu-enter-active {
     transform: translateY(0);
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
   &.menu-exit {
     transform: translateY(0);
@@ -20,7 +20,7 @@ export const StyledMenu = styled.div`
 
   &.menu-exit-active {
     transform: translateY(-100%);
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
 
   position: fixed;
@@ -34,7 +34,7 @@ export const StyledMenu = styled.div`
   height: fill-available;
   width: 100%;
 
-  background-color: var(--secondary-background-color);
+  background-color: ${props => props.theme.button.trashFavorite};
   background-image: url(${img1});
   background-size: 312px 334px;
   background-position: bottom right;

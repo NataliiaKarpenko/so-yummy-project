@@ -9,9 +9,9 @@ export const StyledLogo = styled.svg`
   fill: ${props => {
     switch (props.status) {
       case 'headerLogo':
-        return 'var(--primary-btn-color)';
+        return props.theme.globalColors.accentPrimary;
       case 'footerLogo':
-        return 'var(--secondary-background-color)';
+        return '#ebf3d4';
       default:
         return;
     }
@@ -20,20 +20,44 @@ export const StyledLogo = styled.svg`
   stroke: ${props => {
     switch (props.status) {
       case 'headerLogo':
-        return 'var(--primary-font-color)';
+        return props.theme.globalColors.light;
       case 'footerLogo':
-        return 'var(--primary-btn-color)';
+        return props.theme.globalColors.accentPrimary;
       default:
         return;
     }
   }};
 
+  &:hover {
+    fill: ${props => {
+      switch (props.status) {
+        case 'headerLogo':
+          return props.theme.button.hover;
+        case 'footerLogo':
+          return '#ebf3d4';
+        default:
+          return;
+      }
+    }};
+
+    stroke: ${props => {
+      switch (props.status) {
+        case 'headerLogo':
+          return props.theme.text.logoutHover;
+        case 'footerLogo':
+          return props.theme.globalColors.accentPrimary;
+        default:
+          return;
+      }
+    }};
+  }
+
   ${props =>
     props.menuLogo &&
     css`
       &:hover {
-        fill: var(--secondary-btn-color);
-        stroke: var(--primary-btn-color);
+        fill: ${props => props.theme.button.hover};
+        stroke: props.theme.globalColors.accentPrimary;
         scale: 1.01;
       }
     `}

@@ -19,7 +19,7 @@ export const StyledNavigationList = styled.ul`
 `;
 
 export const StyledNavigationItem = styled.li`
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:hover {
     scale: 1.01;
@@ -31,13 +31,24 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 500;
   font-size: 14px;
   line-height: 1.6;
-  color: var(--secondary-font-color);
+  color: ${props =>
+    props.main
+      ? props.theme.globalColors.personalDataText
+      : props.recipe === true
+      ? props.theme.globalColors.personalDataText
+      : props.theme.text.textSecondary};
 
-  stroke: var(--secondary-font-color);
+  stroke: ${props =>
+    props.main
+      ? props.theme.globalColors.personalDataText
+      : props.recipe === true
+      ? props.theme.globalColors.personalDataText
+      : props.theme.text.textSecondary};
   fill: none;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
-  color: ${props => (props.active ? 'var(--primary-btn-color)' : '')};
+  color: ${props =>
+    props.active ? props.theme.globalColors.accentPrimary : ''};
 
   @media screen and (max-width: 1439px) {
     font-size: 18px;
@@ -47,9 +58,9 @@ export const StyledNavLink = styled(NavLink)`
 
   &.active {
     position: relative;
-    color: var(--primary-btn-color);
+    color: ${props => props.theme.globalColors.accentPrimary};
     font-weight: 500;
-    stroke: var(--primary-btn-color);
+    stroke: ${props => props.theme.globalColors.accentPrimary};
   }
 
   &.active::after {
@@ -59,13 +70,13 @@ export const StyledNavLink = styled(NavLink)`
     position: absolute;
     left: 0;
     bottom: 0;
-    background: var(--primary-btn-color);
+    background: ${props => props.theme.globalColors.accentPrimary};
     transform: scaleX(1);
   }
 
   &:hover {
-    color: var(--primary-btn-color);
-    stroke: var(--primary-btn-color);
+    color: ${props => props.theme.globalColors.accentPrimary};
+    stroke: ${props => props.theme.globalColors.accentPrimary};
   }
 
   &::after {
@@ -75,9 +86,9 @@ export const StyledNavLink = styled(NavLink)`
     position: absolute;
     left: 0;
     bottom: 0;
-    background: var(--primary-btn-color);
+    background: ${props => props.theme.globalColors.accentPrimary};
     transform: ${props => (props.active ? 'scaleX(1)' : 'scaleX(0)')};
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
 `;
 

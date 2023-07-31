@@ -10,7 +10,7 @@ export const StyledUserInfoDropDown = styled.div`
     transform: scaleY(1);
 
     opacity: 1;
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
   &.dropdown-exit {
     transform: scaleY(1);
@@ -20,7 +20,7 @@ export const StyledUserInfoDropDown = styled.div`
   &.dropdown-exit-active {
     transform: scaleY(0);
     opacity: 0;
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
 
   position: absolute;
@@ -31,7 +31,7 @@ export const StyledUserInfoDropDown = styled.div`
   height: 130px;
   width: 161px;
 
-  background: var(--primary-font-color);
+  background: ${props => props.theme.lowerFooter};
   border: 1px solid #8baa36;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -51,11 +51,11 @@ export const StyledUserInfoDropDown = styled.div`
 
     width: 10px;
     height: 10px;
-    background: var(--primary-font-color);
+    background: ${props => props.theme.lowerFooter};
     transform: translateY(-50%) rotate(45deg);
     z-index: 0;
-    border-top: 1px solid #8baa36;
-    border-left: 1px solid #8baa36;
+    border-top: 1px solid ${props => props.theme.globalColors.accentPrimary};
+    border-left: 1px solid ${props => props.theme.globalColors.accentPrimary};
   }
 `;
 
@@ -65,9 +65,9 @@ export const EditContainer = styled.div`
   gap: 35px;
   align-items: center;
 
-  stroke: var(--secondary-font-color);
+  stroke: ${props => props.theme.text.textSecondary};
   fill: none;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   cursor: pointer;
 
@@ -77,12 +77,12 @@ export const EditContainer = styled.div`
 
   &:hover {
     scale: 1.01;
-    stroke: var(--primary-btn-color);
-    fill: var(--primary-btn-color);
+    stroke: ${props => props.theme.globalColors.accentPrimary};
+    fill: ${props => props.theme.globalColors.accentPrimary};
   }
 
   &:hover p {
-    color: var(--primary-btn-color);
+    color: ${props => props.theme.globalColors.accentPrimary};
   }
 `;
 
@@ -91,11 +91,11 @@ export const StyledText = styled.p`
   font-size: 14px;
   line-height: 1.6;
 
-  color: var(--secondary-font-color);
-  transition: all var(--transition-dur-func);
+  color: ${props => props.theme.text.textSecondary};
+  transition: all ${props => props.theme.transitionDurFunc};
 `;
 
-export const StyledLogoutlBtn = styled.button`
+export const StyledInfoBtn = styled.button`
   height: 43px;
   width: 125px;
   padding-top: 12px;
@@ -106,24 +106,27 @@ export const StyledLogoutlBtn = styled.button`
   justify-content: center;
   gap: 4px;
 
-  background: var(--primary-btn-color);
-  border: none;
+  background: ${props => props.theme.globalColors.accentPrimary};
+  border: 1px solid transparent;
   border-radius: 24px 44px;
 
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
 
-  color: var(--primary-font-color);
-  stroke: var(--primary-font-color);
-  transition: all var(--transition-dur-func);
+  color: ${props => props.theme.globalColors.light};
+  stroke: ${props => props.theme.globalColors.light};
+  transition: all ${props => props.theme.transitionDurFunc};
 
   @media screen and (min-width: 768px) {
     width: 141px;
   }
 
   &:hover {
-    background-color: var(--secondary-btn-color);
+    border: 1px solid ${props => props.theme.button.logoutBorder};
+    background-color: ${props => props.theme.button.hover};
     scale: 1.01;
+    color: ${props => props.theme.text.logoutHover};
+    stroke: ${props => props.theme.text.logoutHover};
   }
 `;

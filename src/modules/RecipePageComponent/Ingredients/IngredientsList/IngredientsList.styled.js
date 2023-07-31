@@ -7,13 +7,13 @@ export const StyledIngredientsList = styled.table`
 
 export const StyledTHead = styled.th`
   padding: 12px 14px;
-  background-color: var(--primary-btn-color);
+  background-color: ${props => props.theme.globalColors.accentPrimary};
 
   font-weight: 600;
   font-size: 10px;
   line-height: 1.5;
   letter-spacing: 0.03em;
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
 
   @media screen and (min-width: 768px) {
     padding: 21px 32px;
@@ -30,7 +30,6 @@ export const StyledTHead = styled.th`
     text-align: left;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-    /* margin-top: 20px; */
   }
 
   &:nth-child(2) {
@@ -43,7 +42,6 @@ export const StyledTHead = styled.th`
     text-align: center;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    /* width: 80px; */
   }
 `;
 
@@ -68,7 +66,7 @@ export const StyledDCell = styled.td`
   height: 86px;
   padding: 14px;
 
-  background-color: var(--secondary-background-color);
+  background-color: ${props => props.theme.currentRecipe.background};
 
   @media screen and (min-width: 768px) {
     height: 178px;
@@ -107,7 +105,7 @@ export const StyledDCell = styled.td`
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: -0.24px;
-    color: #3e4462;
+    color: ${props => props.theme.text.textRecipeCard};
 
     @media screen and (min-width: 768px) {
       font-size: 24px;
@@ -127,9 +125,9 @@ export const StyledDCell = styled.td`
     font-weight: 600;
     font-size: 10px;
     line-height: 1.5;
-    color: var(--primary-font-color);
+    color: ${props => props.theme.globalColors.light};
 
-    background: #8baa36;
+    background: ${props => props.theme.globalColors.accentPrimary};
     border-radius: 4px;
 
     @media screen and (min-width: 768px) {

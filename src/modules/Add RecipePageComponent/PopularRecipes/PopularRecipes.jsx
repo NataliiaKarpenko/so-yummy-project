@@ -20,6 +20,7 @@ const PopularRecipes = () => {
   const dispatch = useDispatch();
   const popularRecipes = useSelector(selectPopularRecipes);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [hoveredItems, setHoveredItems] = useState([]);
 
   useEffect(() => {
     dispatch(getPopularRecipes());
@@ -43,27 +44,50 @@ const PopularRecipes = () => {
     return newPopularRecipes;
   };
 
+  const handleMouseEnter = value => {
+    const newHoveredItems = [...hoveredItems];
+    newHoveredItems[value] = true;
+    setHoveredItems(newHoveredItems);
+  };
+
+  const handleMouseLeave = value => {
+    const newHoveredItems = [...hoveredItems];
+    newHoveredItems[value] = false;
+    setHoveredItems(newHoveredItems);
+  };
+
   return (
     <PopularRecipeContainer windowWidth={windowWidth}>
       <SectionTitle>Popular recipes</SectionTitle>
       <PopularRecipesList>
-        {getNewPopularRecipes().map(({ id, title, description, preview }) => {
-          return (
-            <PopularRecipeItem key={id}>
-              <PopularRecipeLink to={`/recipe/${id}`}>
-                <PopularRecipeImg src={preview} alt={title} />
-                <div>
-                  <PopularRecipeTitle>
-                    {contractTitleMob(title)}
-                  </PopularRecipeTitle>
-                  <PopularRecipeText>
-                    {contractPopularRecipesDescription(description)}
-                  </PopularRecipeText>
-                </div>
-              </PopularRecipeLink>
-            </PopularRecipeItem>
-          );
-        })}
+        {getNewPopularRecipes().map(
+          ({ id, title, description, preview }, index) => {
+            const isHovered = hoveredItems[index] || false;
+            return (
+              <PopularRecipeItem
+                key={id}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={() => handleMouseLeave(index)}
+              >
+                <PopularRecipeLink to={`/recipe/${id}`}>
+                  <PopularRecipeImg src={preview} alt={title} />
+                  <div>
+                    {isHovered ? (
+                      <PopularRecipeTitle>{title}</PopularRecipeTitle>
+                    ) : (
+                      <PopularRecipeTitle>
+                        {contractTitleMob(title)}
+                      </PopularRecipeTitle>
+                    )}
+                    <PopularRecipeText>
+                      {contractPopularRecipesDescription(description)}
+                    </PopularRecipeText>
+                  </div>
+                </PopularRecipeLink>
+              </PopularRecipeItem>
+            );
+          }
+        )}
       </PopularRecipesList>
     </PopularRecipeContainer>
   );

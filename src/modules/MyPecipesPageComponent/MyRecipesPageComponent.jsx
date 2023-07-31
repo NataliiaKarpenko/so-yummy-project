@@ -46,25 +46,27 @@ const MyRecipesPageComponent = () => {
 
   return (
     <div>
-      <PageBackground page={true}>
-        {isLoading && <Loader />}
-        <StyledContainer>
-          <Title title="My Recipes" />
+      {isLoading && <Loader />}
+      {!isLoading && (
+        <PageBackground page={true}>
+          <StyledContainer>
+            <Title title="My Recipes" />
 
-          {!isLoading && myRecipesList?.length === 0 && currentPage === 1 ? (
-            <NoInfoSupplied text="You haven't added a recipe yet..." />
-          ) : (
-            <MyRecipesList recipesList={myRecipesList} page={page} />
-          )}
-          {totalPages > 1 && (
-            <BasicPagination
-              page={page}
-              totalPages={totalPages}
-              onChange={handlePageChange}
-            />
-          )}
-        </StyledContainer>
-      </PageBackground>
+            {!isLoading && myRecipesList?.length === 0 && currentPage === 1 ? (
+              <NoInfoSupplied text="You haven't added a recipe yet..." />
+            ) : (
+              <MyRecipesList recipesList={myRecipesList} page={page} />
+            )}
+            {totalPages > 1 && (
+              <BasicPagination
+                page={page}
+                totalPages={totalPages}
+                onChange={handlePageChange}
+              />
+            )}
+          </StyledContainer>
+        </PageBackground>
+      )}
     </div>
   );
 };

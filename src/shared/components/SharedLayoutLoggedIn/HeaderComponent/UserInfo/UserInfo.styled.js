@@ -14,12 +14,17 @@ export const StyledUserInfo = styled.div`
   font-size: 14px;
   line-height: 1.7;
 
-  color: var(--secondary-btn-color);
-  transition: all var(--transition-dur-func);
+  color: ${props =>
+    props.recipe === true
+      ? props.theme.globalColors.personalDataText
+      : props.mainUserInfo
+      ? props.theme.globalColors.personalDataText
+      : props.theme.text.textSecondary};
+  transition: all ${props => props.theme.transitionDurFunc};
   cursor: pointer;
 
   &:hover {
-    color: var(--primary-btn-color);
+    color: ${props => props.theme.globalColors.accentPrimary};
     scale: 1.01;
   }
 `;

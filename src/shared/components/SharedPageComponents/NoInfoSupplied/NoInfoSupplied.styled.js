@@ -24,7 +24,7 @@ export const StyledText = styled.p`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: rgba(0, 0, 0, 0.5);
+  color: ${props => props.theme.text.dropDown};
 
   @media screen and (min-width: 768px) {
     margin-top: 32px;

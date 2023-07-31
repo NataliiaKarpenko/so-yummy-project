@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Regular from '../fonts/Poppins-Regular.ttf';
 import Medium from '../fonts/Poppins-Medium.ttf';
@@ -9,6 +10,7 @@ import Bold from '../fonts/Poppins-Bold.ttf';
 export const GlobalStyle = createGlobalStyle`
 
 ${normalize};
+
 
 @font-face {
     font-family: 'Poppins';
@@ -40,6 +42,19 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  .Toastify__toast-theme--colored.Toastify__toast--info {
+  background-color: #f6c23e;
+}
+.Toastify__toast-theme--colored.Toastify__toast--success {
+   background-color:  #3cbc81; 
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  background-color: #e74a3b;
+}
+
   
   
 }

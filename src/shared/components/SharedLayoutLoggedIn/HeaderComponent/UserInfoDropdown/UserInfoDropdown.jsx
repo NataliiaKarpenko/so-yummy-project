@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import icons from '../../../../sprite.svg';
 import {
   EditContainer,
-  StyledLogoutlBtn,
+  StyledInfoBtn,
   StyledUserInfoDropDown,
   StyledText,
 } from './UserInfoDropdown.styled';
@@ -83,12 +83,12 @@ const UserInfoDropDown = ({
               <use href={icons + '#edit'}></use>
             </svg>
           </EditContainer>
-          <StyledLogoutlBtn type="button" onClick={showLogoutModalHandler}>
+          <StyledInfoBtn type="button" onClick={showLogoutModalHandler}>
             Log out
             <svg width="18" height="18" aria-label="arrow right">
               <use href={icons + '#arrowNarrowRight'}></use>
             </svg>
-          </StyledLogoutlBtn>
+          </StyledInfoBtn>
         </StyledUserInfoDropDown>
       </CSSTransition>
 

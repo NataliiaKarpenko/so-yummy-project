@@ -7,12 +7,12 @@ export const StyledShoppingList = styled.table`
 
 export const StyledTHead = styled.th`
   padding: 10px;
-  background-color: var(--primary-btn-color);
+  background-color: ${props => props.theme.globalColors.accentPrimary};
 
   font-weight: 600;
   font-size: 12px;
   line-height: 1.5;
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
 
   @media screen and (min-width: 768px) {
     padding: 20px;
@@ -53,7 +53,7 @@ export const StyledRow = styled.tr`
     left: 8px;
     right: 8px;
     height: 1px;
-    background-color: #e0e0e0;
+    background-color: ${props => props.theme.input.bottomBorder};
 
     @media screen and (min-width: 768px) {
       left: 0;
@@ -86,13 +86,13 @@ export const StyledRemoveBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: start;
-  stroke: #333333;
+  stroke: ${props => props.theme.text.counterBox};
 `;
 
 export const StyledRemoveIcon = styled.svg`
   width: 14px;
   height: 14px;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   @media screen and (min-width: 768px) {
     width: 20px;
@@ -100,7 +100,7 @@ export const StyledRemoveIcon = styled.svg`
   }
 
   &:hover {
-    stroke: var(--primary-btn-color);
+    stroke: ${props => props.theme.globalColors.accentPrimary};
     scale: 1.01;
   }
 `;
@@ -144,7 +144,7 @@ export const StyledDCell = styled.td`
     font-weight: 500;
     font-size: 10px;
     line-height: 1.2;
-    color: #3e4462;
+    color: ${props => props.theme.text.textRecipeCard};
 
     @media screen and (min-width: 768px) {
       padding-left: 16px;
@@ -176,9 +176,9 @@ export const StyledDCell = styled.td`
     font-weight: 600;
     font-size: 10px;
     line-height: 1.5;
-    color: var(--primary-font-color);
+    color: ${props => props.theme.globalColors.light};
 
-    background: #8baa36;
+    background: ${props => props.theme.globalColors.accentPrimary};
     border-radius: 4px;
 
     @media screen and (min-width: 768px) {
@@ -195,7 +195,7 @@ export const StyledDCell = styled.td`
 export const StyledImgContainer = styled.div`
   width: 60px;
   padding: 6px;
-  background-color: var(--secondary-background-color);
+  background-color: ${props => props.theme.currentRecipe.background};
   border-radius: 6px;
 
   @media screen and (min-width: 768px) {

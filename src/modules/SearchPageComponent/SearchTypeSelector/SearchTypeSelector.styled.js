@@ -30,7 +30,7 @@ export const SelectorContainer = styled.div`
 `;
 
 export const CriteriaBox = styled.p`
-  color: #001833;
+  color: ${props => props.theme.text.titlePrimary};
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;
@@ -47,13 +47,14 @@ export const SelectorBox = styled.p`
   align-items: center;
   padding: 8px 14px;
   width: 146px;
-  background-color: var(--default-background-color);
+  background-color: ${props => props.theme.select.inputBackground};
   border-radius: 6px;
+  border: 1px solid ${props => props.theme.select.outline};
 
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.24px;
-  color: rgba(0, 0, 0, 0.5);
+  color: ${props => props.theme.text.dropDown};
 
   @media screen and (min-width: 678px) {
     width: 175px;
@@ -68,7 +69,7 @@ export const SelectorBox = styled.p`
   }
 
   &:hover svg {
-    stroke: var(--primary-btn-color);
+    stroke: ${props => props.theme.globalColors.accentPrimary};
     scale: 1.01;
   }
 `;
@@ -77,8 +78,8 @@ export const Icon = styled.svg`
   width: 14px;
   height: 14px;
   fill: none;
-  stroke: rgba(0, 0, 0, 0.5);
-  transition: all var(--transition-dur-func);
+  stroke: ${props => props.theme.text.dropDown};
+  transition: all ${props => props.theme.transitionDurFunc};
 
   @media screen and (min-width: 678px) {
     width: 20px;
@@ -94,7 +95,7 @@ export const SelectorList = styled.ul`
 
   &.dropdown-enter-active {
     transform: translateY(0);
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
   &.dropdown-exit {
     transform: translateY(0);
@@ -102,7 +103,7 @@ export const SelectorList = styled.ul`
 
   &.dropdown-exit-active {
     transform: translateY(-100%);
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
   }
 
   position: absolute;
@@ -113,7 +114,7 @@ export const SelectorList = styled.ul`
 
   padding-top: 8px;
   padding-bottom: 10px;
-  background-color: var(--primary-font-color);
+  background-color: ${props => props.theme.select.dropDownBackground};
   border-radius: 0px 0px 6px 6px;
 
   font-size: 12px;
@@ -142,9 +143,9 @@ export const SelectorList = styled.ul`
 
 export const SelectorItem = styled.li`
   padding-left: 14px;
-  color: rgba(0, 0, 0, 0.5);
+  color: ${props => props.theme.text.inputPlaceholderAddRecipe};
   cursor: pointer;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:not(:last-child) {
     margin-bottom: 8px;
@@ -155,10 +156,10 @@ export const SelectorItem = styled.li`
   }
 
   &.active {
-    color: var(--primary-btn-color);
+    color: ${props => props.theme.text.dropDownActive};
   }
 
   &.hovered {
-    background-color: var(--secondary-background-color);
+    background-color: ${props => props.theme.select.hovered};
   }
 `;

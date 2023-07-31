@@ -24,6 +24,7 @@ export const SectionTitle = styled.h2`
   font-weight: 600;
   line-height: 1; /* 100% */
   letter-spacing: -0.24px;
+  color: ${props => props.theme.text.textRecipeCard};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
@@ -45,9 +46,10 @@ export const PopularRecipeImg = styled.img`
 `;
 
 export const PopularRecipeItem = styled.li`
-  border-bottom: 1px solid rgba(112, 112, 112, 0.17);
+  border-bottom: 1px solid
+    ${props => props.theme.globalColors.popularRecipesBorder};
   padding-right: 14px;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:not(:last-child) {
     margin-bottom: 24px;
@@ -82,7 +84,7 @@ export const PopularRecipeTitle = styled.h3`
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.24px;
-  color: rgba(62, 68, 98, 1);
+  color: ${props => props.theme.text.textRecipeCard};
 `;
 
 export const PopularRecipeText = styled.h3`
@@ -90,5 +92,5 @@ export const PopularRecipeText = styled.h3`
   font-weight: 400;
   line-height: 1.33;
   letter-spacing: -0.24px;
-  color: rgba(62, 68, 98, 1);
+  color: ${props => props.theme.text.popularRecipes};
 `;

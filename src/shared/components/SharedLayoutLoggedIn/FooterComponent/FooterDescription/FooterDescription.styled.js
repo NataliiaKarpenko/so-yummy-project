@@ -18,7 +18,7 @@ export const StyledLogoContainer = styled(NavLink)`
   align-items: center;
   gap: 8px;
 
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   @media screen and(max-width: 767px) {
     justify-content: center;
@@ -38,7 +38,7 @@ export const StyledLogoContainer = styled(NavLink)`
     font-size: 18px;
     line-height: 1;
     letter-spacing: 0.015em;
-    color: var(--primary-font-color);
+    color: ${props => props.theme.globalColors.light};
 
     @media screen and (min-width: 768px) {
       font-size: 28px;
@@ -50,13 +50,13 @@ export const StyledLogoContainer = styled(NavLink)`
   }
 
   &:hover p {
-    color: var(--primary-btn-color);
+    color: ${props => props.theme.button.trashMy};
     transform: scale(1.01);
   }
 
   &:hover svg {
-    fill: var(--primary-btn-color);
-    stroke: var(--secondary-background-color);
+    fill: ${props => props.theme.button.trashMy};
+    stroke: ${props => props.theme.select.dropDownBackground};
     transform: scale(1.01);
   }
 `;
@@ -68,13 +68,12 @@ export const StyledFooterDescriptionList = styled.ul`
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
-  color: var(--primary-font-color);
-
+  color: ${props => props.theme.globalColors.light};
   @media screen and (min-width: 1449px) {
     padding-left: 25px;
     font-size: 18px;
     line-height: 1.33;
-    color: var(--primary-font-color);
+    color: ${props => props.theme.globalColors.light};
   }
 
   @media screen and (max-width: 767px) {

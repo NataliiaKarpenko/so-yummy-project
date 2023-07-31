@@ -45,7 +45,7 @@ const PageNotFoundComponent = () => {
         <StyledTextContainer>
           <StyledFocusText>We are sorry,</StyledFocusText>
           <StyledText>
-            but the page you were looking for can’t be found...
+            but the page you are looking for can’t be found...
           </StyledText>
         </StyledTextContainer>
       </StyledPageNotFoundContainer>

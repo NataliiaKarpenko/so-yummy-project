@@ -6,7 +6,7 @@ import { StyledUserInfo, StyledUserInfoContainer } from './UserInfo.styled';
 import Avatar from '../Avatar/Avatar';
 import UserInfoDropDown from '../UserInfoDropdown/UserInfoDropdown';
 
-const UserInfo = () => {
+const UserInfo = ({ recipe, mainUserInfo }) => {
   const userName = useSelector(selectUserName);
   const avatarURL = useSelector(selectAvatarURL);
   const userInfoRef = useRef();
@@ -32,7 +32,11 @@ const UserInfo = () => {
 
   return (
     <StyledUserInfoContainer ref={userInfoRef}>
-      <StyledUserInfo onClick={showUserInfoDropDownHandler}>
+      <StyledUserInfo
+        onClick={showUserInfoDropDownHandler}
+        recipe={recipe}
+        mainUserInfo={mainUserInfo}
+      >
         <Avatar userName={userName} avatarURL={avatarURL} />
         <p>{userName}</p>
       </StyledUserInfo>

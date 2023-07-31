@@ -19,6 +19,10 @@ const Header = () => {
   const location = useLocation();
 
   const active = location.pathname.includes('/categories') ? 1 : 0;
+  const mainMenuBtn =
+    location.pathname === '/main' && windowWidth >= 768 && windowWidth < 830;
+  const mainUserInfo = location.pathname === '/main' && windowWidth >= 1440;
+  const recipe = location.pathname.includes('/recipe') ? true : false;
 
   useEffect(() => {
     function handleResize() {
@@ -35,12 +39,20 @@ const Header = () => {
           <StyledHeaderLogoContainer to="/">
             <Logo status="headerLogo" />
           </StyledHeaderLogoContainer>
-          {windowWidth >= 1440 && <NavigationList active={active} text="" />}
+          {windowWidth >= 1440 && (
+            <NavigationList active={active} recipe={recipe} text="" />
+          )}
         </StyledNav>
         <StyledHeaderBox>
-          <UserInfo />
+          <UserInfo recipe={recipe} mainUserInfo={mainUserInfo} />
           {windowWidth >= 1440 && <ThemeToggler />}
-          {windowWidth <= 1439 && <MenuBtn active={active} />}
+          {windowWidth <= 1439 && (
+            <MenuBtn
+              active={active}
+              mainMenuBtn={mainMenuBtn}
+              recipe={recipe}
+            />
+          )}
         </StyledHeaderBox>
       </StyledHeaderContainer>
     </StyledHeader>

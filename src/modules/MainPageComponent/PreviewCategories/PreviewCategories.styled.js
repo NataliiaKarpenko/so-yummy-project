@@ -47,8 +47,9 @@ export const StyledPreviewCategoriesLink = styled(NavLink)`
   font-size: 28px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #001833;
   text-transform: capitalize;
+  transition: all ${props => props.theme.transitionDurFunc};
+  color: ${props => props.theme.text.titlePrimary};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
@@ -57,24 +58,22 @@ export const StyledPreviewCategoriesLink = styled(NavLink)`
   @media screen and (min-width: 1440px) {
     margin-bottom: 50px;
   }
+
+  &:hover {
+    color: ${props => props.theme.globalColors.accentPrimary};
+    transform: scale(1.01);
+  }
 `;
 
-export const StyledPreviewCategoriesTitle = styled.h1`
+export const StyledPreviewCategoriesTitle = styled.h2`
   font-weight: 600;
   font-size: 28px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: #001833;
   text-transform: capitalize;
-  transition: all var(--transition-dur-func);
 
   @media screen and (min-width: 768px) {
     font-size: 44px;
-  }
-
-  &:hover {
-    color: var(--primary-btn-color);
-    transform: scale(1.01);
   }
 `;
 
@@ -100,18 +99,19 @@ export const StyledPreviewCategoriesBtn = styled.button`
 
   border: none;
   border-radius: 6px;
-  background-color: var(--primary-btn-color);
+  background-color: ${props => props.theme.globalColors.accentPrimary};
 
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
 
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:hover {
     scale: 1.01;
-    background-color: var(--secondary-btn-color);
+    background-color: ${props => props.theme.button.hover};
+    color: ${props => props.theme.text.hover};
   }
 
   @media screen and (min-width: 768px) {
@@ -132,7 +132,7 @@ export const StyledOtherCategoriesBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--primary-btn-color);
+  border: 2px solid ${props => props.theme.globalColors.accentPrimary};
   border-radius: 24px 44px;
   background-color: transparent;
 
@@ -140,14 +140,14 @@ export const StyledOtherCategoriesBtn = styled.button`
   font-size: 14px;
   line-height: 1.5;
   text-align: center;
-  color: var(--secondary-btn-color);
+  color: ${props => props.theme.text.textSecondary};
 
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   &:hover {
-    color: var(--primary-font-color);
+    color: ${props => props.theme.text.hover};
     border: 2px solid transparent;
-    background-color: var(--primary-btn-color);
+    background-color: ${props => props.theme.globalColors.accentPrimary};
     scale: 1.01;
   }
 

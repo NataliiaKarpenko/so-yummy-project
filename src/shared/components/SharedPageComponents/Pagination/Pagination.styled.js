@@ -18,8 +18,8 @@ export const StyledPaginationContainer = styled.div`
     flex-wrap: nowrap;
     justify-content: space-between;
 
-    background: var(--primary-font-color);
-    box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
+    background: ${props => props.theme.pagination.background};
+    box-shadow: ${props => props.theme.pagination.boxShadow};
     border-radius: 26px;
 
     @media screen and (min-width: 768px) {
@@ -34,27 +34,27 @@ export const StyledPaginationContainer = styled.div`
     font-weight: 500;
     font-size: 12px;
     line-height: 1.5;
-    color: #656565;
+    color: ${props => props.theme.text.pagination};
 
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
 
     &:hover {
-      background-color: var(--secondary-background-color);
+      background-color: ${props => props.theme.pagination.activePage};
       scale: 1.01;
     }
 
     &.Mui-selected {
-      background-color: var(--secondary-background-color);
-      color: var(--secondary-btn-color);
+      background-color: ${props => props.theme.pagination.activePage};
+      color: ${props => props.theme.text.textSecondary};
 
       &:hover {
-        background-color: var(--secondary-background-color);
+        background-color: ${props => props.theme.pagination.activePage};
         scale: 1.01;
       }
     }
   }
 
   .MuiSvgIcon-root {
-    fill: rgba(169, 169, 169, 0.73);
+    fill: ${props => props.theme.pagination.arrow};
   }
 `;

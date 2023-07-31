@@ -47,7 +47,11 @@ const Subscription = () => {
               onFocus={handleInputFocus}
             />
 
-            <StyledSubscribeBtn type="submit" disabled={isSubmitting}>
+            <StyledSubscribeBtn
+              status="subscription"
+              type="submit"
+              disabled={isSubmitting}
+            >
               Subscribe
             </StyledSubscribeBtn>
           </StyledForm>

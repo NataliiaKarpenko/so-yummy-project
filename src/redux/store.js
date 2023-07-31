@@ -23,11 +23,11 @@ const authPersistConfig = {
   whitelist: ['user', 'refreshToken', 'accessToken'],
 };
 
-// const themePersistConfig = {
-//   key: 'theme',
-//   storage,
-//   whitelist: ['type'],
-// };
+const themePersistConfig = {
+  key: 'theme',
+  storage,
+  whitelist: ['type'],
+};
 
 export const store = configureStore({
   reducer: {
@@ -35,8 +35,8 @@ export const store = configureStore({
     recipes: recipesReducer,
     shoppingList: shoppingListReducer,
     ownRecipes: ownRecipesReducer,
-    theme: themeReducer,
-    // theme: persistReducer(themePersistConfig, themeReducer),
+
+    theme: persistReducer(themePersistConfig, themeReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

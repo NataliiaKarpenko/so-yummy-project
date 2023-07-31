@@ -10,7 +10,7 @@ export const StyledInputBox = styled.div`
 
   border-radius: 6px;
   fill: transparent;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   @media screen and (min-width: 768px) {
     padding-left: 18px;
@@ -25,45 +25,53 @@ export const StyledInputBox = styled.div`
 
       &:hover,
       &:focus {
-        stroke: var(--form-hover-state-color);
-        border: 1px solid var(--form-hover-state-color);
+        stroke: ${props => props.theme.globalColors.inputHover};
+        border: 1px solid ${props => props.theme.globalColors.inputHover};
       }
     `};
 
   ${props =>
     props.error &&
     css`
-      stroke: var(--error-color);
-      border: 1px solid var(--error-color);
+      stroke: ${props => props.theme.globalColors.error};
+      border: 1px solid ${props => props.theme.globalColors.error};
     `};
 
   ${props =>
     props.warning &&
     css`
-      stroke: var(--warning-color);
-      border: 1px solid var(--warning-color);
+      stroke: #f6c23e;
+      border: 1px solid #f6c23e;
     `};
 
   ${props =>
     props.success &&
     css`
-      stroke: var(--success-color);
-      border: 1px solid var(--success-color);
+      stroke: #3cbc81;
+      border: 1px solid #3cbc81;
     `};
 
   &.EditInfo {
     ${props =>
       props.neutral &&
       css`
-        stroke: rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(0, 0, 0, 0.4);
+        stroke: ${props => props.theme.input.editInfoIcon};
+        border: 1px solid ${props => props.theme.input.editInfoBorder};
 
         &:hover,
         &:focus {
-            stroke: var(--secondary-font-color);
-            border: 1px solid var(--secondary-font-color);
+            stroke: ${props => props.theme.text.textSecondary};
+            border: 1px solid ${props => props.theme.text.textSecondary};
           }
         }
+      `};
+  }
+  &.Subscribe {
+    ${props =>
+      props.success &&
+      css`
+        stroke: green;
+        border: 1px solid green;
       `};
   }
 `;
@@ -99,7 +107,7 @@ export const StyledField = styled(Field)`
     font-size: 14px;
     line-height: 1.5;
     letter-spacing: -0.02em;
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
 
     @media screen and (min-width: 768px) {
       font-size: 18px;
@@ -107,7 +115,7 @@ export const StyledField = styled(Field)`
   }
 
   &.EnterInfo {
-    color: var(--form-hover-state-color);
+    color: ${props => props.theme.globalColors.inputHover};
 
     &::placeholder {
       color: rgba(250, 250, 250, 0.8);
@@ -115,10 +123,10 @@ export const StyledField = styled(Field)`
   }
 
   &.EditInfo {
-    color: var(--secondary-font-color);
+    color: ${props => props.theme.text.textSecondary};
 
     &::placeholder {
-      color: rgba(0, 0, 0, 0.8);
+      color: ${props => props.theme.text.editInfoPlaceholder};
     }
   }
 
@@ -128,7 +136,7 @@ export const StyledField = styled(Field)`
     padding-bottom: 14px;
 
     font-size: 10px;
-    color: var(--form-hover-state-color);
+    color: #fff;
 
     @media screen and (min-width: 768px) {
       height: 48px;
@@ -181,15 +189,23 @@ export const StyledInfoIcon = styled.svg`
   fill: ${props => {
     switch (props.status) {
       case 'error':
-        return 'var(--error-color)';
+        return props.theme.globalColors.error;
       case 'warning':
-        return 'var(--warning-color)';
+        return '#f6c23e';
       case 'success':
-        return 'var(--success-color)';
+        return '#3cbc81';
       default:
         return;
     }
   }};
+
+  ${props =>
+    props.status === 'success' &&
+    props.className === 'Subscribe' &&
+    css`
+      stroke: green;
+      fill: green;
+    `};
 
   @media screen and (min-width: 768px) {
     width: 20px;
@@ -212,16 +228,21 @@ export const StyledMessage = styled.p`
 
   color: ${props => {
     switch (props.status) {
-      case 'rgba(250, 250, 250, 0.8)':
-        return 'var(--warning-color)';
       case 'warning':
-        return 'var(--warning-color)';
+        return '#f6c23e';
       case 'success':
-        return 'var(--success-color)';
+        return '#3cbc81';
       case 'error':
-        return 'var(--error-color)';
+        return props.theme.globalColors.error;
       default:
         return 'rgba(250, 250, 250, 0.8)';
     }
   }};
+
+  ${props =>
+    props.status === 'success' &&
+    props.className === 'Subscribe' &&
+    css`
+      color: green;
+    `};
 `;

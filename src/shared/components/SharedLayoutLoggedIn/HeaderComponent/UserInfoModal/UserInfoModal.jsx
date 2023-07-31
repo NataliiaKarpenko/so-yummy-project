@@ -176,9 +176,14 @@ const UserInfoModal = ({ showUserInfoModal, setShowUserInfoModal }) => {
                     className="EditInfo"
                     onBlur={handleInputBlur}
                     onFocus={handleInputFocus}
+                    status="userInfoModal"
                   />
 
-                  <StyledUserInfoModalBtn type="submit" disabled={isSubmitting}>
+                  <StyledUserInfoModalBtn
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="EditInfo"
+                  >
                     Save changes
                   </StyledUserInfoModalBtn>
                 </StyledFormContainer>

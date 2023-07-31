@@ -4,8 +4,14 @@ export const StyledMenuBtn = styled.button`
   border: none;
   background-color: transparent;
 
-  stroke: var(--secondary-btn-color);
-  transition: all var(--transition-dur-func);
+  stroke: ${props =>
+    props.main
+      ? props.theme.globalColors.personalDataText
+      : props.recipe === true
+      ? props.theme.globalColors.personalDataText
+      : props.theme.text.textSecondary};
+
+  transition: all ${props => props.theme.transitionDurFunc};
 
   svg {
     @media screen and (min-width: 768px) {
@@ -15,7 +21,7 @@ export const StyledMenuBtn = styled.button`
   }
 
   &:hover {
-    stroke: var(--primary-btn-color);
+    stroke: ${props => props.theme.globalColors.accentPrimary};
     scale: 1.01;
   }
 `;

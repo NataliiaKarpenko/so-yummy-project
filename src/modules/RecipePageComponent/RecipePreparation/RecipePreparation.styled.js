@@ -27,7 +27,7 @@ export const StyledTitle = styled.p`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: ${props => props.theme.text.textPrimary};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
@@ -50,12 +50,12 @@ export const StyledMarker = styled.span`
   min-width: 21px;
   height: 21px;
   border-radius: 50%;
-  background-color: var(--primary-btn-color);
+  background-color: ${props => props.theme.globalColors.accentPrimary};
 
   font-weight: 600;
   font-size: 14px;
   line-height: 1.5;
-  color: #ffffff;
+  color: ${props => props.theme.globalColors.light};
 `;
 
 export const StyledItemText = styled.span`
@@ -64,7 +64,7 @@ export const StyledItemText = styled.span`
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
-  color: rgba(0, 0, 0, 0.8);
+  color: ${props => props.theme.text.recipePreparation};
 `;
 
 export const StyledDefaultImg = styled.img`

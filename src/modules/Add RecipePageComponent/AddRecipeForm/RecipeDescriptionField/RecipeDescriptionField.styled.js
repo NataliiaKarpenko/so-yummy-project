@@ -28,10 +28,12 @@ export const DescriptionItem = styled.li`
   }
 
   &:nth-child(-n + 2) {
-    transition: all var(--transition-dur-func);
+    transition: all ${props => props.theme.transitionDurFunc};
 
     border-bottom: ${props =>
-      props.isError ? '1px solid var(--error-color)' : '1px solid #e0e0e0'};
+      props.isError
+        ? `1px solid ${props.theme.globalColors.error}`
+        : `1px solid ${props.theme.input.bottomBorder}`};
   }
 
   @media screen and (min-width: 768px) {
@@ -48,17 +50,6 @@ export const DescriptionItem = styled.li`
       margin-bottom: 40px;
     }
   }
-
-  p {
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: normal;
-
-    @media screen and (min-width: 768px) {
-      font-size: 16px;
-    }
-  }
 `;
 
 export const DescriptionField = styled(Field)`
@@ -69,8 +60,17 @@ export const DescriptionField = styled(Field)`
   outline: none;
   background-color: transparent;
 
+  color: ${props => props.theme.text.textBright};
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+
   &::placeholder {
-    color: rgba(0, 0, 0, 0.5);
+    color: ${props => props.theme.text.inputPlaceholderAddRecipe};
     font-size: 14px;
     font-weight: 400;
     line-height: normal;
@@ -85,12 +85,12 @@ export const DescriptionField = styled(Field)`
 
 export const ErrorContainer = styled(ErrorMessage)`
   position: absolute;
-  color: var(--error-color);
+  color: ${props => props.theme.globalColors.error};
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.24px;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   bottom: ${props => (props.name === 'fullImage' ? '102%' : '3px')};
 
@@ -105,8 +105,9 @@ export const AddDishPhotoContainer = styled.div`
   justify-content: center;
   margin-bottom: 32px;
   height: 268px;
-  background-color: var(--primary-btn-color);
+  background-color: ${props => props.theme.globalColors.accentPrimary};
   border-radius: 8px;
+  cursor: pointer;
 
   background-image: url(${img1});
   background-size: 64px 64px;

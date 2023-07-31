@@ -50,29 +50,30 @@ export const StyledField = styled(Field)`
   border-radius: 24px 44px;
   border: 1px solid;
   box-shadow: 0px 4px 97px rgba(34, 37, 42, 0.03);
-  transition: all var(--transition-dur-func);
+  background-color: ${props => props.theme.input.background};
+  transition: all ${props => props.theme.transitionDurFunc};
 
   ${props =>
     props.neutral &&
     css`
-      border-color: #f0f0f0;
+      border-color: ${props => props.theme.input.outline};
 
       &:hover,
       &:focus {
-        border-color: rgba(0, 0, 0, 0.2);
+        border-color: ${props => props.theme.input.hover};
       }
     `};
 
   ${props =>
     props.error &&
     css`
-      border-color: var(--error-color);
+      border-color: ${props => props.theme.globalColors.error};
     `};
 
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  color: var(--secondary-font-color);
+  color: ${props => props.theme.text.textPrimary};
 
   @media screen and (min-width: 768px) {
     padding-top: 18px;
@@ -91,7 +92,7 @@ export const StyledField = styled(Field)`
     font-weight: 400;
     font-size: 12px;
     line-height: 1.5;
-    color: rgba(189, 189, 189, 1);
+    color: ${props => props.theme.text.inputPlaceholderSearch};
 
     @media screen and (min-width: 768px) {
       font-size: 16px;
@@ -112,5 +113,5 @@ export const StyledErrorMessage = styled(ErrorMessage)`
     margin-top: 10px;
     font-size: 14px;
   }
-  color: var(--error-color);
+  color: ${props => props.theme.globalColors.error};
 `;

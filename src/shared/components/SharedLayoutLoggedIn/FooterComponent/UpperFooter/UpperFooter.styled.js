@@ -4,7 +4,7 @@ export const StyledUpperFooter = styled.footer`
   padding-top: 28px;
   padding-bottom: 18px;
 
-  background-color: var(--secondary-btn-color);
+  background-color: ${props => props.theme.button.background};
 
   @media screen and (max-width: 767px) {
     text-align: center;

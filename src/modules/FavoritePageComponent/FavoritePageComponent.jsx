@@ -13,13 +13,16 @@ import { getFavoriteRecipes } from 'redux/reduxRecipes/recipesOperations';
 import {
   selectFavoriteRecipes,
   selectFavoriteRecipesPage,
+  selectLoading,
   selectTotalFavoriteRecipes,
 } from 'redux/reduxRecipes/recipesSelectors';
+import Loader from 'shared/components/Loader/Loader';
 
 const FavoritePageComponent = () => {
   const favoriteRecipes = useSelector(selectFavoriteRecipes);
   const totalFavoriteRecipes = useSelector(selectTotalFavoriteRecipes);
   const currentPage = useSelector(selectFavoriteRecipesPage);
+  const isLoading = useSelector(selectLoading);
   const [page, setPage] = useState(1);
 
   const dispatch = useDispatch();
@@ -42,24 +45,27 @@ const FavoritePageComponent = () => {
 
   return (
     <>
-      <PageBackground page={true}>
-        <StyledContainer>
-          <Title title="Favorites" />
+      {isLoading && <Loader />}
+      {!isLoading && (
+        <PageBackground page={true}>
+          <StyledContainer>
+            <Title title="Favorites" />
 
-          {favoriteRecipes.length === 0 && currentPage === 1 ? (
-            <NoInfoSupplied text="You haven't added a recipe to your favorites  yet..." />
-          ) : (
-            <FavoriteRecipesList recipesList={favoriteRecipes} page={page} />
-          )}
-          {totalPages > 1 && (
-            <BasicPagination
-              page={page}
-              totalPages={totalPages}
-              onChange={handlePageChange}
-            />
-          )}
-        </StyledContainer>
-      </PageBackground>
+            {favoriteRecipes.length === 0 && currentPage === 1 ? (
+              <NoInfoSupplied text="You haven't added a recipe to your favorites  yet..." />
+            ) : (
+              <FavoriteRecipesList recipesList={favoriteRecipes} page={page} />
+            )}
+            {totalPages > 1 && (
+              <BasicPagination
+                page={page}
+                totalPages={totalPages}
+                onChange={handlePageChange}
+              />
+            )}
+          </StyledContainer>
+        </PageBackground>
+      )}
     </>
   );
 };

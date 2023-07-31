@@ -1,3 +1,4 @@
+import { useFormikContext } from 'formik';
 import {
   ErrorContainer,
   PreparationFieldContainer,
@@ -6,6 +7,10 @@ import {
 } from './RecipePreparationField.styled';
 
 const RecipePreparationField = () => {
+  const { setFieldValue } = useFormikContext();
+  const handleInputBlur = e => {
+    setFieldValue(e.target.name, e.target.value.trim());
+  };
   return (
     <PreparationFieldContainer>
       <PreparationTitle>Recipe Preparation</PreparationTitle>
@@ -14,6 +19,7 @@ const RecipePreparationField = () => {
         component="textarea"
         placeholder="Enter recipe"
         autoComplete="off"
+        onBlur={handleInputBlur}
       ></TextArea>
       <ErrorContainer name="instructions" component="div" />
     </PreparationFieldContainer>

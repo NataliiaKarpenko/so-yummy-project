@@ -123,7 +123,7 @@ export const StyledHeroTitle = styled.h1`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
 
   @media screen and (min-width: 768px) {
     margin-top: 44px;
@@ -138,7 +138,7 @@ export const StyledHeroText = styled.p`
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
-  color: var(--primary-font-color);
+  color: ${props => props.theme.globalColors.light};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
@@ -164,8 +164,8 @@ export const StyledHeroBtn = styled.button`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
-  color: var(--primary-font-color);
-  transition: all var(--transition-dur-func);
+  color: ${props => props.theme.globalColors.light};
+  transition: all ${props => props.theme.transitionDurFunc};
 
   @media screen and (min-width: 768px) {
     height: 67px;
@@ -175,20 +175,20 @@ export const StyledHeroBtn = styled.button`
 `;
 
 export const StyledSigninBtn = styled(StyledHeroBtn)`
-  border: 2px solid var(--primary-font-color);
+  border: 2px solid ${props => props.theme.globalColors.light};
   background-color: transparent;
 
   &:hover {
-    border: 2px solid var(--primary-btn-color);
-    color: var(--primary-btn-color);
+    border: 2px solid ${props => props.theme.globalColors.accentPrimary};
+    color: ${props => props.theme.globalColors.accentPrimary};
   }
 `;
 
 export const StyledSignupBtn = styled(StyledHeroBtn)`
   border: 2px solid transparent;
-  background-color: var(--primary-btn-color);
+  background-color: ${props => props.theme.globalColors.accentPrimary};
 
   &:hover {
-    background-color: var(--secondary-btn-color);
+    background-color: ${props => props.theme.globalColors.personalDataText};
   }
 `;

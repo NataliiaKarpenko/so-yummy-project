@@ -87,7 +87,9 @@ const SearchTypeSelector = ({
           {showSelector && (
             <SelectorList>
               {selectorTypesValues.map(value => {
-                const isHovered = value === hovered;
+                const isHovered = hovered
+                  ? value === hovered
+                  : value === selectorType;
 
                 const isActive = value === selectorType;
                 return (

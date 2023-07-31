@@ -1,16 +1,15 @@
-import { useSelector } from 'react-redux';
-import { selectThemeIsLight } from 'redux/reduxTheme/themeSelector';
-import { ThemeProvider } from 'styled-components';
-
 export const setTheme = isLight => {
   return {
+    transitionDurFunc: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
+
     globalColors: {
       light: '#FAFAFA',
       personalDataText: '#22252A',
       accentPrimary: '#8BAA36',
-      popularRecipesBorder: '#rgba(112, 112, 112, 0.17)',
+      popularRecipesBorder: 'rgba(112, 112, 112, 0.17)',
+      inputHover: '#fff',
+      error: '#e74a3b',
     },
-
     backgroundPrimary: `${isLight ? '#FAFAFA' : '#1E1F28'}`,
 
     text: {
@@ -20,44 +19,78 @@ export const setTheme = isLight => {
       textRecipeCard: `${isLight ? '#3E4462' : '#FAFAFA'}`,
       textPale: `${isLight ? '#BDBDBD' : '#FAFAFA'}`,
       textBright: `${isLight ? '#000' : '#FAFAFA'}`,
+      categoryLinks: `${isLight ? '#BDBDBD' : 'rgba(250, 250, 250, 0.60)'}`,
       input: `${isLight ? 'rgba(0, 0, 0)' : '#FAFAFA'}`,
       inputPlaceholderAddRecipe: `${
-        isLight ? 'rgba(0, 0, 0, 0.5)' : '#FAFAFA'
+        isLight ? 'rgba(0, 0, 0, 0.5)' : 'rgba(250, 250, 250, 0.5)'
       }`,
-      inputPlaceholderSearch: `${isLight ? '#3E4462' : '#FAFAFA'}`,
-      select: `${isLight ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.6)'}`,
-      dropDown: `${isLight ? '#FAFAFA' : 'rgba(0, 0, 0, 0.5)'}`,
+      inputPlaceholderSearch: `${
+        isLight ? '#BDBDBD' : 'rgba(250, 250, 250, 0.50)'
+      }`,
+      dropDown: `${
+        isLight ? 'rgba(0, 0, 0, 0.5)' : 'rgba(250, 250, 250, 0.5)'
+      }`,
       dropDownActive: `${isLight ? '#8BAA36' : '#FAFAFA'}`,
       counterBox: `${isLight ? '#333333' : '#FAFAFA'}`,
       popularRecipes: `${isLight ? '#7E7E7E' : 'rgba(250, 250, 250, 0.60)'}`,
-      myRecipes: `${isLight ? '#EBF3D4' : 'rgba(250, 250, 250, 0.60)'}`,
+      myRecipes: `${isLight ? '#23262A' : 'rgba(250, 250, 250, 0.60)'}`,
       pagination: `${isLight ? '#656565' : 'rgba(250, 250, 250, 0.60)'}`,
+      hover: `${isLight ? '#FAFAFA' : '#22252A'}`,
+      disabled: `${
+        isLight ? 'rgba(0, 0, 0, 0.1)' : 'rgba(250, 250, 250, 0.3)'
+      }`,
+      recipePreparation: `${isLight ? 'rgba(0, 0, 0, 0.8)' : '#FAFAFA'}`,
+      lowerFooter: `${
+        isLight ? 'rgba(34, 37, 42, 0.5)' : 'rgba(250, 250, 250, 0.5)'
+      }`,
+      logoutHover: `${isLight ? '#FAFAFA' : '#8BAA36'}`,
+      editInfoPlaceholder: `${
+        isLight ? 'rgba(0, 0, 0, 0.6)' : 'rgba(250, 250, 250, 0.6)'
+      }`,
     },
 
     input: {
+      background: `${isLight ? '#FFF;' : 'transparent'}`,
       outline: `${isLight ? '#F0F0F0' : 'rgba(250, 250, 250, 0.50)'}`,
-      bottomBorder: `${isLight ? '#E0E0E0;' : '#FAFAFA'}`,
+      bottomBorder: `${isLight ? '#E0E0E0;' : 'rgba(250, 250, 250, 0.30)'}`,
+      hover: `${isLight ? 'rgba(0, 0, 0, 0.2);' : 'rgba(250, 250, 250, 0.80)'}`,
+      focus: `${
+        isLight ? 'rgba(51, 51, 51, 0.1)' : 'rgba(250, 250, 250, 0.50)'
+      }`,
+      editInfoIcon: `${
+        isLight ? 'rgba(0, 0, 0, 0.5)' : 'rgba(250, 250, 250, 0.80)'
+      }`,
+      editInfoBorder: `${
+        isLight ? 'rgba(0, 0, 0, 0.4)' : 'rgba(250, 250, 250, 0.20)'
+      }`,
     },
 
     button: {
       background: `${isLight ? '#22252A' : '#8BAA36'}`,
-      trashFavorite: `${isLight ? '#22252A' : '#1E1F28'}`,
+      trashFavorite: `${isLight ? '#EBF3D4' : '#1E1F28'}`,
       trashMy: `${isLight ? '#8BAA36' : '#1E1F28'}`,
+      hover: `${isLight ? '#22252A' : '#ebf3d4'}`,
+      hoverReverse: `${isLight ? '#8BAA36' : '#ebf3d4'}`,
+      logoutBorder: `${isLight ? 'transparent' : '#8BAA36'}`,
     },
 
     counterBox: `${isLight ? 'rgba(51, 51, 51, 0.30)' : '#FAFAFA'}`,
 
     select: {
-      inputBackground: `${isLight ? '#D9D9D9' : 'transparent'}`,
+      inputBackground: `${
+        isLight ? 'rgba(217, 217, 217, 0.157)' : 'transparent'
+      }`,
       dropDownBackground: `${isLight ? '#FFF' : '#8BAA36'}`,
       scroll: `${isLight ? '#E7E5E5;' : '#1E1F28'}`,
+      hovered: `${isLight ? '#ebf3d4' : 'rgba(0, 0, 0, 0.5)'}`,
+      outline: `${isLight ? 'transparent' : 'rgba(250, 250, 250, 0.20)'}`,
     },
 
     pagination: {
       background: `${isLight ? '#FAFAFA' : '#2A2C36'}`,
       boxShadow: `${
         isLight
-          ? '0px 4px 4px 0px rgba(31, 30, 30, 0.20)'
+          ? '0px 4px 4px 0px rgba(135, 135, 135, 0.20)'
           : '0px 4px 4px 0px rgba(31, 30, 30, 0.20)'
       }`,
       arrow: `${
@@ -66,37 +99,25 @@ export const setTheme = isLight => {
       activePage: `${isLight ? '#EBF3D4' : '#8BAA36'}`,
     },
 
-    myRecipes: `${isLight ? '#FFF' : '#2A2C36'}`,
-    recipe: {
+    recipeCard: `${isLight ? '#FFF' : '#2A2C36'}`,
+
+    categoriesBottom: `${isLight ? '#E0E0E0' : 'rgba(250, 250, 250, 0.20)'}`,
+
+    currentRecipe: {
       background: `${isLight ? '#EBF3D4' : '#2A2C36'}`,
       checkBox: `${isLight ? '#7E7E7E' : '#FAFAFA'}`,
     },
+
+    socialNetworks: {
+      background: `${isLight ? '#8BAA36' : '#FAFAFA'}`,
+      hover: `${isLight ? '#22252A' : '#8BAA36'}`,
+    },
+
+    checkBox: {
+      border: `${
+        isLight ? 'rgba(126, 126, 126, 0.5)' : 'rgba(250, 250, 250, 0.5)'
+      }`,
+    },
+    lowerFooter: `${isLight ? '#FAFAFA' : '#1E1F28'}`,
   };
-};
-
-// --main-background-color: #2a2c36;
-//   --secondary-background-color: #ebf3d4;
-//   --form-hover-state-color: #ffffff;
-//   --error-color: #e74a3b;
-//   --warning-color: #f6c23e;
-//   --success-color: #3cbc81;
-//   --primary-btn-color: #8baa36;
-//   --secondary-btn-color: #22252a;
-//   --primary-font-color: #fafafa;
-//   --secondary-font-color: #23262a;
-//   --default-background-color: #d9d9d9;
-
-//   --toastify-color-success: #3cbc81;
-//   --toastify-color-error: #e74a3b;
-//   --toastify-color-info: #f6c23e;
-
-//   --transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-// }
-
-export const Theme = ({ children }) => {
-  const isLightTheme = useSelector(selectThemeIsLight);
-
-  return (
-    <ThemeProvider theme={setTheme(isLightTheme)}>{children}</ThemeProvider>
-  );
 };

@@ -29,10 +29,12 @@ const MyRecipesItem = ({
   description,
   time,
   onHandleDelete,
+  index,
 }) => {
   const location = useLocation();
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [hoveredItems, setHoveredItems] = useState([]);
 
   useEffect(() => {
     function handleResize() {
@@ -42,8 +44,24 @@ const MyRecipesItem = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [windowWidth]);
 
+  const handleMouseEnter = value => {
+    const newHoveredItems = [...hoveredItems];
+    newHoveredItems[value] = true;
+    setHoveredItems(newHoveredItems);
+  };
+
+  const handleMouseLeave = value => {
+    const newHoveredItems = [...hoveredItems];
+    newHoveredItems[value] = false;
+    setHoveredItems(newHoveredItems);
+  };
+  const isHovered = hoveredItems[index] || false;
+
   return (
-    <FavoriteRecipesItem>
+    <FavoriteRecipesItem
+      onMouseEnter={() => handleMouseEnter(index)}
+      onMouseLeave={() => handleMouseLeave(index)}
+    >
       {preview ? (
         <DishImage src={preview} alt={title} />
       ) : (
@@ -52,10 +70,14 @@ const MyRecipesItem = ({
       <Container>
         <UpperContainer>
           <TextBox>
-            <Title>
-              {windowWidth <= 787 && contractTitleMob(title)}
-              {windowWidth > 768 && contractTitle(title)}
-            </Title>
+            {isHovered ? (
+              <Title>{title}</Title>
+            ) : (
+              <Title>
+                {windowWidth <= 787 && contractTitleMob(title)}
+                {windowWidth > 768 && contractTitle(title)}
+              </Title>
+            )}
             <Description>
               {windowWidth <= 787 && contractDescriptionMob(description)}
               {windowWidth > 768 && contractDescriptionMob(description)}

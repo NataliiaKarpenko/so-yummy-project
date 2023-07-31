@@ -40,6 +40,7 @@ export const StyledFocusText = styled.p`
   font-size: 18px;
   line-height: 1.11;
   letter-spacing: -0.02em;
+  color: ${props => props.theme.text.textBright};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 14px;
@@ -53,7 +54,7 @@ export const StyledText = styled.p`
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.02em;
-  opacity: 0.5;
+  color: ${props => props.theme.text.dropDown};
 
   @media screen and (min-width: 768px) {
     font-size: 18px;

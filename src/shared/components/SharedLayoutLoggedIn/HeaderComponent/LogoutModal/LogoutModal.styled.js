@@ -18,9 +18,9 @@ export const StyledLogoutModal = styled.div`
   line-height: 1.29;
   letter-spacing: -0.02em;
 
-  color: var(--secondary-font-color);
+  color: ${props => props.theme.text.textSecondary};
 
-  background: var(--primary-font-color);
+  background: ${props => props.theme.pagination.background};
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
 
@@ -68,13 +68,13 @@ export const StyledLogoutModalBtn = styled.button`
   align-items: center;
   justify-content: center;
 
-  border: none;
+  border: 1px solid transparent;
   border-radius: 6px;
 
   font-weight: 400;
   font-size: 14px;
   line-height: 1.29;
-  transition: all var(--transition-dur-func);
+  transition: all ${props => props.theme.transitionDurFunc};
 
   @media screen and (min-width: 768px) {
     padding: 18px 39px;
@@ -87,23 +87,26 @@ export const StyledLogoutModalBtn = styled.button`
 `;
 
 export const StyledLogoutBtn = styled(StyledLogoutModalBtn)`
-  color: var(--primary-font-color);
-  background: var(--primary-btn-color);
+  color: ${props => props.theme.globalColors.light};
+  background: ${props => props.theme.globalColors.accentPrimary};
 
   &:hover {
-    background-color: var(--secondary-btn-color);
+    border: 1px solid ${props => props.theme.button.logoutBorder};
+    background-color: ${props => props.theme.button.hover};
     scale: 1.01;
+    color: ${props => props.theme.socialNetworks.background};
   }
 `;
 
 export const StyledCancelBtn = styled(StyledLogoutModalBtn)`
-  color: var(--secondary-font-color);
+  color: ${props => props.theme.globalColors.personalDataText};
   background: var(--default-background-color);
   border: 1px solid transparent;
 
   &:hover {
-    border: 1px solid var(--secondary-font-color);
+    border: 1px solid ${props => props.theme.button.hover};
     background-color: transparent;
+    color: ${props => props.theme.button.hover};
     scale: 1.01;
   }
 `;
