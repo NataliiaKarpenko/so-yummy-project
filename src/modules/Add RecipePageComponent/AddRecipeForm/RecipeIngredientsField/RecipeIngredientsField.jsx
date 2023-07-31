@@ -359,7 +359,7 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       height: '18px',
 
       cursor: 'pointer',
-      color: 'theme.text.input',
+      color: theme.text.input,
 
       '@media screen and (min-width: 768px)': {
         height: '20px',
@@ -368,11 +368,13 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
 
       'svg.css-tj5bde-Svg': {
         fill: 'inherit',
+
         '&:hover': {
           fill: theme.globalColors.accentPrimary,
           scale: '1.01',
         },
       },
+
       //   '&:hover': {
       //     fill: theme.globalColors.accentPrimary,
       //     scale: '1.01',
