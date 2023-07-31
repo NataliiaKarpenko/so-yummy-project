@@ -290,6 +290,7 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
     }),
 
     control: () => ({
+      position: 'relative',
       width: '50px',
       height: '53px',
       paddingBottom: '16px',

@@ -15,7 +15,7 @@ export const StyledUserInfo = styled.div`
   line-height: 1.7;
 
   color: ${props =>
-    props.recipe === true
+    props.recipe === 1
       ? props.theme.globalColors.personalDataText
       : props.mainUserInfo
       ? props.theme.globalColors.personalDataText

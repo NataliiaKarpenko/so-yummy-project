@@ -34,14 +34,14 @@ export const StyledNavLink = styled(NavLink)`
   color: ${props =>
     props.main
       ? props.theme.globalColors.personalDataText
-      : props.recipe === true
+      : props.recipe === 1
       ? props.theme.globalColors.personalDataText
       : props.theme.text.textSecondary};
 
   stroke: ${props =>
     props.main
       ? props.theme.globalColors.personalDataText
-      : props.recipe === true
+      : props.recipe === 1
       ? props.theme.globalColors.personalDataText
       : props.theme.text.textSecondary};
   fill: none;

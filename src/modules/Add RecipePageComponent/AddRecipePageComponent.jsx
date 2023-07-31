@@ -32,7 +32,7 @@ const AddRecipePageComponent = () => {
             {windowWidth >= 1440 && (
               <div>
                 <SectionTitle>Follow us</SectionTitle>
-                <SocialNetworks poprec={true} />
+                <SocialNetworks poprec={1} />
               </div>
             )}
 
