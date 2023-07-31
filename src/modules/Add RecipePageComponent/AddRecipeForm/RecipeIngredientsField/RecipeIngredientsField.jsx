@@ -353,7 +353,7 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       right: '-3px',
       top: '50%',
       transform: 'translateY(-50%)',
-      // fill: theme.text.input,
+      color: theme.text.input,
 
       width: '18px',
       height: '18px',
@@ -408,7 +408,6 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
     }),
 
     menu: provided => ({
-      ...provided,
       position: 'absolute',
       height: 'calc((6 * 18px) + (8px * 2) + (6px * 5))',
       width: '90px',
@@ -430,7 +429,6 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
     }),
 
     menuList: provided => ({
-      ...provided,
       maxHeight: '138px',
       scrollbarWidth: 'none',
       overflowY: 'scroll',
