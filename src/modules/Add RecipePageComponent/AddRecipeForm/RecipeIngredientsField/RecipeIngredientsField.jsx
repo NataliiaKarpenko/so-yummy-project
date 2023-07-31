@@ -369,10 +369,10 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
         fill: theme.text.input,
       },
 
-      'svg.css-tj5bde-Svg:hover': {
-        fill: theme.globalColors.accentPrimary,
-        scale: '1.01',
-      },
+      // 'svg.css-tj5bde-Svg:hover': {
+      //   fill: theme.globalColors.accentPrimary,
+      //   scale: '1.01',
+      // },
 
       //   '&:hover': {
       //     fill: theme.globalColors.accentPrimary,
