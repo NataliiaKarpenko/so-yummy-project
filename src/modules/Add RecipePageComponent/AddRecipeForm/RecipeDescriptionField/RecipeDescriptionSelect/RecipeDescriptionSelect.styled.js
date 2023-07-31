@@ -53,4 +53,5 @@ export const SelectIcon = styled.svg`
   fill: none;
   stroke: ${prop => prop.theme.text.input};
   transition: all ${props => props.theme.transitionDurFunc};
+  cursor: pointer;
 `;
