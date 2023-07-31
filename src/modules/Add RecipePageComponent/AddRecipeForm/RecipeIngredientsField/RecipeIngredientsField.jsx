@@ -307,8 +307,6 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       '& .css-tj5bde-Svg': {
         position: 'absolute',
         right: '-3px',
-        top: '50%',
-        transform: 'translateY(-50%)',
 
         width: '18px',
         height: '18px',
