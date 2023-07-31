@@ -157,7 +157,7 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       transform: 'translateY(-50%)',
       width: '18px',
       height: '18px',
-      color: 'red',
+      color: theme.text.input,
       cursor: 'pointer',
 
       '@media screen and (min-width: 768px)': {
