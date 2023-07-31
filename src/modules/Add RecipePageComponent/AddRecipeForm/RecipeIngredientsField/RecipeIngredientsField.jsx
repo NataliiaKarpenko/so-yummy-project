@@ -367,12 +367,12 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       },
 
       'svg.css-tj5bde-Svg': {
-        fill: 'inherit',
+        fill: theme.text.input,
+      },
 
-        '&:hover': {
-          fill: theme.globalColors.accentPrimary,
-          scale: '1.01',
-        },
+      '&:hover': {
+        fill: theme.globalColors.accentPrimary,
+        scale: '1.01',
       },
 
       //   '&:hover': {
