@@ -313,7 +313,7 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
 
         //   width: '18px',
         //   height: '18px',
-        //   fill: theme.text.input,
+        fill: theme.text.input,
         //   cursor: 'pointer',
 
         //   '@media screen and (min-width: 768px)': {
