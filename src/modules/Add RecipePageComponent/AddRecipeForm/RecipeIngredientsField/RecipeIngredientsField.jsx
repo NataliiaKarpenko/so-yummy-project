@@ -268,6 +268,7 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
 
   const customAmountSelect = {
     option: (provided, state) => ({
+      ...provided,
       minHeight: '18px',
       paddingLeft: '28px',
       fontSize: '12px',
@@ -307,6 +308,8 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       '& .css-tj5bde-Svg': {
         position: 'absolute',
         right: '-3px',
+        top: '50%',
+        transform: 'translateY(-50%)',
 
         width: '18px',
         height: '18px',
