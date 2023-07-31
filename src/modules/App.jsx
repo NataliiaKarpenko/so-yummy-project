@@ -14,10 +14,7 @@ import { useAuth } from 'shared/hooks/useAuth';
 import { GlobalStyle } from 'Styles/GlobalStyles';
 import Loader from 'shared/components/Loader/Loader';
 import { setTheme } from 'Styles/Theme';
-import {
-  selectTheme,
-  selectThemeIsLight,
-} from 'redux/reduxTheme/themeSelector';
+import { selectThemeIsLight } from 'redux/reduxTheme/themeSelector';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -35,7 +32,6 @@ const PageNotFound = lazy(() => import('../pages/PageNotFound'));
 export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
-  const theme = useSelector(selectTheme);
   const isLight = useSelector(selectThemeIsLight);
 
   useEffect(() => {

@@ -2,10 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import icons from '../../../../sprite.svg';
 import { StyledThemeToggler } from './ThemeToggler.styled';
 import { toggleTheme } from 'redux/reduxTheme/themeSlice';
-import {
-  selectTheme,
-  selectThemeIsLight,
-} from 'redux/reduxTheme/themeSelector';
+import { selectThemeIsLight } from 'redux/reduxTheme/themeSelector';
 
 const ThemeToggler = () => {
   const dispatch = useDispatch();
