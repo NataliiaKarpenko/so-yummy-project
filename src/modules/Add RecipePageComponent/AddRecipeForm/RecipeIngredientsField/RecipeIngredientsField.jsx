@@ -141,9 +141,9 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
         padding: 0,
       },
 
-      '& .css-1xc3v61-indicatorContainer': {
-        padding: '0',
-      },
+      // '& .css-1xc3v61-indicatorContainer': {
+      //   padding: '0',
+      // },
     }),
 
     dropdownIndicator: () => ({
@@ -153,7 +153,7 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       transform: 'translateY(-50%)',
       width: '18px',
       height: '18px',
-      color: theme.text.input,
+      fill: theme.text.input,
       cursor: 'pointer',
 
       '@media screen and (min-width: 768px)': {
@@ -197,6 +197,7 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
     }),
 
     input: () => ({
+      width: '100%',
       color: theme.text.input,
       fontSize: '14px',
       fontWeight: '400',
