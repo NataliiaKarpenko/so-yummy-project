@@ -352,6 +352,7 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
       right: '-3px',
       top: '50%',
       transform: 'translateY(-50%)',
+      fill: theme.text.input,
 
       width: '18px',
       height: '18px',
@@ -363,14 +364,19 @@ const RecipeIngredientsField = ({ counterValue, setCounterValue }) => {
         width: '20px',
       },
 
-      '&.css-tj5bde-Svg': {
-        fill: theme.text.input,
-
-        '&:hover': {
-          fill: theme.globalColors.accentPrimary,
-          scale: '1.01',
-        },
+      '&:hover': {
+        fill: theme.globalColors.accentPrimary,
+        scale: '1.01',
       },
+
+      // '&.css-tj5bde-Svg': {
+      //   fill: theme.text.input,
+
+      //   '&:hover': {
+      //     fill: theme.globalColors.accentPrimary,
+      //     scale: '1.01',
+      //   },
+      // },
 
       // '&:hover': {
       //   fill: theme.globalColors.accentPrimary,
